@@ -8,11 +8,9 @@
     >
       <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow">
           <!-- Modal header -->
-          <div
-            class="flex items-center justify-center pt-5 border-b rounded-t dark:border-gray-600"
-          >
+          <div class="flex items-center justify-center pt-5 border-b rounded-t">
             <h3 class="font-medium text-gold text-4xl font-katibeh self-center">
               Terms And Conditions
             </h3>
@@ -20,16 +18,17 @@
           <!-- Modal body -->
           <div class="p-6 px-9 space-y-6 lii">
             <ul class="list-disc">
-              <li class="">
+              <li>
                 To redeem reward, redemption code must be shown to resort
                 receptionist upon check in.
               </li>
               <li>
-                Redemption code can also be retrieved by logging on to
+                Redemption code can also be retrieved by logging on to our
+                website: <br />
                 <a
                   href="https://bayoflight-entertainment.com/"
                   class="text-blue-600 underline"
-                  >Bayoflight-Entertainment.com</a
+                  >Bayoflights-Entertainment.com</a
                 >
               </li>
               <li>
@@ -49,7 +48,7 @@
           </div>
           <!-- Modal footer -->
           <div
-            class="flex justify-center items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+            class="flex justify-center items-center p-6 space-x-2 border-t border-gray-200 rounded-b"
           >
             <button
               data-modal-hide="term-modal"
@@ -67,10 +66,8 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
-.lii {
-  word-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
+<style >
+li {
+  hyphens: none;
 }
 </style>
