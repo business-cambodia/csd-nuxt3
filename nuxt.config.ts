@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
-      scripts: [
+      script: [
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=G-T2P8KCDE7J',
           async: true,
