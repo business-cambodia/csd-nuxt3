@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      title: "Bay Of Lights",
       link: [
         {
           rel: 'stylesheet',
