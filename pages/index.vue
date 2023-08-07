@@ -111,7 +111,7 @@ useHead({
 <style>
 @media (min-width: 768px) {
   body {
-    background-image: url('bg.png');
+    background-image: url('/bg.png');
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
