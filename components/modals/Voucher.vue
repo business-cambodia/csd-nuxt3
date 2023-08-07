@@ -8,7 +8,7 @@
   >
     <div class="relative w-full max-w-md max-h-full">
       <!-- Modal content -->
-      <div class="relative bg-white rounded-3xl shadow dark:bg-gray-700 p-6">
+      <div class="relative bg-white rounded-3xl shadow p-6">
         <!-- header -->
         <div class="flex justify-center flex-col items-center">
           <div class="text-gold text-5xl text-[34px] font-katibeh">
@@ -60,7 +60,6 @@
         </div>
 
         <img class="rounded-xl" src="/Vouchers.jpg" alt="" />
-
       </div>
     </div>
   </div>

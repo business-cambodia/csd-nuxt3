@@ -2,7 +2,7 @@
   <!-- background for big screen -->
   <div class="hidden md:block w-screen h-screen bg-primary opacity-60"></div>
   <div
-    class="md:hidden w-[500px] h-[600px] fixed -left-10 top-24 bg-grey bg-curve"
+    class="md:hidden z-20 w-[500px] h-[600px] fixed -left-10 top-24 bg-grey bg-curve"
   ></div>
   <div
     class="hidden md:block fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/3 text-white z-50 w-full"

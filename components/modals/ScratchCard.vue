@@ -6,7 +6,7 @@
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
   >
     <div class="relative w-full max-w-2xl max-h-full">
-      <div class="relative bg-white rounded-3xl shadow dark:bg-gray-700 p-6">
+      <div class="relative bg-white rounded-3xl shadow p-6">
         <!-- header -->
         <div class="flex justify-center flex-col items-center">
           <div class="text-gold text-5xl text-[34px] font-katibeh">

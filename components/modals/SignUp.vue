@@ -8,7 +8,7 @@
   >
     <div class="relative w-full max-w-md max-h-full">
       <!-- Modal content -->
-      <div class="relative bg-white rounded-3xl shadow dark:bg-gray-700 p-6">
+      <div class="relative bg-white rounded-3xl shadow p-6">
         <!-- header -->
         <div class="flex justify-center flex-col items-center">
           <div class="text-gold text-5xl text-[34px] font-katibeh">
@@ -18,7 +18,7 @@
             Fill in some information and verify<br />phone number
           </div>
           <!-- lines -->
-          <hr class="w-1/2 border-gold mt-3" /> 
+          <hr class="w-1/2 border-gold mt-3" />
           <hr class="w-1/3 border-gold mt-1" />
         </div>
         <!-- 3 dots -->
