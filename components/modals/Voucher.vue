@@ -59,7 +59,7 @@
           </button>
         </div>
 
-        <img class="rounded-xl" src="vouchers.jpg" alt="" />
+        <img class="rounded-xl" src="/Vouchers.jpg" alt="" />
 
       </div>
     </div>
