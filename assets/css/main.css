@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* remove blue backgound on mobile press */
+button, div{
+  -webkit-tap-highlight-color: transparent;
+}

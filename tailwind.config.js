@@ -10,7 +10,18 @@ module.exports = {
     './node_modules/flowbite/**/*.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        proxima: ['Proxima Nova Condensed', 'Proxima Nova Extra Condensed'],
+        katibeh: ['Katibeh']
+      },
+    },
+    colors: {
+      primary: '#0E4C68',
+      secondary: '#098BBA',
+      grey: '#f0f0f0',
+      gold: '#CBA10E',
+    },
   },
   plugins: [require('flowbite/plugin')],
 };
