@@ -1,13 +1,13 @@
 <template>
   <div
-    class="fixed top-[230px] left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 z-30 w-full px-6 py-0 font-proxima max-w-sm smh:w-[400px]"
+    class="fixed top-[230px] top-pos left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 z-30 w-full px-6 py-0 font-proxima max-w-sm"
   >
     <div class="absolute top-3 left-10 flex flex-col space-y-2">
       <div class="w-2 h-2 self-end rounded-full bg-primary"></div>
       <div class="w-12 h-12 rounded-full bg-primary"></div>
     </div>
     <!-- above-image -->
-    <img src="/activities.png" class="z-40 w-full h-[550px] relative" alt="" />
+    <img src="/activities.png" class="z-40 w-full h-[550px] relative small-screen" alt="" />
     <div class="absolute bottom-6 to right-12 flex flex-col space-y-2">
       <div class="w-12 h-12 rounded-full bg-primary"></div>
       <div class="w-2 h-2 rounded-full bg-primary"></div>
@@ -18,6 +18,14 @@
 <script setup lang="ts"></script>
 
 <style>
+@media (max-height:700px) {
+  .small-screen {
+    height: 450px;
+  }
+  .top-pos {
+    top: 200px;
+  }
+}
 .top-40 {
   top: 40%;
 }
