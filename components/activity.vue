@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed maxw top-[230px] top-pos left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 z-30 w-full px-6 py-0 font-proxima max-w-sm"
+    class="fixed maxw top-[230px] top-pos left-1/2 transform -translate-x-1/2 -translate-y-1/3 p-4 z-30 w-full px-6 py-0 font-proxima max-w-[350px]"
   >
     <div class="absolute top-3 left-10 flex flex-col space-y-2">
       <div class="w-2 h-2 self-end rounded-full bg-primary"></div>
