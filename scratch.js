@@ -1,6 +1,6 @@
 if (!process.server) {
   var num = Math.floor(Math.random() * 2);
-  const vouchersImg = ['Vouchers.jpg', 'Vouchers-2.jpg'];
+  const vouchersImg = ['Vouchers-c.jpg', 'Vouchers-2-c.jpg'];
 
   $('#card').wScratchPad({
     size: 20, // The size of the brush/scratch.
