@@ -26,7 +26,7 @@
                 Redemption code can also be retrieved by logging on to our
                 website: <br />
                 <a
-                  href="https://bayoflight-entertainment.com/"
+                  href="https://bayoflights-entertainment.com/"
                   class="text-blue-600 underline"
                   >Bayoflights-Entertainment.com</a
                 >
