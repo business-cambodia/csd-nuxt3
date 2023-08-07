@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        proxima: ['Proxima Nova Condensed', 'Proxima Nova Extra Condensed'],
+        proxima: ['Proxima Nova'],
         katibeh: ['Katibeh']
       },
     },
