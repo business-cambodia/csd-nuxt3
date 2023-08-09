@@ -30,9 +30,14 @@
         <!-- sign up -->
         <div class="flex justify-center flex-col items-center">
           <!-- <div class="text-primary text-xl">Sign Up</div> -->
-          <form action="" class="w-full px-6 text-secondary">
+          <form
+            @submit.prevent="handleSignUp()"
+            class="w-full px-6 text-secondary"
+          >
             <div class="relative h-11 w-full min-w-[200px] my-3">
               <input
+                v-model="formData.name"
+                required
                 type="text"
                 class="peer h-full w-full border-b border-0 focus:ring-0 focus:p-0 border-primary bg-transparent pt-4 pb-1.5 font-sans text-base font-normal text-black outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gold focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
@@ -40,11 +45,12 @@
               <label
                 class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gold after:transition-transform after:duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gold peer-focus:after:scale-x-100 peer-focus:after:border-gold peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-black"
               >
-                Full Name
+                Full Name*
               </label>
             </div>
             <div class="relative h-11 w-full min-w-[200px] my-3">
               <input
+                v-model="formData.email"
                 type="email"
                 class="peer h-full w-full border-b border-0 focus:ring-0 focus:p-0 border-primary bg-transparent pt-4 pb-1.5 font-sans text-base font-normal text-black outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gold focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
@@ -57,55 +63,153 @@
             </div>
             <div class="relative h-11 w-full min-w-[200px] my-3">
               <input
+                v-model="formData.phone_number"
                 type="number"
+                required
                 class="peer h-full w-full border-b border-0 focus:ring-0 focus:p-0 border-primary bg-transparent pt-4 pb-1.5 font-sans text-base font-normal text-black outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gold focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
               />
               <label
                 class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gold after:transition-transform after:duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gold peer-focus:after:scale-x-100 peer-focus:after:border-gold peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
               >
-                Phone Number
+                Phone Number*
               </label>
             </div>
             <div class="relative h-11 w-full min-w-[200px] my-3">
               <input
                 type="number"
-                min="0"
-                step="5"
-                max="9999"
+                v-model="formData.otp"
+                required
                 class="peer h-full w-full border-b border-0 focus:ring-0 focus:p-0 border-primary bg-transparent pt-4 pb-1.5 font-sans text-base font-normal text-black outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gold focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
               />
               <label
                 class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gold after:transition-transform after:duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gold peer-focus:after:scale-x-100 peer-focus:after:border-gold peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
               >
-                OTP Code
+                OTP Code*
               </label>
-              <div
-                class="bg-gold absolute right-0 bottom-2 text-white px-2 rounded-xl text-sm"
+              <button
+                v-if="!otpSend"
+                id="btn-otp"
+                @click="handleSendOtp"
+                type="button"
+                class="bg-gold absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm text-cengter"
               >
-                GET
-              </div>
+                Get
+              </button>
+              <button
+                v-else
+                type="button"
+                class="bg-gray-500 absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm cursor-default"
+              >
+                Resend in {{ second }}
+              </button>
+            </div>
+            <div class="flex justify-center py-3">
+              <button
+                :class="'bottom-4 self-center left-1/3 text-white bg-primary font-medium rounded-md px-6 py-2.5 text-center'"
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
         <!-- button -->
-        <div class="flex justify-center py-3">
-          <button
-            data-modal-target="voucher-modal"
-            data-modal-toggle="voucher-modal"
-            data-modal-hide="signup-modal"
-            :class="'bottom-4 left-1/3 text-white bg-primary font-medium rounded-md px-6 py-2.5 text-center'"
-            type="button"
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          id="btn-voucher"
+          class="hidden"
+          data-modal-target="voucher-modal"
+          data-modal-toggle="voucher-modal"
+          data-modal-hide="signup-modal"
+        ></button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { toast } from 'vue3-toastify';
+
+const voucher = useVoucher();
+const otp = useOtp();
+const formData = ref({
+  name: '',
+  email: '',
+  phone_number: '',
+  otp: '',
+  voucherId: voucher.value?.id,
+});
+const otpSend = ref(false);
+const second = ref(60);
+const handleSendOtp = async () => {
+  if (formData.value.phone_number) {
+    if ((formData.value.phone_number + '').length < 8) {
+      return toast.warning('Invalid phone number');
+    }
+    try {
+      const { pending, data: otpApi }: any = await useFetch(
+        'http://188.166.212.171:8000/users/sendOtp',
+        {
+          method: 'POST',
+          body: {
+            email: formData.value.email,
+            phone_number: formData.value.phone_number,
+          },
+        }
+      );
+      if (!otpApi.value?.otp) {
+        return toast.warning(otpApi.value?.message);
+      }
+      otp.value = otpApi.value?.otp;
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+    //
+    otpSend.value = true;
+    setInterval((id: any) => {
+      if (second.value == 0) {
+        clearInterval('');
+        otpSend.value = false;
+      } else second.value -= 1;
+    }, 1000);
+    second.value = 60;
+  } else {
+    toast.warning('Please input phone number');
+  }
+};
+
+const handleSignUp = async () => {
+  if (formData.value.otp == otp.value) {
+    if (voucher.value?.code) {
+      return document.getElementById('btn-voucher')?.click();
+    }
+    formData.value.phone_number = '' + formData.value.phone_number;
+    const { pending, data: user }: any = await useFetch(
+      'http://188.166.212.171:8000/users/signup',
+      {
+        method: 'POST',
+        body: {
+          name: formData.value.name,
+          email: formData.value.email,
+          phone_number: formData.value.phone_number,
+          voucherType: voucher.value.type,
+        },
+      }
+    );
+    voucher.value.code = user.value?.voucher?.code;
+    formData.value = {
+      name: '',
+      email: '',
+      phone_number: '',
+      otp: '',
+      voucherId: voucher.value?.id,
+    };
+    document.getElementById('btn-voucher')?.click();
+  } else {
+    toast.error('Wrong OTP Code');
+  }
+};
+</script>
 
 <style scoped></style>
