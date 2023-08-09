@@ -43,7 +43,7 @@
             type="text"
             class="text bg-grey w-full focus:ring-0 text-primary font-bold"
             readonly
-            value="K7J9U"
+            :value="voucher?.code"
           />
           <button>
             <svg
@@ -59,13 +59,22 @@
           </button>
         </div>
 
-        <img class="rounded-xl" src="/Vouchers.jpg" alt="" />
+        <ClientOnly
+          ><img
+            class="rounded-xl"
+            :src="
+              '/z' +
+              (voucher.type == '50$ OFF' ? 'Vouchers.jpg' : 'Vouchers-2.jpg')
+            "
+            :alt="voucher"
+        /></ClientOnly>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const voucher = useVoucher();
 if (process.client) {
   let copyText = document.querySelector('.copy-text')!;
   copyText.querySelector('button')!.addEventListener('click', function () {
