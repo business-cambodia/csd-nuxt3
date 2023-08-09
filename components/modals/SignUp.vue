@@ -149,7 +149,7 @@ const handleSendOtp = async () => {
     }
     try {
       const { pending, data: otpApi }: any = await useFetch(
-        'https://api.bayoflights-entertainment.com/sendOtp',
+        'https://api.bayoflights-entertainment.com/users/sendOtp',
         {
           method: 'POST',
           body: {
