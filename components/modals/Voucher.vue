@@ -35,6 +35,7 @@
           </div>
           <div class="text-sm text-center">
             Here is your 5 digits unique code to use the voucher at our resort.
+            <strong>Log in</strong> anytime to retrieve your code.
           </div>
         </div>
         <!-- voucher code -->
@@ -67,7 +68,29 @@
               (voucher.type == '50$ OFF' ? 'Vouchers.jpg' : 'Vouchers-2.jpg')
             "
             :alt="voucher"
-        /></ClientOnly>
+          />
+          <div class="pl-3 pt-1 text-sm">
+            {{
+              voucher?.type == '50$ OFF'
+                ? 'Voucher 1: $50 OFF'
+                : 'Voucher 2: FREE 1 Room/Night'
+            }}
+            <br />
+            {{
+              voucher?.type == '50$ OFF'
+                ? '• With 1-night booking'
+                : '• Book 1 Room get 1 Room Free / Book the first night get next free'
+            }}
+            <br />• This voucher is valid until November 30, 2023.
+          </div></ClientOnly
+        >
+        <p
+          class="text-secondary underline text-center text-sm cursor-pointer"
+          data-modal-target="term-modal"
+          data-modal-toggle="term-modal"
+        >
+          Terms and Conditions
+        </p>
       </div>
     </div>
   </div>
