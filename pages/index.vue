@@ -30,7 +30,9 @@
     class="z-20 absolute flex justify-between items-center w-full px-6 md:px-12 -top-2 mdg:bg-gray-200"
   >
     <div
-      class="bg-primary text-white px-2 md:px-4 rounded-full text-xs sm:text-lg"
+      class="bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg"
+      data-modal-target="login-modal"
+      data-modal-toggle="login-modal"
     >
       LOGIN
     </div>
@@ -94,6 +96,7 @@
   <ModalsSignUp />
   <ModalsVoucher />
   <ModalsTermCondition />
+  <ModalsLogin />
 </template>
 
 <script setup lang="ts">
