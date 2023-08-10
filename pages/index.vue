@@ -71,10 +71,10 @@
         <a href="https://goo.gl/maps/23AiZ5hPutkHD7Xe6" target="_blank">
           <div
             :class="
-              'font-katibeh flex justify-center h-6 pt-1 sm:items-center ' +
+              'font-katibeh flex justify-center h-8 pt-2 sm:items-center ' +
               (language == 'EN'
-                ? 'text-2xl md:text-4xl'
-                : 'text-lg md:text-2xl')
+                ? 'text-3xl md:text-4xl'
+                : 'text-xl md:text-2xl')
             "
           >
             {{ language == 'EN' ? 'Our Address' : 'ទីតាំងពួកយើង' }}
@@ -90,7 +90,7 @@
               />
             </svg></div
         ></a>
-        <div class="text-sm md:text-lg">
+        <div class="text-base md:text-lg">
           {{
             language == 'EN'
               ? 'Chhner Ream Blvd, Sihanoukville (city), Cambodia'
@@ -98,7 +98,7 @@
           }}
         </div>
       </div>
-      <div class="text-sm md:text-lg">
+      <!-- <div class="text-sm md:text-lg">
         {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
         <a
           class="underline"
@@ -106,7 +106,7 @@
           target="_blank"
           >Technology Cambodia</a
         >
-      </div>
+      </div> -->
     </footer>
   </div>
   <ModalsScratchCard />
