@@ -133,7 +133,7 @@ const handleSendOtp = async () => {
     }
     try {
       const { pending, data: otpApi }: any = await useFetch(
-        'https://api.bayoflights-entertainment.com/users/sendOtpLogin',
+        'http://127.0.0.1:8000/users/sendOtpLogin',
         {
           method: 'POST',
           body: {
@@ -169,7 +169,7 @@ const handleSendOtp = async () => {
 const handleLogin = async () => {
   if (formData.value.otp == otp.value) {
     const { pending, data: user }: any = await useFetch(
-      'https://api.bayoflights-entertainment.com/users/login',
+      'http://127.0.0.1:8000/users/login',
       {
         method: 'POST',
         body: {
