@@ -15,8 +15,13 @@
             Bay of Lights Entertainment
           </div>
           <div class="text-center">
-            Login with your phone number to get <br />
-            your voucher code
+            {{
+              language == 'EN'
+                ? 'Login with your phone number to get'
+                : 'បំពេញជាមួយលេខទូរស័ព្ទ ដើម្បីទទួលយក'
+            }}
+            <br />
+            {{ language == 'EN' ? 'your voucher code' : 'លេខកូដរង្វាន់គូប៉ុង' }}
           </div>
           <!-- lines -->
           <hr class="w-1/2 border-gold mt-3" />
@@ -30,7 +35,9 @@
         </div>
         <!-- sign up -->
         <div class="flex justify-center flex-col items-center">
-          <div class="text-primary text-xl">LOG IN</div>
+          <div class="text-primary text-xl">
+            {{ language == 'EN' ? 'LOG IN' : 'ចូលប្រើ' }}
+          </div>
           <form
             @submit.prevent="handleLogin()"
             class="w-full px-6 text-secondary"
@@ -46,7 +53,7 @@
               <label
                 class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gold after:transition-transform after:duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gold peer-focus:after:scale-x-100 peer-focus:after:border-gold peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
               >
-                Phone Number*
+                {{ language == 'EN' ? 'Phone Number*' : 'លេខទូរស័ព្ទ*' }}
               </label>
             </div>
             <div class="relative h-11 w-full min-w-[200px] my-3">
@@ -69,14 +76,15 @@
                 type="button"
                 class="bg-gold absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm text-cengter"
               >
-                Get
+                {{ language == 'EN' ? 'GET' : 'ទទួល' }}
               </button>
               <button
                 v-else
                 type="button"
                 class="bg-gray-500 absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm cursor-default"
               >
-                Resend in {{ second }}
+                {{ language == 'EN' ? 'Resend in ' : 'ម្តងទៀតនៅ ' }}
+                {{ second }}s
               </button>
             </div>
             <div class="flex justify-center py-3">
@@ -84,7 +92,7 @@
                 :class="'bottom-4 self-center left-1/3 text-white bg-primary font-medium rounded-md px-6 py-2.5 text-center'"
                 type="submit"
               >
-                Submit
+                {{ language == 'EN' ? 'Submit' : 'បញ្ជូន' }}
               </button>
             </div>
           </form>
@@ -105,6 +113,7 @@
 <script setup lang="ts">
 import { toast } from 'vue3-toastify';
 const voucher = useVoucher();
+const language = useLanguague();
 const otpSend = ref(false);
 const second = ref(60);
 const otp = useOtp();
@@ -116,7 +125,11 @@ const formData = ref({
 const handleSendOtp = async () => {
   if (formData.value.phone_number) {
     if ((formData.value.phone_number + '').length < 8) {
-      return toast.warning('Invalid phone number');
+      return toast.warning(
+        language.value == 'EN'
+          ? 'Invalid phone number'
+          : 'លេខទូរស័ព្ទមិនត្រឹមត្រូវ'
+      );
     }
     try {
       const { pending, data: otpApi }: any = await useFetch(
@@ -146,7 +159,11 @@ const handleSendOtp = async () => {
     }, 1000);
     second.value = 60;
   } else {
-    toast.warning('Please input phone number');
+    toast.warning(
+      language.value == 'EN'
+        ? 'Please input phone number'
+        : 'សូមបញ្ចូលលេខទូរស័ព្ទ'
+    );
   }
 };
 const handleLogin = async () => {
@@ -164,7 +181,9 @@ const handleLogin = async () => {
     voucher.value.type = user.value?.voucher?.type;
     document.getElementById('btn-voucher1')?.click();
   } else {
-    toast.error('Wrong OTP Code');
+    toast.error(
+      language.value == 'EN' ? 'Wrong OTP Code' : 'លេខកូដ OTP មិនត្រឹមត្រូវ'
+    );
   }
 };
 </script>

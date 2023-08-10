@@ -34,12 +34,20 @@
       data-modal-target="login-modal"
       data-modal-toggle="login-modal"
     >
-      LOGIN
+      {{ language == 'EN' ? 'LOGIN' : 'ចូល' }}
     </div>
     <div class="w-52 md:w-72 relative -top-1">
       <img src="/logo.png" alt="" />
     </div>
-    <div class="w-6 sm:w-9"><img src="/cambodia.png" alt="" /></div>
+    <div @click="handleLanguageChange" class="rounded-full border-2">
+      <img
+        v-if="language == 'EN'"
+        class="w-7 sm:w-9"
+        src="/khmer.png"
+        alt="khflag"
+      />
+      <img v-else class="w-7 sm:w-9" src="/united-kingdom.png" alt="UKflag" />
+    </div>
   </div>
   <!--  -->
 
@@ -53,7 +61,7 @@
         data-modal-target="defaultModal"
         data-modal-toggle="defaultModal"
       >
-        GET VOUCHER
+        {{ language == 'EN' ? 'GET VOUCHER' : 'ទទួលយកគូប៉ុង' }}
       </button>
     </div>
     <footer
@@ -62,9 +70,14 @@
       <div class="md:flex md:flex-col md:space-y-3">
         <a href="https://goo.gl/maps/23AiZ5hPutkHD7Xe6" target="_blank">
           <div
-            class="font-katibeh flex justify-center text-2xl md:text-4xl h-6 pt-1 sm:items-center"
+            :class="
+              'font-katibeh flex justify-center h-6 pt-1 sm:items-center ' +
+              (language == 'EN'
+                ? 'text-2xl md:text-4xl'
+                : 'text-lg md:text-2xl')
+            "
           >
-            Our Address
+            {{ language == 'EN' ? 'Our Address' : 'ទីតាំងពួកយើង' }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="0.7em"
@@ -78,11 +91,15 @@
             </svg></div
         ></a>
         <div class="text-sm md:text-lg">
-          Chhner Ream Blvd, Sihanoukville (city), Cambodia
+          {{
+            language == 'EN'
+              ? 'Chhner Ream Blvd, Sihanoukville (city), Cambodia'
+              : 'មហាវិថីឆ្នេររាម ក្រុងព្រះសីហនុ ព្រះរាជាណាចក្រកម្ពុជា'
+          }}
         </div>
       </div>
       <div class="text-sm md:text-lg">
-        Developed by
+        {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
         <a
           class="underline"
           href="https://facebook.com/techcambodia2022"
@@ -109,6 +126,10 @@ useHead({
     },
   ],
 });
+const language = useLanguague();
+const handleLanguageChange = () => {
+  language.value = language.value == 'EN' ? 'KH' : 'EN';
+};
 </script>
 
 <style>
@@ -187,5 +208,18 @@ useHead({
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+.lang-container {
+  @apply bg-white absolute rounded-md p-3;
+  border: 1px solid #e3e3e3;
+  height: 88px;
+  width: 105px;
+  right: 20px;
+  top: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  z-index: 5;
 }
 </style>

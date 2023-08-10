@@ -7,10 +7,16 @@
       <div class="w-12 h-12 rounded-full bg-primary"></div>
     </div>
     <!-- above-image -->
-    <img src="/activities.png" class="z-40 w-full h-[550px] relative small-screen" alt="" />
-    <div class="absolute bottom-3 to right-6 flex flex-col space-y-2">
-      <div class="w-12 h-12 rounded-full bg-primary"></div>
-      <div class="w-2 h-2 rounded-full bg-primary"></div>
+    <div class="relative">
+      <img
+        src="/activities.png"
+        class="z-40 w-full h-[550px] relative small-screen"
+        alt=""
+      />
+      <div class="absolute bottom-3 to right-6 flex flex-col space-y-2">
+        <div class="w-12 h-12 rounded-full bg-primary"></div>
+        <div class="w-2 h-2 rounded-full bg-primary"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -18,14 +24,13 @@
 <script setup lang="ts"></script>
 
 <style>
-
 @media (max-width: 370px) {
   .maxw {
     max-width: 300px;
   }
 }
 
-@media (max-height:700px) {
+@media (max-height: 700px) {
   .small-screen {
     height: 450px;
     width: 90%;

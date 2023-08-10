@@ -31,11 +31,20 @@
         <!-- sign up -->
         <div class="flex justify-center flex-col items-center">
           <div class="text-gold text-5xl text-[30px] font-katibeh">
-            CONGRATULATIONS
+            {{ language == 'EN' ? 'CONGRATULATIONS' : 'អបអរសាទរ' }}
           </div>
           <div class="text-sm text-center">
-            Here is your 5 digits unique code to use the voucher at our resort.
-            <strong>Log in</strong> anytime to retrieve your code.
+            {{
+              language == 'EN'
+                ? 'Here is your 5 digits unique code to use the voucher at our resort.'
+                : 'នេះគឺលេខកូដ៥ខ្ទង់សម្រាប់ប្រើប្រាស់ក្នុងការទទួលរង្វាន់ពីពួកយើង។'
+            }}
+            <strong v-if="language == 'EN'">Log in</strong>
+            {{
+              language == 'EN'
+                ? 'anytime to retrieve your code.'
+                : 'ចូលម្តងទៀតដើម្បីទទួលយកកូដពេលក្រោយ'
+            }}
           </div>
         </div>
         <!-- voucher code -->
@@ -72,16 +81,28 @@
           <div class="pl-3 pt-1 text-sm">
             {{
               voucher?.type == '50$ OFF'
-                ? 'Voucher 1: $50 OFF'
-                : 'Voucher 2: FREE 1 Room/Night'
+                ? language == 'EN'
+                  ? 'Voucher 1: $50 OFF'
+                  : 'គូប៉ុងទី១៖ បញ្ចុះតម្លៃ $50'
+                : language == 'EN'
+                ? 'Voucher 2: FREE 1 Room/Night'
+                : 'គូប៉ុងទី២៖ ផ្តល់ជូន ១យប់/បន្ទប់ ដោយឥតគិតថ្លៃ'
             }}
             <br />
             {{
               voucher?.type == '50$ OFF'
-                ? '• With 1-night booking'
-                : '• Book 1 Room get 1 Room Free / Book the first night get next free'
+                ? language == 'EN'
+                  ? '• With 1-night booking'
+                  : '• ប្រើសម្រាប់ការស្នាក់នៅ១យប់'
+                : language == 'EN'
+                ? '• Book 1 Room get 1 Room Free / Book the first night get next free'
+                : '• កក់បន្ទប់១ទទួលបានបន្ទប់មួយទៀតហ្វ្រី ឬកក់១យប់ថែម១យប់'
             }}
-            <br />• This voucher is valid until November 30, 2023.
+            <br />{{
+              language == 'EN'
+                ? '• This voucher is valid until November 30, 2023.'
+                : '• គូប៉ុងនេះមានសុពលភាពដល់ថ្ងៃ៣០ខែវិច្ឆិកាឆ្នាំ២០២៣'
+            }}
           </div></ClientOnly
         >
         <p
@@ -89,7 +110,9 @@
           data-modal-target="term-modal"
           data-modal-toggle="term-modal"
         >
-          Terms and Conditions
+          {{
+            language == 'EN' ? 'Terms & Conditions' : 'លក្ខខណ្ឌនៃការប្រើប្រាស់'
+          }}
         </p>
       </div>
     </div>
@@ -98,6 +121,7 @@
 
 <script setup lang="ts">
 const voucher = useVoucher();
+const language = useLanguague();
 if (process.client) {
   let copyText = document.querySelector('.copy-text')!;
   copyText.querySelector('button')!.addEventListener('click', function () {

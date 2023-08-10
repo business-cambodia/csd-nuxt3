@@ -12,9 +12,14 @@
           <div class="text-gold text-5xl text-[34px] font-katibeh">
             Bay of Lights Entertainment
           </div>
-          <div class="text-center">
-            Scratch the card to get special <br />
-            voucher discounts!
+          <div :class="'text-center ' + (language == 'en' ? '' : 'pt-2')">
+            {{
+              language == 'EN'
+                ? 'Scratch the card to get special'
+                : 'កោសកាតដើម្បីឈ្នះរង្វាន់គូប៉ុងពិសេស'
+            }}
+            <br />
+            {{ language == 'EN' ? 'voucher discounts!' : '' }}
           </div>
           <!-- lines -->
           <hr class="w-1/2 border-gold mt-3" />
@@ -44,15 +49,24 @@
             "
             type="button"
           >
-            Redeem
+            {{ language == 'EN' ? 'Redeem' : 'ទទួលយក' }}
           </button>
-          <div class="text-[11px] mt-3">
-            * By clicking Redeem, you agreed to our
+          <div class="text-[11px] mt-3 text-center">
+            {{
+              language == 'EN'
+                ? '* By clicking Redeem, you agreed to our'
+                : '* ពេលចុចទទួលយក មានន័យថាលោកអ្នកបានយល់ព្រមជាមួយនឹង'
+            }}
+            <br v-if="language == 'KH'">
             <span
               class="underline text-secondary"
               data-modal-target="term-modal"
               data-modal-toggle="term-modal"
-              >Terms & Conditions</span
+              >{{
+                language == 'EN'
+                  ? 'Terms & Conditions'
+                  : 'លក្ខខណ្ឌនៃការប្រើប្រាស់'
+              }}</span
             >
           </div>
         </div>
@@ -65,6 +79,7 @@
 import '../../wScratchpad.min.js';
 import '../../scratch.js';
 import { val } from '../../wScratchpad.min.js';
+const language = useLanguague();
 </script>
 
 <style scoped>
