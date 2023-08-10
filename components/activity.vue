@@ -13,7 +13,7 @@
         class="z-40 w-full h-[550px] relative small-screen"
         alt=""
       />
-      <div class="absolute bottom-3 to right-6 flex flex-col space-y-2">
+      <div class="absolute bottom-3 to right-0 flex flex-col space-y-2">
         <div class="w-12 h-12 rounded-full bg-primary"></div>
         <div class="w-2 h-2 rounded-full bg-primary"></div>
       </div>
@@ -33,7 +33,7 @@
 @media (max-height: 700px) {
   .small-screen {
     height: 450px;
-    width: 90%;
+    padding: 0 5px;
   }
   .top-pos {
     top: 200px;
