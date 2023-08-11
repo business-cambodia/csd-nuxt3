@@ -29,8 +29,9 @@
   <div
     class="z-20 absolute flex justify-between items-center w-full px-6 md:px-12 -top-2 mdg:bg-gray-200"
   >
+    <!-- bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg -->
     <div
-      class="bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg"
+      class="box bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg"
       data-modal-target="login-modal"
       data-modal-toggle="login-modal"
     >
@@ -163,6 +164,61 @@ const handleLanguageChange = () => {
 .curve {
   border-radius: 0 0 100% 0;
   transform: rotate(-20deg);
+}
+
+.box {
+  /* width: 400px; */
+  /* height: 250px; */
+  color: #fff;
+  /* background: #262626; */
+  position: relative;
+  /* margin: 150px; */
+  /* padding: 30px; */
+}
+
+.box::after,
+.box::before {
+  content: '';
+  border-radius: 9999px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: -1;
+  animation: animated-shadow 10s linear infinite alternate;
+}
+
+/* .box::after {
+  filter: blur(60px);
+} */
+
+@keyframes animated-shadow {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 @keyframes float {
