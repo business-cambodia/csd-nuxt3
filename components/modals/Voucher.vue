@@ -31,19 +31,19 @@
         <!-- sign up -->
         <div class="flex justify-center flex-col items-center">
           <div class="text-gold text-5xl text-[30px] font-katibeh">
-            {{ language == 'EN' ? 'CONGRATULATIONS' : 'អបអរសាទរ' }}
+            {{ language == 'EN' ? 'CONGRATULATIONS' : 'សូមអបអរសាទរ' }}
           </div>
           <div class="text-sm text-center">
             {{
               language == 'EN'
-                ? 'Here is your 5 digits unique code to use the voucher at our resort.'
-                : 'នេះគឺលេខកូដ៥ខ្ទង់សម្រាប់ប្រើប្រាស់ក្នុងការទទួលរង្វាន់ពីពួកយើង។'
+                ? 'Here is your 5 digits unique code to use the voucher at our resort. Save the code by '
+                : 'នេះគឺលេខកូដ៥ខ្ទង់សម្រាប់ប្រើប្រាស់ក្នុងការទទួលយករង្វាន់ពីពួកយើង។ '
             }}
-            <strong v-if="language == 'EN'">Log in</strong>
+            <strong v-if="language == 'EN'">Screenshot or Log in</strong>
             {{
               language == 'EN'
-                ? 'anytime to retrieve your code.'
-                : 'ចូលម្តងទៀតដើម្បីទទួលយកកូដពេលក្រោយ'
+                ? 'anytime to recieve again.'
+                : 'ថតស្គ្រីនទុកឬ ចូលម្តងទៀតដើម្បីទទួលយកកូដនៅពេលក្រោយ។'
             }}
           </div>
         </div>
