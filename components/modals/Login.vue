@@ -124,7 +124,7 @@ const formData = ref({
 });
 const handleSendOtp = async () => {
   if (formData.value.phone_number) {
-    if ((formData.value.phone_number + '').length < 8) {
+    if (!validateNumber(formData.value.phone_number)) {
       return toast.warning(
         language.value == 'EN'
           ? 'Invalid phone number'
@@ -185,6 +185,18 @@ const handleLogin = async () => {
       language.value == 'EN' ? 'Wrong OTP Code' : 'លេខកូដ OTP មិនត្រឹមត្រូវ'
     );
   }
+};
+
+const validateNumber = (phone_number: string) => {
+  const regex = /^(1[^9]|3[18]|6[^2-5]|7[016-8]|8[^2]|9[^4])\d{6,7}$/;
+
+  // Alternative syntax using RegExp constructor
+  // const regex = new RegExp('^(1[^9]|3[18]|6[^2-5]|7[016-8]|8[^2]|9[^4])\\d{6,7}$', '')
+
+  if (regex.exec(phone_number) !== null) {
+    return true;
+  }
+  return false;
 };
 </script>
 
