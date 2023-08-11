@@ -5,10 +5,10 @@
     class="md:hidden z-20 w-[500px] h-[600px] fixed -left-10 top-24 bg-grey bg-curve"
   ></div>
   <div
-    class="hidden md:block fixed left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/3 text-white z-50 w-full"
+    class="hidden md:flex md:flex-col md:items-center fixed left-1/2 transform -translate-x-1/2 -translate-y-1/3 top-1/3 text-white z-50 w-full"
   >
-    <div class="font-katibeh uppercase text-6xl text-center">
-      Enjoy a luxury Experience
+    <div class="font-extrabold uppercase text-6xl text-center">
+      Vaction is calling!
     </div>
     <div class="flex justify-center items-center space-x-4">
       <div class="flex flex-col space-y-1">
@@ -21,6 +21,44 @@
         <div class="w-32 border-b-2 ml-9"></div>
       </div>
     </div>
+    <div class="flex w-3/5">
+      <div class="w-1/4 p-2">
+        <div class="w-full h-0 pb-[100%] relative">
+          <img
+            src="/resort.jpg"
+            alt="Image 1"
+            class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+      <div class="w-1/4 p-2">
+        <div class="w-full h-0 pb-[100%] relative">
+          <img
+            src="/jetski.jpg"
+            alt="Image 2"
+            class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+      <div class="w-1/4 p-2">
+        <div class="w-full h-0 pb-[100%] relative">
+          <img
+            src="/bungee.jpg"
+            alt="Image 3"
+            class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+      <div class="w-1/4 p-2">
+        <div class="w-full h-0 pb-[100%] relative">
+          <img
+            src="/kart.jpg"
+            alt="Image 4"
+            class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+    </div>
   </div>
   <!-- mobile screen -->
   <div
@@ -29,9 +67,8 @@
   <div
     class="z-20 absolute flex justify-between items-center w-full px-6 md:px-12 -top-2 mdg:bg-gray-200"
   >
-    <!-- bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg -->
     <div
-      class="box bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg"
+      class="box bg-primary text-white px-2 py-[3px] md:px-4 rounded-full text-xs sm:text-lg cursor-pointer"
       data-modal-target="login-modal"
       data-modal-toggle="login-modal"
     >
@@ -66,13 +103,13 @@
       </button>
     </div>
     <footer
-      class="bottom-0 h-16 md:h-20 md:text-primary bg-primary text-white text-center select-none md:flex md:justify-center md:space-x-12 md:items-end"
+      class="bottom-0 h-16 bg-primary text-white text-center select-none md:flex md:justify-center md:space-x-12 md:items-end"
     >
-      <div class="md:flex md:flex-col md:space-y-3">
+      <div class="md:flex md:flex-col md:space-y-2">
         <a href="https://goo.gl/maps/23AiZ5hPutkHD7Xe6" target="_blank">
           <div
             :class="
-              'font-katibeh flex justify-center h-8 pt-2 sm:items-center ' +
+              'font-katibeh flex justify-center h-8 pt-2 sm:items-center underline decoration-1 underline-offset-2 ' +
               (language == 'EN'
                 ? 'text-3xl md:text-4xl'
                 : 'text-xl md:text-2xl')
@@ -84,7 +121,7 @@
               height="0.7em"
               viewBox="0 0 576 512"
               fill="white"
-              class="ml-2"
+              class="ml-2 shake-button"
             >
               <path
                 d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152V422.8c0 9.8-6 18.6-15.1 22.3L416 503V200.4zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6V451.8L32.9 502.7C17.1 509 0 497.4 0 480.4V209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77V504.3L192 449.4V255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"
@@ -142,12 +179,26 @@ const handleLanguageChange = () => {
     background-repeat: no-repeat;
     height: screen;
   }
-  footer {
-    background: linear-gradient(
-      180deg,
-      rgba(236, 209, 140, 0.88) 0%,
-      #faf7ec 100%
-    );
+}
+.shake-button {
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 
