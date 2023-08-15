@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white w-screen p-0 m-0">
+  <div class="bg-white w-screen p-0 m-0" v-if="isAuth">
     <div class="mx-4 my-4 lg:mx-12">
       <div class="text-4xl text-center text-primary">Voucher Dashboard</div>
       <div class="pb-4 bg-white flex justify-end">
@@ -173,6 +173,15 @@
 </template>
 
 <script setup lang="ts">
+import { checkAuth } from '../auth';
+const isAuth = ref(false);
+const router = useRouter();
+onMounted(async () => {
+  await checkAuth((isAuthenticated: any) => {
+    if (!isAuthenticated) router.push({ path: '/login' });
+    isAuth.value = isAuthenticated;
+  });
+});
 const users: any = ref(
   await useFetch('https://api.bayoflights-entertainment.com/users')
 );
