@@ -96,7 +96,6 @@
                   />
                 </svg>
               </th>
-              <th scope="col" class="px-2 py-3">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -133,19 +132,30 @@
               <td class="px-2 py-4">
                 {{ new Date(user?.voucher?.expired_at).toLocaleDateString() }}
               </td>
-              <td :class="'px-2 py-4'">
-                <p
+              <td class="px-2 py-4 underline">
+                <select
+                  @change="
+                    (e:any) => {
+                      e.target.value = (e.target.value == 'true') ? false: true
+                      handleStatusChange(user?.voucher?.id, user?.voucher?.status)
+                    }
+                  "
+                  id="countries"
                   :class="
                     (user?.voucher?.status == 1
                       ? 'bg-green-500'
                       : 'bg-yellow-400') +
-                    ' text-center text-white rounded-xl text-xs md:text-sm'
+                    ' bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-0 w-24 py-0'
                   "
                 >
-                  {{ user?.voucher?.status == 1 ? 'Active' : 'Used' }}
-                </p>
+                  <option :selected="!user?.voucher?.status" :value="true">
+                    Active
+                  </option>
+                  <option :selected="!user?.voucher?.status" :value="false">
+                    Used
+                  </option>
+                </select>
               </td>
-              <td class="px-2 py-4 underline">Edit</td>
             </tr>
           </tbody>
         </table>
@@ -170,13 +180,24 @@
       </div>
     </div>
   </div>
+  <button
+    id="btn-updateVoucher"
+    data-modal-target="updateVoucher-modal"
+    data-modal-toggle="updateVoucher-modal"
+    class="hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    type="button"
+  ></button>
+  <ModalsUpdateVoucher :voucherProps="voucherProps" />
 </template>
 
 <script setup lang="ts">
+import { initFlowbite } from 'flowbite';
 import { checkAuth } from '../auth';
 const isAuth = ref(false);
 const router = useRouter();
+const voucherProps = ref({});
 onMounted(async () => {
+  initFlowbite()
   await checkAuth((isAuthenticated: any) => {
     if (!isAuthenticated) router.push({ path: '/login' });
     isAuth.value = isAuthenticated;
@@ -249,6 +270,15 @@ const searchByCode = (searchVal: string) => {
       obj.voucher?.code.includes(searchVal.toUpperCase())
     )
   );
+};
+
+const handleStatusChange = async (id: string, status: boolean) => {
+  voucherProps.value = {
+    id: id,
+    status: status,
+  };
+  document.getElementById('btn-updateVoucher')?.click();
+  // changeStatus(id, !status);
 };
 </script>
 
