@@ -68,7 +68,7 @@
               <th scope="col" class="px-2 py-3">Voucher Code</th>
               <th
                 scope="col"
-                class="px-2 py-3 cursor-pointer"
+                class="px-2 py-3"
               >
                 Voucher Type
               </th>
