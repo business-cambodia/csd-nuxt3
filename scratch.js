@@ -1,11 +1,11 @@
 if (!process.server) {
   var num = Math.floor(Math.random() * 2);
-  const vouchersImg = ['Vouchers.jpg', 'Vouchers-2.jpg'];
+  const vouchersImg = ['Vouchers-3.jpg', 'Vouchers-2.jpg'];
   var voucher = useVoucher();
   voucher.value = {
     id: 'V-00' + (num + 1),
     image: vouchersImg[num],
-    type: num == 0 ? '50$ OFF' : '1 Free Room',
+    type: num == 0 ? '35$ OFF' : '1 Free Room',
   };
 
   $('#card').wScratchPad({

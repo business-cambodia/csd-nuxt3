@@ -74,7 +74,11 @@
             class="rounded-xl"
             :src="
               '/z' +
-              (voucher.type == '50$ OFF' ? 'Vouchers.jpg' : 'Vouchers-2.jpg')
+              (voucher.type == '50$ OFF'
+                ? 'Vouchers.jpg'
+                : voucher.type == '35$ OFF'
+                ? 'Vouchers-3.jpg'
+                : 'Vouchers-2.jpg')
             "
             :alt="voucher"
           />
@@ -84,6 +88,10 @@
                 ? language == 'EN'
                   ? 'Voucher 1: $50 OFF'
                   : 'គូប៉ុងទី១៖ បញ្ចុះតម្លៃ $50'
+                : voucher.type == '35$ OFF'
+                ? language == 'EN'
+                  ? 'Voucher 1: $35 OFF'
+                  : 'គូប៉ុងទី១៖ បញ្ចុះតម្លៃ $35'
                 : language == 'EN'
                 ? 'Voucher 2: FREE 1 Room/Night'
                 : 'គូប៉ុងទី២៖ ផ្តល់ជូន ១យប់/បន្ទប់ ដោយឥតគិតថ្លៃ'
@@ -91,6 +99,10 @@
             <br />
             {{
               voucher?.type == '50$ OFF'
+                ? language == 'EN'
+                  ? '• With 1-night booking'
+                  : '• ប្រើសម្រាប់ការស្នាក់នៅ១យប់'
+                : voucher.type == '35$ OFF'
                 ? language == 'EN'
                   ? '• With 1-night booking'
                   : '• ប្រើសម្រាប់ការស្នាក់នៅ១យប់'
