@@ -69,7 +69,6 @@
               <th
                 scope="col"
                 class="px-2 py-3 cursor-pointer"
-                @click="sortVoucher"
               >
                 Voucher Type
               </th>
