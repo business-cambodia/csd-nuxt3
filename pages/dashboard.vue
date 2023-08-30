@@ -65,13 +65,28 @@
                   />
                 </svg>
               </th>
-              <th scope="col" class="px-2 py-3">Voucher Code</th>
-              <th
-                scope="col"
-                class="px-2 py-3"
-              >
-                Voucher Type
+              <th scope="col" class="px-2 py-3 cursor-pointer" @click="sortSms">
+                <div class="flex items-center">
+                  <div>SMS</div>
+                  <svg
+                    fill="white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      v-if="smsSort"
+                      d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
+                    />
+                    <path
+                      v-else
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                    />
+                  </svg>
+                </div>
               </th>
+              <th scope="col" class="px-2 py-3">Voucher Code</th>
+              <th scope="col" class="px-2 py-3">Voucher Type</th>
               <th scope="col" class="px-2 py-3">Expired At</th>
               <th
                 scope="col"
@@ -122,6 +137,7 @@
               <td class="px-2 py-4">
                 {{ new Date(user?.created_at).toLocaleDateString() }}
               </td>
+              <td class="px-2 py-4">{{ user?.allowSms ? 'Yes' : 'No' }}</td>
               <td class="px-2 py-4">
                 <div class="bg-grey w-fits text-center rounded-lg">
                   {{ user?.voucher?.code }}
@@ -196,7 +212,7 @@ const isAuth = ref(false);
 const router = useRouter();
 const voucherProps = ref({});
 onMounted(async () => {
-  initFlowbite()
+  initFlowbite();
   await checkAuth((isAuthenticated: any) => {
     if (!isAuthenticated) router.push({ path: '/login' });
     isAuth.value = isAuthenticated;
@@ -212,6 +228,7 @@ const currentPage = ref(1);
 const dateSort = ref(false);
 const voucherSort = ref(false);
 const statusSort = ref(false);
+const smsSort = ref(false);
 const searchValue = ref('');
 const sortDate = () => {
   dateSort.value = !dateSort.value;
@@ -258,6 +275,18 @@ const sortStatus = () => {
       return a.voucher?.status - b.voucher?.status;
     } else {
       return b.voucher?.status - a.voucher?.status;
+    }
+  });
+  currentPage.value = 1;
+};
+
+const sortSms = () => {
+  smsSort.value = !smsSort.value;
+  users.value.data.sort((a: any, b: any) => {
+    if (smsSort.value) {
+      return b.allowSms - a.allowSms;
+    } else {
+      return a.allowSms - b.allowSms;
     }
   });
   currentPage.value = 1;
