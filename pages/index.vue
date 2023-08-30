@@ -87,8 +87,16 @@
       <img v-else class="w-7 sm:w-9" src="/united-kingdom.png" alt="UKflag" />
     </div>
   </div>
-  <!--  -->
-
+  <!-- btn to open interested popup -->
+  <button
+    id="btn-interested"
+    class="hidden"
+    data-modal-target="interested-modal"
+    data-modal-toggle="interested-modal"
+  ></button>
+  <ClientOnly>
+    <PopUp />
+  </ClientOnly>
   <Activity class="md:hidden" />
   <!--  -->
 
@@ -152,6 +160,7 @@
   <ModalsVoucher />
   <ModalsTermCondition />
   <ModalsLogin />
+  <ModalsInterested />
 </template>
 
 <script setup lang="ts">
