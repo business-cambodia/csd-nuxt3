@@ -112,8 +112,8 @@
             }}
             <br />{{
               language == 'EN'
-                ? '• This voucher is valid until November 30, 2023.'
-                : '• គូប៉ុងនេះមានសុពលភាពដល់ថ្ងៃ៣០ខែវិច្ឆិកាឆ្នាំ២០២៣'
+                ? '• This voucher is valid until October 31st, 2023.'
+                : '• គូប៉ុងនេះមានសុពលភាពដល់ថ្ងៃ៣១ខែតុលាឆ្នាំ២០២៣'
             }}
           </div></ClientOnly
         >

@@ -78,6 +78,13 @@
               <li>
                 {{
                   language == 'EN'
+                    ? 'Voucher is valid until October 31st, 2023.'
+                    : 'គូប៉ុងនេះមានសុពលភាពដល់ថ្ងៃ៣១ខែតុលាឆ្នាំ២០២៣'
+                }}
+              </li>
+              <li>
+                {{
+                  language == 'EN'
                     ? 'Terms and conditions are subject to change without prior notice.'
                     : 'យើងរក្សាសិទ្ធិក្នុងការផ្លាស់ប្តូរលក្ខខណ្ឌនៃការប្រើប្រាស់ដោយមិនចាំបាច់ប្រាប់ដំណឹងជាមុន'
                 }}
@@ -93,11 +100,7 @@
               type="button"
               class="text-white bg-primary rounded-lg border text-sm font-medium px-5 py-2.5"
             >
-              {{
-                language == 'EN'
-                  ? 'Close'
-                  : 'បិទ'
-              }}
+              {{ language == 'EN' ? 'Close' : 'បិទ' }}
             </button>
           </div>
         </div>
