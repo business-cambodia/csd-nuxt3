@@ -25,7 +25,7 @@
         <img
           format="webp"
           loading="lazy"
-          src="/Teaser.jpg"
+          src="/Teaser-kh.jpg"
           alt=""
           class="h-full rounded-xl object-cover bg-center bg-no-repeat bg-cover"
       /></a>
