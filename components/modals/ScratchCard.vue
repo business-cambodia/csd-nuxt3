@@ -52,22 +52,31 @@
             {{ language == 'EN' ? 'Redeem' : 'ទទួលយក' }}
           </button>
           <div class="text-[11px] mt-3 text-center">
-            {{
-              language == 'EN'
-                ? '* By clicking Redeem, you agreed to our'
-                : '* ពេលចុចទទួលយក មានន័យថាលោកអ្នកបានយល់ព្រមជាមួយនឹង'
-            }}
-            <br v-if="language == 'KH'">
-            <span
-              class="underline text-secondary"
-              data-modal-target="term-modal"
-              data-modal-toggle="term-modal"
-              >{{
+            <p>
+              {{
                 language == 'EN'
-                  ? 'Terms & Conditions'
-                  : 'លក្ខខណ្ឌនៃការប្រើប្រាស់'
-              }}</span
-            >
+                  ? '* Voucher is valid until October 31st, 2023.'
+                  : '* គូប៉ុងនេះមានសុពលភាពដល់ថ្ងៃ៣១ខែតុលាឆ្នាំ២០២៣'
+              }}
+            </p>
+            <p>
+              {{
+                language == 'EN'
+                  ? '* By clicking Redeem, you agreed to our'
+                  : '* ពេលចុចទទួលយក មានន័យថាលោកអ្នកបានយល់ព្រមជាមួយនឹង'
+              }}
+              <br v-if="language == 'KH'" />
+              <span
+                class="underline text-secondary"
+                data-modal-target="term-modal"
+                data-modal-toggle="term-modal"
+                >{{
+                  language == 'EN'
+                    ? 'Terms & Conditions'
+                    : 'លក្ខខណ្ឌនៃការប្រើប្រាស់'
+                }}</span
+              >
+            </p>
           </div>
         </div>
       </div>
