@@ -21,11 +21,11 @@
           />
         </svg>
       </div>
-      <a target="_blank">
+      <a target="_blank" href="https://wonderpass.asia/event/sihanoukville_day_trip">
         <img
           format="webp"
           loading="lazy"
-          src="/Teaser-kh.jpg"
+          src="/promotion.jpg"
           alt=""
           class="h-full rounded-xl object-cover bg-center bg-no-repeat bg-cover"
       /></a>
@@ -33,18 +33,16 @@
     <div
       class="beat-button flex justify-end bg-transparent py-1 px-4 rounded-b-lg"
     >
-      <button
-        class="bg-secondary rounded-md text-white px-4 py-1 text-lg"
-        @click="handleInterested"
-      >
-        I'm Interested
-      </button>
+      <NuxtLink to="https://wonderpass.asia/event/sihanoukville_day_trip">
+        <button class="bg-secondary rounded-md text-white px-4 py-1 md:text-lg">
+          ទិញសំបុត្រចូលរួមឥឡូវនេះ!
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 const timer = ref(5);
 
 const handleClosePopup = () => {
