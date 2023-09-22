@@ -9,7 +9,7 @@
       id="navbar"
     >
       <a href="/">
-        <img src="/SUMMER BAY-Logo-01.png" class="w-32" alt="logo" />
+        <img src="/SUMMER-BAY-Logo-01.png" class="w-32" alt="logo" />
       </a>
     </div>
 
