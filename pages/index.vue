@@ -102,13 +102,12 @@
 
   <div class="absolute bottom-0 z-40 font-proxima">
     <div class="bottom-20 flex justify-center w-screen">
-      <button
-        class="avatar btn-grad text-3xl md:text-5xl font-bold"
-        data-modal-target="defaultModal"
-        data-modal-toggle="defaultModal"
-      >
-        {{ language == 'EN' ? 'GET VOUCHER' : 'ទទួលយកគូប៉ុង' }}
-      </button>
+      <a href="/accommodations">
+        <button class="avatar btn-grad text-3xl md:text-5xl font-bold">
+          {{ language == 'EN' ? 'BOOK NOW' : 'កក់សំបុត្រឥឡូវ​នេះ' }}
+        </button>
+      </a>
+      <button data-modal-target="defaultModal" class="hidden">a</button>
     </div>
     <footer
       class="bottom-0 h-16 bg-primary text-white text-center select-none md:flex md:justify-center md:space-x-12 md:items-end"
