@@ -80,6 +80,11 @@
                 <input
                   v-model="formData.check_in"
                   type="date"
+                  :min="
+                    new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)
+                      .toISOString()
+                      .split('T')[0]
+                  "
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Select date"
                 />
@@ -105,6 +110,11 @@
                 <input
                   v-model="formData.check_out"
                   type="date"
+                  :min="
+                    new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000)
+                      .toISOString()
+                      .split('T')[0]
+                  "
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Select date"
                 />
@@ -219,13 +229,6 @@ const handleBooking = async () => {
       language.value == 'EN'
         ? 'Checkin date must be before checkout date'
         : 'ថ្ងៃចូលនៅត្រូវតែមានមុនថ្ងៃចេញពីសម្រាកថ្ងៃចូលនៅ'
-    );
-  }
-  if (formData.value.check_in < new Date().toISOString().split('T')[0]) {
-    return toast.warning(
-      language.value == 'EN'
-        ? 'Checkin date must be after today'
-        : 'ថ្ងៃចូលនៅត្រូវតែមានបន្ទាប់ពីថ្ងៃនេះ'
     );
   }
   formData.value.accommodations = +formData.value.accommodations;
