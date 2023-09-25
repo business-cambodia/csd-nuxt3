@@ -59,6 +59,38 @@
               </label>
             </div>
 
+            <div class="relative h-11 w-full min-w-[200px] my-3">
+              <input
+                type="number"
+                v-model="formData.otp"
+                required
+                class="peer h-full w-full border-b border-0 focus:ring-0 focus:p-0 border-primary bg-transparent pt-4 pb-1.5 font-sans text-base font-normal text-black outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gold focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                placeholder=" "
+              />
+              <label
+                class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gold after:transition-transform after:duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gold peer-focus:after:scale-x-100 peer-focus:after:border-gold peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
+              >
+                OTP Code*
+              </label>
+              <button
+                v-if="!otpSend"
+                id="btn-otp"
+                @click="handleSendOtp"
+                type="button"
+                class="bg-gold absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm text-cengter"
+              >
+                {{ language == 'EN' ? 'GET' : 'ទទួល' }}
+              </button>
+              <button
+                v-else
+                type="button"
+                class="bg-gray-500 absolute right-0 bottom-2 text-white px-2 py-0.5 rounded-xl text-sm cursor-default"
+              >
+                {{ language == 'EN' ? 'Resend in ' : 'ម្តងទៀតនៅ ' }}
+                {{ second }}s
+              </button>
+            </div>
+
             <div class="flex justify-between gap-2 items-center">
               <div class="relative w-full">
                 <label for="">Checkin Date*</label>
@@ -121,35 +153,68 @@
               </div>
             </div>
 
-            <div class="relative h-11 w-full min-w-[200px] my-3">
+            <div class="flex items-center justify-between mt-3 gap-9">
               <label for="rooms">Choose room type*</label>
-              <select
-                @change="formData.accommodations = $event.target?.value"
-                id="rooms"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              >
-                <option
-                  :selected="room.id == propRoom.id ? true : false"
-                  :value="room.id"
-                  v-for="(room, index) in rooms"
-                >
-                  {{ room.name }}
-                </option>
-              </select>
-            </div>
-
-            <div class="relative h-11 w-full min-w-[200px] mt-9">
               <label for="countries">Room amount*</label>
-              <input
-                v-model="formData.amount"
-                type="number"
-                id="small-input"
-                class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Room amount"
-              />
+            </div>
+            <div
+              class="flex items-center gap-9 my-1"
+              v-for="(i, roomIndex) in formData.accommodations"
+            >
+              <div class="relative h-11 w-full">
+                {{
+                  formData.accommodations[roomIndex].accommodations_id
+                    ? ''
+                    : (formData.accommodations[roomIndex].accommodations_id =
+                        propRoom.id)
+                }}
+                <select
+                  v-model="formData.accommodations[roomIndex].accommodations_id"
+                  id="rooms"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option
+                    :selected="room.id == propRoom.id ? true : false"
+                    :value="room.id"
+                    v-for="(room, index) in rooms"
+                  >
+                    {{ room.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="relative h-11">
+                  <input
+                    v-model="formData.accommodations[roomIndex].amount"
+                    type="number"
+                    id="small-input"
+                    class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                </div>
+                <svg
+                  @click="handleRemoveRoom(roomIndex)"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="cursor-pointer"
+                  fill="red"
+                  height="2em"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="flex justify-end mr-6">
+              <div
+                class="bg-primary text-white py-1 px-2 text-sm rounded-2xl cursor-pointer"
+                @click="handleAddRoom"
+              >
+                Add
+              </div>
             </div>
 
-            <div class="relative h-11 w-full min-w-[200px] mb-9 mt-6">
+            <div class="relative h-11 w-full min-w-[200px] mb-9">
               <label for="message">Remarks</label>
               <textarea
                 v-model="formData.remarks"
@@ -190,12 +255,18 @@
 
 <script setup lang="ts">
 import { toast } from 'vue3-toastify';
+const otpSend = ref(false);
+const second = ref(60);
+const otp = useOtp();
 const props = defineProps({
   propRoom: {
     type: Object,
     required: true,
   },
-  rooms: Array<any>,
+  rooms: {
+    type: Array<any>,
+    required: true,
+  },
 });
 const language = useLanguague();
 const formData = ref({
@@ -204,24 +275,84 @@ const formData = ref({
   check_in: '',
   check_out: '',
   amount: 1,
-  accommodations: 0,
+  accommodations: [{ accommodations_id: props.propRoom.id, amount: 1 }],
   remarks: '',
+  otp: '',
 });
 
+const handleSendOtp = async () => {
+  if (formData.value.phone_number) {
+    if (!validateNumber(formData.value.phone_number)) {
+      return toast.warning(
+        language.value == 'EN'
+          ? 'Invalid phone number'
+          : 'លេខទូរស័ព្ទមិនត្រឹមត្រូវ'
+      );
+    }
+    try {
+      const { pending, data: otpApi }: any = await useFetch(
+        'https://api.bayoflights-entertainment.com/users/sendOtpLogin',
+        {
+          method: 'POST',
+          body: {
+            phone_number: formData.value.phone_number,
+          },
+        }
+      );
+      if (!otpApi.value?.otp) {
+        return toast.warning(otpApi.value?.message);
+      }
+      otp.value = otpApi.value?.otp;
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+    //
+    otpSend.value = true;
+    setInterval((id: any) => {
+      if (second.value == 0) {
+        clearInterval('');
+        otpSend.value = false;
+      } else second.value -= 1;
+    }, 1000);
+    second.value = 60;
+  } else {
+    toast.warning(
+      language.value == 'EN'
+        ? 'Please input phone number'
+        : 'សូមបញ្ចូលលេខទូរស័ព្ទ'
+    );
+  }
+};
+
+const handleAddRoom = () => {
+  if (formData.value.accommodations.length < props.rooms.length)
+    formData.value.accommodations.push({
+      accommodations_id: props.propRoom.id,
+      amount: 1,
+    });
+};
+
+const handleRemoveRoom = (index: number) => {
+  if (formData.value.accommodations.length > 1)
+    formData.value.accommodations.splice(index, 1);
+};
+
 const handleBooking = async () => {
-  if (formData.value.accommodations == 0) {
-    formData.value.accommodations = props?.propRoom?.id;
+  if (formData.value.otp != otp.value) {
+    return toast.error(
+      language.value == 'EN' ? 'Wrong OTP Code' : 'លេខកូដ OTP មិនត្រឹមត្រូវ'
+    );
+  }
+  if (hasDuplicateRooms(formData.value.accommodations)) {
+    return toast.warning(
+      language.value == 'EN'
+        ? 'You cannot choose the same room type.'
+        : 'អ្នកមិនអាចជ្រើសរើសបន្ទប់ដែលដូចគ្នាបានទេ'
+    );
   }
   if (formData.value.check_in == '' || formData.value.check_out == '') {
     return toast.warning(
       language.value == 'EN' ? 'Please select date' : 'សូមជ្រើសរើសថ្ងៃចូលនៅ'
-    );
-  }
-  if (!validateNumber(formData.value.phone_number)) {
-    return toast.warning(
-      language.value == 'EN'
-        ? 'Invalid phone number'
-        : 'លេខទូរស័ព្ទមិនត្រឹមត្រូវ'
     );
   }
   if (formData.value.check_in >= formData.value.check_out) {
@@ -231,7 +362,6 @@ const handleBooking = async () => {
         : 'ថ្ងៃចូលនៅត្រូវតែមានមុនថ្ងៃចេញពីសម្រាកថ្ងៃចូលនៅ'
     );
   }
-  formData.value.accommodations = +formData.value.accommodations;
   formData.value.phone_number = '0' + formData.value.phone_number;
   try {
     await useFetch(
@@ -248,8 +378,9 @@ const handleBooking = async () => {
       check_in: '',
       check_out: '',
       amount: 1,
-      accommodations: 0,
+      accommodations: [{ accommodations_id: props.propRoom.id, amount: 1 }],
       remarks: '',
+      otp: '',
     };
     document.getElementById('btn-close-booking')?.click();
   } catch (error: any) {
@@ -266,6 +397,19 @@ const validateNumber = (phone_number: string) => {
   if (regex.exec(phone_number) !== null) {
     return true;
   }
+  return false;
+};
+
+const hasDuplicateRooms = (arr: Array<any>) => {
+  const idSet = new Set(); // Create a Set to store encountered id values
+
+  for (const item of arr) {
+    if (idSet.has(item.accommodations_id)) {
+      return true; // If the id is already in the Set, it's a duplicate
+    }
+    idSet.add(item.accommodations_id); // Add the id to the Set
+  }
+
   return false;
 };
 </script>
