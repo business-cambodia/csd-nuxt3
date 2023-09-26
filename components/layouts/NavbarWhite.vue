@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      :class="`fixed flex justify-center w-full items-center top-0 py-2 z-40 navbar ${
+      :class="`fixed flex justify-between px-6 w-full items-center top-0 py-2 z-40 navbar ${
         drawer == false
           ? 'bg-white text-black  border-b border-b-gray-300'
           : 'text-white'
@@ -11,6 +11,15 @@
       <a href="/">
         <img src="/SUMMER-BAY-Logo-01.png" class="w-32" alt="logo" />
       </a>
+      <div @click="handleLanguageChange" class="rounded-full border-2">
+        <img
+          v-if="language == 'EN'"
+          class="w-7 sm:w-9"
+          src="/khmer.png"
+          alt="khflag"
+        />
+        <img v-else class="w-7 sm:w-9" src="/united-kingdom.png" alt="UKflag" />
+      </div>
     </div>
 
     <!-- drawer -->
@@ -44,6 +53,10 @@ onMounted(() => {
     }
   });
 });
+const language = useLanguague();
+const handleLanguageChange = () => {
+  language.value = language.value == 'EN' ? 'KH' : 'EN';
+};
 </script>
 
 <style>

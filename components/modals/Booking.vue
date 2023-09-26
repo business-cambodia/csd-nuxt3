@@ -11,12 +11,14 @@
       <div class="relative bg-white rounded-3xl shadow p-6">
         <!-- header -->
         <div class="flex justify-center flex-col items-center">
-          <div class="text-gold text-4xl font-katibeh">Confirm Booking</div>
+          <div class="text-gold text-4xl font-katibeh">
+            {{ language == 'EN' ? 'Confirm Booking' : 'បញ្ជាក់ការកក់' }}
+          </div>
           <div class="text-center">
             {{
               language == 'EN'
                 ? 'Secure your room by filling the form below'
-                : 'បំពេញព័ត៌មានមួយចំនួន និងបញ្ជាក់លេខទូរស័ព្ទ'
+                : 'បំពេញព័ត៌មានខាងក្រោមដើម្បីកក់បន្ទប់របស់អ្នក'
             }}
           </div>
           <!-- lines -->
@@ -93,7 +95,9 @@
 
             <div class="flex justify-between gap-2 items-center">
               <div class="relative w-full">
-                <label for="">Checkin Date*</label>
+                <label for="">{{
+                  language == 'EN' ? 'Checkin Date*' : 'ថ្ងៃចូលនៅ*'
+                }}</label>
                 <div
                   class="absolute inset-y-0 top-5 left-0 flex items-center pl-3.5 pointer-events-none"
                 >
@@ -123,7 +127,9 @@
               </div>
 
               <div class="relative w-full">
-                <label for="">Checkout Date*</label>
+                <label for="">{{
+                  language == 'EN' ? 'Checkout Date*' : 'ថ្ងៃចេញទៅវិញ*'
+                }}</label>
                 <div
                   class="absolute inset-y-0 top-5 left-0 flex items-center pl-3.5 pointer-events-none"
                 >
@@ -154,8 +160,12 @@
             </div>
 
             <div class="flex items-center justify-between mt-3 gap-9">
-              <label for="rooms">Choose room type*</label>
-              <label for="countries">Room amount*</label>
+              <label for="rooms">{{
+                language == 'EN' ? 'Choose room type*' : 'ជ្រើសរើសប្រភេទបន្ទប់*'
+              }}</label>
+              <label for="countries">
+                {{ language == 'EN' ? 'Room amount*' : 'ចំនួនបន្ទប់*' }}
+              </label>
             </div>
             <div
               class="flex items-center gap-9 my-1"
@@ -187,6 +197,7 @@
                   <input
                     v-model="formData.accommodations[roomIndex].amount"
                     type="number"
+                    :min="1"
                     id="small-input"
                     class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -210,12 +221,14 @@
                 class="bg-primary text-white py-1 px-2 text-sm rounded-2xl cursor-pointer"
                 @click="handleAddRoom"
               >
-                Add
+                {{ language == 'EN' ? 'Add' : 'បន្ថែម' }}
               </div>
             </div>
 
             <div class="relative h-11 w-full min-w-[200px] mb-9">
-              <label for="message">Remarks</label>
+              <label for="message">{{
+                language == 'EN' ? 'Remarks' : 'ការកត់សម្គាល់'
+              }}</label>
               <textarea
                 v-model="formData.remarks"
                 id="message"

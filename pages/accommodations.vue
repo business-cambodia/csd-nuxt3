@@ -5,15 +5,19 @@
       <div
         class="text-center text-2xl sm:text-4xl font-bold uppercase text-primary"
       >
-        Our Accommodations
+        {{
+          language == 'EN' ? 'Our Accommodations' : 'កន្លែងស្នាក់នៅរបស់ពួកយើង'
+        }}
       </div>
       <div class="flex justify-center my-1">
         <div class="text-center w-32 border-gold border-b-2"></div>
       </div>
       <div class="text-center text-xs sm:text-base">
-        Experience the perfect blend of indulgence and tranquility with our
-        elegant cottage hotel, delicious dinning and extraordinary beach
-        activities.
+        {{
+          language == 'EN'
+            ? 'Book Now Experience the perfect blend of indulgence and tranquility with our elegant cottage hotel, delicious dinning and extraordinary beach activities.'
+            : 'ទួលយកបទពិសោធន៍ដ៏ល្អឥតខ្ចោះ ជាមួយការសម្រាកលំហែកាយដ៏ស្ងប់ស្ងាត់នៅរីសតដ៏ប្រណីត ទទួលទានអាហារដ៏ឈ្ងុយឆ្ងាញ់ និងសកម្មភាពកម្សាន្តលើឆ្នេរសមុទ្រឯកជនដ៏អស្ចារ្យ'
+        }}
       </div>
     </header>
     <div class="" v-for="(accommodation, index) in accommodations">
@@ -24,7 +28,9 @@
         <div class="flex justify-between mx-7 items-center md:text-xl">
           <div class="flex items-center gap-1 text-lg md:text-xl">
             💎
-            <div class="text-lg md:text-xl">Price:</div>
+            <div class="text-lg md:text-xl">
+              {{ language == 'EN' ? 'Price' : 'តម្លៃ' }}:
+            </div>
             <div class="relative text-xs">
               ${{ accommodation.price }}
               <div
@@ -34,9 +40,13 @@
             <div class="font-bold underline">
               ${{ accommodation.discounted_price }}
             </div>
-            / night
+            /
+            {{ language == 'EN' ? 'night' : 'យប់' }}
           </div>
-          <div>👤 {{ accommodation.pax }} paxes</div>
+          <div>
+            👤 {{ accommodation.pax }}
+            {{ language == 'EN' ? 'paxes' : 'នាក់' }}
+          </div>
         </div>
         <div class="flex items-center gap-1 ml-7 text-lg"></div>
 
@@ -61,7 +71,7 @@
             class="bg-primary text-white py-1 px-3 font-bold rounded-lg flex items-center gap-1 md:text-lg"
             @click="room = accommodation"
           >
-            Book Now
+            {{ language == 'EN' ? 'Book Now' : 'កក់ឥឡូវ​នេះ' }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"
@@ -77,6 +87,23 @@
         </div>
       </div>
       <hr />
+    </div>
+    <div class="text-xs sm:text-base font-bold text-center">
+      {{ language == 'EN' ? '*Disclamer:' : '*បញ្ជាក់:' }}
+    </div>
+    <div class="text-xs sm:text-base">
+      {{
+        language == 'EN'
+          ? '•Cabin types ( eg. garden view, sea view) will be allocated subject to availability.'
+          : '•ប្រភេទនៃបន្ទប់នឹងត្រូវបែងចែកទៅតាមចំនួនដែលមានជាក់ស្តែង'
+      }}
+    </div>
+    <div class="text-xs sm:text-base">
+      {{
+        language == 'EN'
+          ? '•You must place your booking three days in advance of your desired staying date.'
+          : '•លោកអ្នកត្រូវតែកក់បន្ទប់ឱ្យបានមុន៣ថ្ងៃដែលត្រូវចូលស្នាក់នៅ'
+      }}
     </div>
   </div>
   <ModalsBooking :rooms="accommodations" :propRoom="room" />
@@ -113,14 +140,14 @@
       </div>
     </div>
     <div class="text-sm md:text-lg">
-        {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
-        <a
-          class="underline"
-          href="https://facebook.com/techcambodia2022"
-          target="_blank"
-          >Technology Cambodia</a
-        >
-      </div>
+      {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
+      <a
+        class="underline"
+        href="https://facebook.com/techcambodia2022"
+        target="_blank"
+        >Technology Cambodia</a
+      >
+    </div>
   </footer>
 </template>
 
