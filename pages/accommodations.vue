@@ -31,14 +31,14 @@
             <div class="text-lg md:text-xl">
               {{ language == 'EN' ? 'Price' : 'តម្លៃ' }}:
             </div>
-            <div class="relative text-xs">
+            <!-- <div class="relative text-xs">
               ${{ accommodation.price }}
               <div
                 class="absolute bottom-2 left-0 w-full h-full border-b border-red-600 transform -rotate-6"
               ></div>
-            </div>
+            </div> -->
             <div class="font-bold underline">
-              ${{ accommodation.discounted_price }}
+              ${{ accommodation.price }}
             </div>
             /
             {{ language == 'EN' ? 'night' : 'យប់' }}
@@ -101,6 +101,13 @@
     <div class="text-xs sm:text-base">
       {{
         language == 'EN'
+          ? '•This rates are not applicable for holidays.'
+          : '•តម្លៃនេះអាចប្រែប្រួលទៅតាមថ្ងៃឈប់សម្រាក'
+      }}
+    </div>
+    <div class="text-xs sm:text-base">
+      {{
+        language == 'EN'
           ? '•You must place your booking three days in advance of your desired staying date.'
           : '•លោកអ្នកត្រូវតែកក់បន្ទប់ឱ្យបានមុន៣ថ្ងៃដែលត្រូវចូលស្នាក់នៅ'
       }}
@@ -108,9 +115,9 @@
   </div>
   <ModalsBooking :rooms="accommodations" :propRoom="room" />
   <footer
-    class="bottom-0 h-full bg-primary text-white text-center select-none md:flex md:justify-center md:space-x-12 md:items-end"
+    class="bottom-0 h-full bg-primary text-white text-center select-none md:flex md:justify-center md:space-x-12 md:items-end mt-2"
   >
-    <div class="md:flex md:flex-col md:space-y-2">
+    <div class="md:flex md:flex-col md:space-y-2 md:items-center">
       <a href="https://goo.gl/maps/23AiZ5hPutkHD7Xe6" target="_blank">
         <div
           :class="
@@ -138,15 +145,15 @@
             : 'មហាវិថីឆ្នេររាម ក្រុងព្រះសីហនុ ព្រះរាជាណាចក្រកម្ពុជា'
         }}
       </div>
-    </div>
-    <div class="text-sm md:text-lg">
-      {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
-      <a
+      <div class="text-sm md:text-lg">
+        {{ language == 'EN' ? 'Developed by' : 'វែបសាយបង្កើតដោយ' }}
+        <a
         class="underline"
         href="https://facebook.com/techcambodia2022"
         target="_blank"
         >Technology Cambodia</a
-      >
+        >
+      </div>
     </div>
   </footer>
 </template>
