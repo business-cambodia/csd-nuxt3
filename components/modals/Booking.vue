@@ -384,7 +384,11 @@ const handleBooking = async () => {
         body: formData.value,
       }
     );
-    toast.success('Booking succeed, We will contact you soon.');
+    toast.success(
+      language.value == 'EN'
+        ? 'Booking in Process, We will contact you soon.'
+        : 'ការកក់កំពុងដំណើរការ យើងនឹងទាក់ទងទៅអ្នកវិញឆាប់ៗនេះ'
+    );
     formData.value = {
       full_name: '',
       phone_number: '',
