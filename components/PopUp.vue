@@ -33,7 +33,7 @@
     <div
       class="beat-button flex justify-end bg-transparent py-1 px-4 rounded-b-lg"
     >
-      <NuxtLink to="https://wonderpass.asia/event/sihanoukville_day_trip">
+      <NuxtLink to="https://wonderpass.asia/event/nightmare_carnival">
         <button class="bg-secondary rounded-md text-white px-4 py-1 md:text-lg">
           ទិញសំបុត្រចូលរួមឥឡូវនេះ!
         </button>
