@@ -13,7 +13,8 @@ module.exports = {
     extend: {
       fontFamily: {
         proxima: ['Proxima Nova'],
-        katibeh: ['Katibeh']
+        katibeh: ['Katibeh'],
+        lobster: ['Lobster']
       },
     },
     colors: {
