@@ -206,6 +206,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  //disable a default layout
+  layout: false
+})
 import { initFlowbite } from 'flowbite';
 import { checkAuth } from '../auth';
 const isAuth = ref(false);
