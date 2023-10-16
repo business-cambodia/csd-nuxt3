@@ -7,7 +7,7 @@
     >
       <div class="">It's Always Summer Here</div>
     </div>
-    <div class="mb-2 text-white text-center sm:text-2xl">
+    <div class="mb-2 text-white text-center text-sm sm:text-2xl">
       Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville.
       Where senses come alive!
     </div>
