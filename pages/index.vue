@@ -1,5 +1,6 @@
 <template>
   <HomeHero />
+  <HomeEvent />
   <ClientOnly>
     <PopUp />
   </ClientOnly>
