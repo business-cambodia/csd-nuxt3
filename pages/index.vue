@@ -1,6 +1,7 @@
 <template>
   <HomeHero />
   <HomeEvent />
+  <HomeActivity />
   <ClientOnly>
     <PopUp />
   </ClientOnly>
