@@ -2,6 +2,7 @@
   <HomeHero />
   <HomeEvent />
   <HomeActivity />
+  <HomeFood />
   <ClientOnly>
     <PopUp />
   </ClientOnly>
