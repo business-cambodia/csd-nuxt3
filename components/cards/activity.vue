@@ -23,6 +23,6 @@ defineProps<{
   width: 100%;
   color: var(--vc-clr-white);
   font-size: 20px;
-  border-radius: 18px;
+  border-radius: 25px;
 }
 </style>

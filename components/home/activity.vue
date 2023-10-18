@@ -5,7 +5,7 @@
         class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3"
         to="/"
       >
-        Activities >
+        Activities
       </NuxtLink>
     </div>
     <Carousel ref="activitySlide" :breakpoints="breakpoints">
@@ -17,13 +17,19 @@
         <Pagination />
       </template>
     </Carousel>
-    <div class="flex flex-col items-center my-3 px-6">
-      <div class="text-center font-bold md:text-xl">
-        {{ activities[activitySlide?.data?.currentSlide.value]?.name }}
+    <ClientOnly>
+      <div class="flex flex-col items-center my-3 px-6">
+        <div class="text-center font-bold md:text-xl">
+          {{ activities[activitySlide.data.currentSlide.value].name }}
+        </div>
+        <div
+          class="text-sm md:text-base font-thin text-center mt-3 line-clamp-2"
+          v-html="
+            activities[activitySlide?.data?.currentSlide.value]?.description
+          "
+        ></div>
       </div>
-      <div class="text-sm md:text-base font-thin text-center mt-3 line-clamp-3" v-html="activities[activitySlide?.data?.currentSlide.value]?.description"></div>
-      
-    </div>
+    </ClientOnly>
   </div>
 </template>
 
