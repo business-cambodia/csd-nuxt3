@@ -2,7 +2,7 @@
   <div class="m-4">
     <div class="flex justify-between mb-2">
       <NuxtLink class="text-gradient-green-blue text-xl md:text-2xl font-bold" to="/">
-        Upcoming Events >
+        Upcoming Events
       </NuxtLink>
       <div class="flex space-x-3 items-center md:hidden">
         <div @click="eventSlide.prev()">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <Carousel ref="eventSlide" :breakpoints="breakpoints">
+    <Carousel ref="eventSlide" :breakpoints="breakpoints" :mouseDrag="false">
       <Slide v-for="(e, index) in events" :key="index">
         <CardsEvent :event="e"/>
       </Slide>
