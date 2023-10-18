@@ -1,11 +1,11 @@
 <template>
   <NuxtLink
     class="relative  text-white h-48 md:h-60 w-full rounded-xl mr-3"
-    :to="`/events/${event.slug}`"
+    :to="`/`"
   >
     <div
       :style="{
-        backgroundImage: `linear-gradient(182.04deg, rgba(14, 76, 104, 0) 22.45%, rgba(14, 76, 104, 0.79) 80.59%, rgba(14, 76, 104, 0.79) 105.17%), url(${useImg(
+        backgroundImage: `url(${useImg(
           event.thumbnail
         )})`,
       }"

@@ -1,7 +1,7 @@
 <template>
   <div class="m-4">
     <div class="flex justify-between mb-2">
-      <NuxtLink class="text-gradient-green-blue text-xl md:text-2xl font-bold" to="/events">
+      <NuxtLink class="text-gradient-green-blue text-xl md:text-2xl font-bold" to="/">
         Upcoming Events >
       </NuxtLink>
       <div class="flex space-x-3 items-center md:hidden">
