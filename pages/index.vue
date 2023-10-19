@@ -5,8 +5,9 @@
   <HomeFood />
   <HomeNews />
   <HomeGallery />
+  <HomeVideo />
   <ClientOnly>
-    <!-- <PopUp /> -->
+    <PopUp />
   </ClientOnly>
 </template>
 
