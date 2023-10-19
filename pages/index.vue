@@ -3,9 +3,10 @@
   <HomeEvent />
   <HomeActivity />
   <HomeFood />
+  <HomeNews />
   <HomeGallery />
   <ClientOnly>
-    <PopUp />
+    <!-- <PopUp /> -->
   </ClientOnly>
 </template>
 
