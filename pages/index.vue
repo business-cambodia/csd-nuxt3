@@ -3,6 +3,7 @@
   <HomeEvent />
   <HomeActivity />
   <HomeFood />
+  <HomeGallery />
   <ClientOnly>
     <PopUp />
   </ClientOnly>
