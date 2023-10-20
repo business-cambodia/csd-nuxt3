@@ -45,11 +45,9 @@
 </template>
 
 <script setup lang="ts">
-
 const drawer = ref(false);
 const close = ref(false);
 const scrollPosition = ref(0);
-
 
 const toggleDrawer = () => {
   drawer.value = !drawer.value;
@@ -77,6 +75,7 @@ onMounted(() => {
 const language = useLanguague();
 const handleLanguageChange = () => {
   language.value = language.value == 'EN' ? 'KH' : 'EN';
+  document.body.style.fontFamily = language.value == 'EN' ? 'Poppins' : 'Kantumruy Pro';
 };
 </script>
 

@@ -20,6 +20,10 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Poppins&display=swap',
         },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Kantumruy+Pro&display=swap',
+        },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       script: [
