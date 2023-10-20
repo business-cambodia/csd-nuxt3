@@ -1,5 +1,13 @@
 <template>
-  <div class="text-gradient-green-blue text-center font-bold text-lg md:text-2xl">Video</div>
+  <div
+    class="text-gradient-green-blue text-center font-bold text-lg md:text-2xl"
+  >
+    {{
+      (language === 'KH' && 'វីដេអូ') ||
+      (language === 'CN' && '') ||
+      'Video'
+    }}
+  </div>
   <div class="flex justify-center">
     <div class="w-full md:w-[900px] h-auto max-w-full p-6">
       <iframe
@@ -15,6 +23,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const language = useLanguague();
+</script>
 
 <style scoped></style>
