@@ -3,7 +3,11 @@
     <div
       class="text-center text-gradient-green-blue font-bold text-xl md:text-2xl"
     >
-      Galleries
+      {{
+        (language === 'KH' && 'វិចិត្រសាល') ||
+        (language === 'CN' && '') ||
+        'Galleries'
+      }}
     </div>
     <div
       class="flex justify-center space-x-3 text-sm md:text-lg my-3 cursor-pointer"
@@ -12,7 +16,9 @@
         @click="galleries = title"
         :class="galleries.length > 1 && 'text-gradient-green-blue font-bold'"
       >
-        All
+        {{
+          (language === 'KH' && 'ទាំងអស់') || (language === 'CN' && '') || 'All'
+        }}
       </div>
       <div
         @click="handleClick(item.name)"
@@ -24,7 +30,11 @@
         v-for="(item, index) in title"
         :key="index"
       >
-        {{ item.name }}
+        {{
+          (language === 'KH' && item.name_kh) ||
+          (language === 'CN' && item.name_cn) ||
+          item.name
+        }}
       </div>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -45,12 +55,13 @@
 <script setup lang="ts">
 import { IGallery } from 'types/gallery';
 import { IResponse } from 'types/api';
+const language = useLanguague();
 
 const galleries = ref(
   (
     await (<Promise<IResponse<IGallery[]>>>(
       useApi(
-        'items/galleries?filter[status]=published&fields=*,images.directus_files_id',
+        'items/galleries?filter[status]=published&sort&fields=*,images.directus_files_id',
         { method: 'GET' }
       )
     ))
