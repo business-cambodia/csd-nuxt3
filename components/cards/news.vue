@@ -16,7 +16,11 @@
       >
         <div class="flex flex-col items-center justify-center align-middle">
           <div class="line-clamp-3 font-bold text-sm md:text-lg">
-            {{ news.title }}
+            {{
+              (language === 'KH' && news.title_kh) ||
+              (language === 'CN' && news.title_cn) ||
+              news.title
+            }}
           </div>
           <div class="text-gradient-green-blue text-xs md:text-sm italic px-1">
             {{
@@ -26,7 +30,11 @@
                 day: 'numeric',
               })
             }}
-            • 1 min read
+            {{
+              (language === 'KH' && '• រយៈពេលអាន 1នាទី') ||
+              (language === 'CN' && '') ||
+              '• 1 min read'
+            }}
           </div>
         </div>
       </div>
@@ -39,6 +47,7 @@ import { INews } from 'types/news';
 defineProps<{
   news: INews;
 }>();
+const language = useLanguague();
 </script>
 
 <style scoped></style>

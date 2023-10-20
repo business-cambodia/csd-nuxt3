@@ -5,12 +5,18 @@
         class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3"
         to="/"
       >
-        Latest News
+        {{
+          (language === 'KH' && 'ព័ត៌មានថ្មីៗ') ||
+          (language === 'CN' && '') ||
+          'Latest News'
+        }}
       </NuxtLink>
 
       <div class="flex space-x-3 items-center">
         <div @click="newsSlides.prev()">
-          <IconsArrowLeft :active="newsSlides?.data?.currentSlide?.value != 0" />
+          <IconsArrowLeft
+            :active="newsSlides?.data?.currentSlide?.value != 0"
+          />
         </div>
         <div @click="newsSlides.next()">
           <IconsArrowRight
@@ -38,9 +44,14 @@ import { INews } from 'types/news';
 import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 const newsSlides = ref();
+const language = useLanguague();
 
 const news: INews[] = (
-  await (<Promise<IResponse<INews[]>>>useApi('items/news?sort=-date_created&filter[status]=published', { method: 'GET' }))
+  await (<Promise<IResponse<INews[]>>>(
+    useApi('items/news?sort=-date_created&filter[status]=published', {
+      method: 'GET',
+    })
+  ))
 ).data;
 
 //responsive breakpoints for carousel
