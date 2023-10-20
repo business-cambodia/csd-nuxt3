@@ -1,11 +1,11 @@
 <template>
   <NuxtLink
-    class="relative  text-white h-48 md:h-60 w-full rounded-xl mr-3"
+    class="relative text-white h-48 md:h-60 w-full rounded-xl mr-3"
     :to="`/`"
   >
     <div
       :style="{
-        backgroundImage: `url(${useImg(
+        backgroundImage: `linear-gradient(182.04deg, rgba(14, 76, 104, 0) 50.45%, rgba(14, 76, 104, 0.79) 90.59%, rgba(14, 76, 104, 0.79) 105.17%),url(${useImg(
           event.thumbnail
         )})`,
       }"
@@ -25,15 +25,19 @@
           }}
         </div>
       </div>
-      <div class="absolute bottom-6 px-3 md:text-lg">
-        {{ lang == 'KH' && event.title_kh ? event.title_kh : event.title }}
+      <div class="absolute bottom-3 px-3 md:text-lg">
+        {{
+          (language === 'KH' && event.title_kh) ||
+          (language === 'CN' && event.title_cn) ||
+          event.title
+        }}
       </div>
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-const lang = useLanguague();
+const language = useLanguague();
 import { IEvent } from '~~/types/event';
 defineProps<{
   event: IEvent;

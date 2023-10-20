@@ -1,16 +1,20 @@
 <template>
   <div class="m-4">
     <div class="flex justify-between mb-2">
-      <NuxtLink class="text-gradient-green-blue text-xl md:text-2xl font-bold" to="/">
-        Upcoming Events
+      <NuxtLink
+        class="text-gradient-green-blue text-xl md:text-2xl font-bold"
+        to="/"
+      >
+        {{
+          (language === 'KH' && 'ព្រឹត្តិការណ៍ថ្មីៗ') ||
+          (language === 'CN' && '') ||
+          'Upcoming Events'
+        }}
       </NuxtLink>
       <div class="flex space-x-3 items-center md:hidden">
         <div @click="eventSlide.prev()">
           <IconsArrowLeft
-            :active="
-              eventSlide?.data?.currentSlide?.value !=
-              0
-            "
+            :active="eventSlide?.data?.currentSlide?.value != 0"
           />
         </div>
         <div @click="eventSlide.next()">
@@ -25,7 +29,7 @@
     </div>
     <Carousel ref="eventSlide" :breakpoints="breakpoints" :mouseDrag="false">
       <Slide v-for="(e, index) in events" :key="index">
-        <CardsEvent :event="e"/>
+        <CardsEvent :event="e" />
       </Slide>
     </Carousel>
   </div>
@@ -37,16 +41,13 @@ import { IEvent } from 'types/event';
 import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 const eventSlide = ref();
+const language = useLanguague();
 
 const events: IEvent[] = (
   await (<Promise<IResponse<IEvent[]>>>(
-    useApi(
-      "items/events?sort=-event_date&_limit=3",
-      { method: "GET" }
-    )
+    useApi('items/events?sort=-event_date&_limit=3', { method: 'GET' })
   ))
 ).data;
-
 
 //responsive breakpoints for carousel
 const breakpoints = {
