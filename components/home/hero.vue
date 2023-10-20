@@ -8,20 +8,28 @@
       <div class="">It's Always Summer Here</div>
     </div>
     <div class="mb-2 text-white text-center text-sm sm:text-2xl">
-      Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville.
-      Where senses come alive!
+      {{
+        (language === 'KH' &&
+          'ផ្តល់បទពិសោធន៏ថ្មីសម្រាប់ខ្លួនរបស់លោកអ្នកជាមួយ ភាពស្ងប់ស្ងាត់ជាមួយរីសតជាប់ឆ្នេរសមុទ្រដ៏ស្រស់ស្អាតរបស់យើង ព្រមទាំងសាកល្បងជាមួយសកម្មភាពថ្មីដ៏អស្ចារ្យ') ||
+        (language === 'CN' && '') ||
+        'Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville. Where senses come alive!'
+      }}
     </div>
     <NuxtLink
       to="/accommodations"
       class="bg-transparent border border-white text-white sm:text-2xl py-2.5 text-base font-bold px-6 duration-500 hover:bg-white hover:text-secondary"
     >
-      Book Now
+      {{
+        (language === 'KH' && 'កក់ឥឡូវ​នេះ') ||
+        (language === 'CN' && '') ||
+        'Book Now'
+      }}
     </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
-const sth = ref(false);
+const language = useLanguague();
 </script>
 
 <style scoped>
