@@ -77,11 +77,22 @@
       href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
       target="_blank"
       class="underline"
-      >Chhner Ream Blvd, Sihanoukville, Cambodia</a
     >
+      {{
+        (language === 'KH' &&
+          'មហាវិថីឆ្នេររាម ក្រុងព្រះសីហនុ ព្រះរាជាណាចក្រកម្ពុជា') ||
+        (language === 'CN' && '') ||
+        'Chhner Ream Blvd, Sihanoukville, Cambodia'
+      }}
+    </a>
     <div class="">© 2023 Summer Bay All rights reserved</div>
     <div>
-      Developed by
+      {{
+        (language === 'KH' &&
+          'អភិវឌ្ឍន៍ដោយ') ||
+        (language === 'CN' && '') ||
+        'Developed by'
+      }}  
       <a
         class="font-bold"
         href="https://facebook.com/techcambodia2022"
@@ -92,6 +103,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const language = useLanguague();
+</script>
 
 <style lang="scss" scoped></style>
