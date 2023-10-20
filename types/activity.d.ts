@@ -5,4 +5,5 @@ export interface IActivity {
   slug: string;
   thumbnail: string;
   description: string;
+  description_kh: string;
 }

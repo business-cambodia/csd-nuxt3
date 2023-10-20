@@ -5,7 +5,11 @@
         class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3"
         to="/"
       >
-        Activities
+        {{
+          (language === 'KH' && 'សកម្មភាព') ||
+          (language === 'CN' && '') ||
+          'Activities'
+        }}
       </NuxtLink>
     </div>
     <Carousel ref="activitySlide" :breakpoints="breakpoints">
@@ -20,11 +24,20 @@
     <ClientOnly>
       <div class="flex flex-col items-center my-3 px-6">
         <div class="text-center font-bold md:text-xl">
-          {{ activities[activitySlide.data.currentSlide.value].name }}
+          {{
+            (language === 'KH' &&
+              activities[activitySlide.data.currentSlide.value].name_kh) ||
+            (language === 'CN' && '') ||
+            activities[activitySlide.data.currentSlide.value].name
+          }}
         </div>
         <div
-          class="text-sm md:text-base font-thin text-center mt-3 line-clamp-2"
+          class="text-sm md:text-base text-center mt-3 line-clamp-2"
           v-html="
+            (language === 'KH' &&
+              activities[activitySlide.data.currentSlide.value]
+                .description_kh) ||
+            (language === 'CN' && '') ||
             activities[activitySlide?.data?.currentSlide.value]?.description
           "
         ></div>
@@ -39,6 +52,7 @@ import { IActivity } from 'types/activity';
 import { Carousel, Slide, Pagination } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 const activitySlide = ref();
+const language = useLanguague();
 
 const activities: IActivity[] = (
   await (<Promise<IResponse<IActivity[]>>>(
