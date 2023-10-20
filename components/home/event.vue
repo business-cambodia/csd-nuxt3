@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4">
+  <div class="m-4 md:my-12">
     <div class="flex justify-between mb-2">
       <NuxtLink
         class="text-gradient-green-blue text-xl md:text-2xl font-bold"

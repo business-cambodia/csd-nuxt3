@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6">
+  <div class="my-6 md:my-12">
     <div class="flex justify-center">
       <NuxtLink
         class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3"

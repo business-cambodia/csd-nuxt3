@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6 mx-4">
+  <div class="my-6 md:my-12 mx-4">
     <div class="flex justify-between">
       <NuxtLink
         class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3 leading-[2]"

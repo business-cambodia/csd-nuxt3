@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6 mx-4">
+  <div class="my-6 md:my-12 mx-4">
     <div
       class="text-center text-gradient-green-blue font-bold text-xl md:text-2xl"
     >
