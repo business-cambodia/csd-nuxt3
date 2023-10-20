@@ -1,4 +1,5 @@
 <template>
+  <div class="w-full h-12 bg-primary md:h-14 fixed top-0"></div>
   <div class="mx-4 mt-[70px] md:mx-40 lg:mx-80">
     <header class="my-6">
       <div
@@ -36,9 +37,7 @@
                 class="absolute bottom-2 left-0 w-full h-full border-b border-red-600 transform -rotate-6"
               ></div>
             </div> -->
-            <div class="font-bold underline">
-              ${{ accommodation.price }}
-            </div>
+            <div class="font-bold underline">${{ accommodation.price }}</div>
             /
             {{ language == 'EN' ? 'night' : 'យប់' }}
           </div>
@@ -128,7 +127,7 @@ const accommodations: any = (
 )?.data;
 onMounted(() => {
   initFlowbite();
-})
+});
 </script>
 
 <style scoped></style>
