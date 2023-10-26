@@ -5,7 +5,7 @@
     <div
       class="text-5xl sm:text-6xl lg:text-7xl mt-28 text-white font-lobster text-center leading-tight"
     >
-      <div class="">It's Always Summer Here</div>
+      <div class="">Vacation Is Calling!</div>
     </div>
     <div class="mb-2 text-white text-center text-sm sm:text-2xl">
       {{
@@ -35,13 +35,13 @@ const language = useLanguague();
 <style scoped>
 .hero {
   height: 75vh;
-  background-position: bottom;
+  background-position: right 15% bottom 0%;
   background-image: linear-gradient(
       to bottom,
       rgba(118, 183, 159, 0),
       rgba(75, 144, 190, 0)
     ),
-    url('/homepage.jpg');
+    url('/homebg.jpg');
 }
 @media (min-width: 640px) {
   .hero {
