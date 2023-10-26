@@ -5,7 +5,7 @@
         news.thumbnail
       )})`,
     }"
-    :class="`h-[380px] w-full lg:h-[500px] rounded-3xl object-cover bg-top bg-no-repeat bg-cover mr-3 relative`"
+    :class="`aspect-[2/3] max-h-[s00px] w-full rounded-3xl object-cover bg-top bg-no-repeat bg-cover mr-3 relative`"
   >
     <div class="absolute bottom-3 px-3 w-full h-1/3">
       <div

@@ -37,7 +37,7 @@
         }}
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
       <div
         v-if="galleries.length > 1"
         v-for="(gallery, index) in galleries"

@@ -19,7 +19,8 @@ defineProps<{
 
 <style scoped>
 .carousel__item {
-  min-height: 322px;
+  max-height: 500px;
+  aspect-ratio: 2/3;
   width: 100%;
   color: var(--vc-clr-white);
   font-size: 20px;

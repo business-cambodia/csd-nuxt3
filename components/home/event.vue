@@ -45,7 +45,7 @@ const language = useLanguague();
 
 const events: IEvent[] = (
   await (<Promise<IResponse<IEvent[]>>>(
-    useApi('items/events?sort=-event_date&_limit=3', { method: 'GET' })
+    useApi('items/events?sort=-event_date&limit=4', { method: 'GET' })
   ))
 ).data;
 

@@ -50,19 +50,19 @@ const activities: IFood[] = (
 const breakpoints = {
   // mobile
   0: {
-    itemsToShow: 1.8,
+    itemsToShow: 1.6,
     snapAlign: 'center',
   },
 
   // 640px to 770
   640: {
-    itemsToShow: 2,
+    itemsToShow: 3,
     snapAlign: 'center',
   },
 
   // 770px to 1024
-  770: {
-    itemsToShow: 3,
+  960: {
+    itemsToShow: 4,
     snapAlign: 'start',
   },
 };

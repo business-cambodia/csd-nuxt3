@@ -5,7 +5,7 @@
         image.directus_files_id
       )})`,
     }"
-    class="h-60 md:h-80 w-full rounded-2xl object-cover bg-center bg-no-repeat bg-cover"
+    class="aspect-[2/3] w-full rounded-2xl object-cover bg-center bg-no-repeat bg-cover"
   >
   </div>
 </template>

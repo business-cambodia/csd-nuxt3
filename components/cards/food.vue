@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="relative text-white h-52 w-full md:h-80 mr-3 select-none"
+    class="relative text-white aspect-square w-full mr-3 select-none"
     :to="`/`"
   >
     <div

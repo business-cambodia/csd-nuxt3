@@ -48,7 +48,7 @@ const language = useLanguague();
 
 const news: INews[] = (
   await (<Promise<IResponse<INews[]>>>(
-    useApi('items/news?sort=-date_created&filter[status]=published', {
+    useApi('items/news?sort=-date_created&limit=4&filter[status]=published', {
       method: 'GET',
     })
   ))
@@ -58,19 +58,24 @@ const news: INews[] = (
 const breakpoints = {
   // mobile
   0: {
-    itemsToShow: 1.25,
+    itemsToShow: 1.5,
+    snapAlign: 'center',
+  },
+
+  500: {
+    itemsToShow: 2,
     snapAlign: 'center',
   },
 
   // 640px to 770
-  640: {
-    itemsToShow: 2,
+  720: {
+    itemsToShow: 3,
     snapAlign: 'center',
   },
 
   // 770px to 1024
   770: {
-    itemsToShow: 3,
+    itemsToShow: 4,
     snapAlign: 'start',
   },
 };
