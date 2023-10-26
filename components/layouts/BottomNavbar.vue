@@ -55,7 +55,7 @@
         {{
           (language === 'KH' && 'កាប៊ីន') ||
           (language === 'CN' && '') ||
-          'Carbins'
+          'Cabins'
         }}
       </div>
     </NuxtLink>
