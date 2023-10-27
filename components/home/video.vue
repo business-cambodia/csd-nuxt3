@@ -10,7 +10,7 @@
     <div class="w-full md:w-[900px] h-auto max-w-full p-6 md:p-0">
       <iframe
         class="border w-full h-full aspect-video rounded-lg"
-        src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fsummerbaybeachclubandcabins%2Fvideos%2F676296891039810%2F&show_text=false&width=560&t=0"
+        src="https://www.youtube.com/embed/7y8Fqeso4Mk?si=XSglZKJMNBaUW-GO"
         style="border: none; overflow: hidden"
         scrolling="no"
         frameborder="0"
