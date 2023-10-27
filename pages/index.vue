@@ -4,6 +4,7 @@
   <HomeActivity />
   <HomeFood />
   <HomeNews />
+  <HomeTestimonial />
   <HomeGallery />
   <HomeVideo />
   <ClientOnly>
