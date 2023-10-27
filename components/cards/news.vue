@@ -7,7 +7,7 @@
     }"
     :class="`aspect-[2/3] max-h-[s00px] w-full rounded-3xl object-cover bg-top bg-no-repeat bg-cover mr-3 relative`"
   >
-    <div class="absolute bottom-3 px-3 w-full h-1/3">
+    <div class="absolute bottom-3 px-3 w-full h-2/5">
       <div
         :style="{
           backgroundImage: `linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))`,
@@ -15,7 +15,7 @@
         class="h-full w-full rounded-xl p-3 flex"
       >
         <div class="flex flex-col items-center justify-center align-middle">
-          <div class="line-clamp-3 font-bold text-sm md:text-lg">
+          <div class="line-clamp-3 font-bold text-sm md:text-lg text-start">
             {{
               (language === 'KH' && news.title_kh) ||
               (language === 'CN' && news.title_cn) ||
