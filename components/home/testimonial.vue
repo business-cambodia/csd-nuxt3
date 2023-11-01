@@ -11,7 +11,7 @@
         }}
       </div>
       <Carousel ref="testimonialsSlide" :breakpoints="breakpoints">
-        <Slide v-for="(r, index) in testimonials.result.reviews" :key="index">
+        <Slide v-for="(r, index) in testimonials?.result?.reviews" :key="index">
           <div class="flex flex-col space-y-3 px-6 mb-3">
             <div class="flex items-center justify-between px-[10%]">
               <div @click="testimonialsSlide.prev()">
