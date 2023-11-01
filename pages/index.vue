@@ -7,9 +7,6 @@
   <HomeTestimonial />
   <HomeGallery />
   <HomeVideo />
-  <ClientOnly>
-    <PopUp />
-  </ClientOnly>
 </template>
 
 <script setup lang="ts"></script>
