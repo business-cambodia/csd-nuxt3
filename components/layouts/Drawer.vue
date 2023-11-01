@@ -39,7 +39,7 @@ const navItems = ref([
   { to: '/', property: 'activities' },
   { to: '/', property: 'promotions' },
   { to: '/accommodations', property: 'accommodations' },
-  { to: '/', property: 'about us' },
+  { to: '/about', property: 'about us' },
   { to: '/', property: 'contact' },
 ]);
 
