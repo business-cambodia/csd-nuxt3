@@ -4,6 +4,7 @@ export interface INews {
   title_cn: string;
   description: string;
   description_kh: string;
+  description_cn: string;
   date_created: Date;
   slug: string;
   thumbnail: string;

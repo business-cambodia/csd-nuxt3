@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    :to="`/news/${news.slug}`"
     :style="{
       backgroundImage: `linear-gradient(180deg, rgba(14, 76, 104, 0) 43.27%, rgba(14, 76, 104, 0.7) 80.21%, rgba(14, 76, 104, 0.7) 100%),url(${useImg(
         news.thumbnail
@@ -39,7 +40,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
