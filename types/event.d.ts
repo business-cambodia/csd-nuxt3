@@ -6,4 +6,7 @@ export interface IEvent {
   event_date: Date;
   slug: string;
   thumbnail: string;
+  description: string;
+  description_kh: string;
+  description_cn: string;
 }
