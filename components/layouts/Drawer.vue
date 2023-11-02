@@ -37,7 +37,7 @@ const navItems = ref([
   { to: '/', property: 'home' },
   { to: '/', property: 'events' },
   { to: '/', property: 'activities' },
-  { to: '/', property: 'promotions' },
+  { to: '/promotions', property: 'promotions' },
   { to: '/accommodations', property: 'accommodations' },
   { to: '/about', property: 'about us' },
   { to: '/', property: 'contact' },
