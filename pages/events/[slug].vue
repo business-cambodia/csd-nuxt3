@@ -57,7 +57,6 @@ const event = (
 ).data[0];
 
 useHead({
-  title: event.title,
   meta: [
     {
       property: 'og:image',
