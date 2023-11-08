@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
     <LayoutsNavbarWhite />
-    <ClientOnly>
+    <!-- <ClientOnly>
       <PopUp />
-    </ClientOnly>
+    </ClientOnly> -->
     <slot />
     <LayoutsFooter />
     <LayoutsBottomNavbar />
