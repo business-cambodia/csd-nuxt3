@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     class="relative text-white aspect-square w-full mr-3 select-none"
-    :to="`/`"
+    :to="`/foods/`+food.slug"
   >
     <div
       :style="{
@@ -11,7 +11,7 @@
       }"
       class="object-cover bg-center bg-no-repeat bg-cover rounded-2xl w-full h-full"
     >
-      <div class="absolute font-bold top-2 px-2 md:text-lg">
+      <div class="absolute text-start font-bold top-1 pl-2 text-sm md:text-lg text-gray-500">
         {{ lang == 'KH' && food.name_kh ? food.name_kh : food.name }}
       </div>
     </div>
