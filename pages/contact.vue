@@ -147,7 +147,7 @@
   </div>
   <div class="px-4 my-3 mb-6">
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
-      <img src="map.jpg" class="rounded-lg" alt="map image" />
+      <img src="/map.jpg" class="rounded-lg" alt="map image" />
     </a>
   </div>
   <div class="px-4 my-3 mb-6">
