@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex my-6 md:my-12 md:mx-6 rounded-lg select-none bg-[linear-gradient(251.49deg,rgba(62,133,198,0.1)-3.81%,rgba(140,203,142,0.1)90.36%)] aspect-[2/3] md:aspect-auto"
+    class="flex my-6 md:my-12 md:mx-6 rounded-lg select-none bg-[linear-gradient(251.49deg,rgba(62,133,198,0.1)-3.81%,rgba(140,203,142,0.1)90.36%)] md:aspect-auto"
   >
-    <div class="flex flex-col items-center justify-center py-6">
+    <div class="flex flex-col items-center justify-center pt-6 md:px-56">
       <div class="text-gradient-green-blue font-bold text-xl md:text-2xl">
         {{
           (language === 'KH' && 'ការផ្តល់យោបល់ផ្សេងៗលើពួកយើង') ||
@@ -12,8 +12,10 @@
       </div>
       <Carousel ref="testimonialsSlide" :breakpoints="breakpoints">
         <Slide v-for="(r, index) in testimonials?.result?.reviews" :key="index">
-          <div class="flex flex-col space-y-3 px-6 mb-3">
-            <div class="flex items-center justify-between px-[10%]">
+          <div class="flex flex-col space-y-2 px-6 mb-3">
+            <div
+              class="flex items-center justify-center space-x-9 md:space-x-12"
+            >
               <div @click="testimonialsSlide.prev()">
                 <IconsChervonLeft />
               </div>
@@ -45,7 +47,9 @@ const language = useLanguague();
 
 const testimonials: any = (
   await useFetch(
-    'https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
+    process.client
+      ? 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
+      : 'https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
   )
 ).data;
 
