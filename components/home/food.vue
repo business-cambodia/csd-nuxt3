@@ -6,7 +6,7 @@
         to="/"
       >
         {{
-          (language === 'KH' && 'ម្ហូប') || (language === 'CN' && '') || 'Foods'
+          (language === 'KH' && 'អាហារ') || (language === 'CN' && '') || 'Foods'
         }}
       </NuxtLink>
 
@@ -43,7 +43,7 @@ const foodSlide = ref();
 const language = useLanguague();
 
 const activities: IFood[] = (
-  await (<Promise<IResponse<IFood[]>>>useApi('items/foods', { method: 'GET' }))
+  await (<Promise<IResponse<IFood[]>>>useApi('items/foods?filter[status]=published', { method: 'GET' }))
 ).data;
 
 //responsive breakpoints for carousel

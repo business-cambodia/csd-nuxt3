@@ -56,7 +56,7 @@ const language = useLanguague();
 
 const activities: IActivity[] = (
   await (<Promise<IResponse<IActivity[]>>>(
-    useApi('items/activities', { method: 'GET' })
+    useApi('items/activities?filter[status]=published', { method: 'GET' })
   ))
 ).data;
 

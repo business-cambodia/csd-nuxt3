@@ -1,6 +1,6 @@
 <template>
   <div class="ellipse"></div>
-  <div class="pb-24"></div>
+  <div class="pb-20"></div>
   <div
     class="text-center font-lobster text-5xl lg:text-7xl text-gradient-green-blue leading-snug lg:pb-6"
   >
@@ -60,7 +60,7 @@ const activitySlide = ref();
 const language = useLanguague();
 const promotions: IPromotion[] = (
   await (<Promise<IResponse<IPromotion[]>>>(
-    useApi('items/promotions?sort=-date_created', { method: 'GET' })
+    useApi('items/promotions?filter[status]=published&sort=-date_created', { method: 'GET' })
   ))
 ).data;
 const breakpoints = {

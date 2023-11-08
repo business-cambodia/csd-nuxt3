@@ -8,7 +8,7 @@
         {{
           (language === 'KH' && 'ព្រឹត្តិការណ៍ថ្មីៗ') ||
           (language === 'CN' && '') ||
-          'Upcoming Events'
+          'Events'
         }}
       </NuxtLink>
       <div class="flex space-x-3 items-center md:hidden">
@@ -45,7 +45,9 @@ const language = useLanguague();
 
 const events: IEvent[] = (
   await (<Promise<IResponse<IEvent[]>>>(
-    useApi('items/events?sort=-event_date&limit=4', { method: 'GET' })
+    useApi('items/events?filter[status]=published&sort=-event_date&limit=4', {
+      method: 'GET',
+    })
   ))
 ).data;
 
