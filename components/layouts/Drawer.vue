@@ -40,7 +40,7 @@ const navItems = ref([
   { to: '/promotions', property: 'promotions' },
   { to: '/accommodations', property: 'accommodations' },
   { to: '/about', property: 'about us' },
-  { to: '/', property: 'contact' },
+  { to: '/contact', property: 'contact' },
 ]);
 
 </script>
