@@ -1,13 +1,30 @@
 <template>
   <svg
+    class="w-6 sm:w-8"
+    viewBox="0 0 22 17"
+    fill="white"
     xmlns="http://www.w3.org/2000/svg"
-    class="w-5 sm:w-7"
-    viewBox="0 0 448 512"
-    :fill="scrollPosition > 0 && drawer == false ? '#0E4C68' : 'white'"
   >
-    <path
-      d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+  <path
+      d="M2 2H20M2 8.75H20M2 15.5H20"
+      :stroke="scrollPosition > 0 && drawer == false ? 'url(#paint0_linear_1044_4152)' : 'white'"
+      stroke-width="2.25"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
+    <defs v-if="scrollPosition > 0 && drawer == false">
+      <linearGradient
+        id="paint0_linear_1044_4152"
+        x1="1.53081"
+        y1="2"
+        x2="22.3879"
+        y2="7.54467"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#76B79F" />
+        <stop offset="1" stop-color="#4B90BE" />
+      </linearGradient>
+    </defs>
   </svg>
 </template>
 
