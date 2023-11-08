@@ -1,4 +1,5 @@
 <template>
+  <LayoutsNavbarTransparent />
   <div class="ellipse"></div>
   <div class="pb-20"></div>
   <div
@@ -17,7 +18,7 @@
       'Check out our exclusive promotion!'
     }}
   </div>
-  <div class="mx-6 my-12 text-center">
+  <div class="mx-6 my-6 text-center">
     <Carousel ref="activitySlide" :breakpoints="breakpoints">
       <Slide v-for="(p, index) in promotions" :key="index">
         <CardsPromotion :promotion="p" />
@@ -60,7 +61,9 @@ const activitySlide = ref();
 const language = useLanguague();
 const promotions: IPromotion[] = (
   await (<Promise<IResponse<IPromotion[]>>>(
-    useApi('items/promotions?filter[status]=published&sort=-date_created', { method: 'GET' })
+    useApi('items/promotions?filter[status]=published&sort=-date_created', {
+      method: 'GET',
+    })
   ))
 ).data;
 const breakpoints = {
@@ -69,7 +72,7 @@ const breakpoints = {
     wrapAround: true,
     itemsToShow: 1,
     snapAlign: 'start',
-    mouseDrag: false
+    mouseDrag: false,
   },
 };
 </script>
