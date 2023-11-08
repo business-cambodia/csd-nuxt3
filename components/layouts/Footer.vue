@@ -72,33 +72,34 @@
         </svg>
       </a>
     </div>
-    <div class="">KH +855 12 345 678</div>
-    <a
-      href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
-      target="_blank"
-      class="underline"
-    >
-      {{
-        (language === 'KH' &&
-          'មហាវិថីឆ្នេររាម ក្រុងព្រះសីហនុ ព្រះរាជាណាចក្រកម្ពុជា') ||
-        (language === 'CN' && '') ||
-        'Chhner Ream Blvd, Sihanoukville, Cambodia'
-      }}
-    </a>
-    <div class="">© 2023 Summer Bay All rights reserved</div>
-    <div>
-      {{
-        (language === 'KH' &&
-          'អភិវឌ្ឍន៍ដោយ') ||
-        (language === 'CN' && '') ||
-        'Developed by'
-      }}  
+    <div class="text-sm text-center">
+      <div class="">KH +855 12 345 678</div>
       <a
-        class="font-bold"
-        href="https://facebook.com/techcambodia2022"
+        href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
         target="_blank"
-        >Technology Cambodia</a
+        class="underline"
       >
+        {{
+          (language === 'KH' &&
+            'មហាវិថីឆ្នេររាម ក្រុងព្រះសីហនុ ព្រះរាជាណាចក្រកម្ពុជា') ||
+          (language === 'CN' && '') ||
+          'Chhner Ream Blvd, Sihanoukville, Cambodia'
+        }}
+      </a>
+      <div class="">© 2023 Summer Bay All rights reserved</div>
+      <div>
+        {{
+          (language === 'KH' && 'អភិវឌ្ឍន៍ដោយ') ||
+          (language === 'CN' && '') ||
+          'Developed by'
+        }}
+        <a
+          class="font-bold"
+          href="https://facebook.com/techcambodia2022"
+          target="_blank"
+          >Technology Cambodia</a
+        >
+      </div>
     </div>
   </div>
 </template>
