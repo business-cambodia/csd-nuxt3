@@ -12,7 +12,11 @@
       class="object-cover bg-center bg-no-repeat bg-cover rounded-2xl w-full h-full"
     >
       <div class="absolute text-start font-bold top-1 pl-2 text-sm md:text-lg text-gray-500">
-        {{ lang == 'KH' && food.name_kh ? food.name_kh : food.name }}
+        {{
+          (lang === 'KH' && food.name_kh) ||
+          (lang === 'CN' && food.name_cn) ||
+          food.name
+        }}
       </div>
     </div>
   </NuxtLink>
