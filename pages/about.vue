@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{
-      backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0)-5.67%,rgb(14,76,104)126.05%),url('about.jpg')`,
+      backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0)-5.67%,rgb(14,76,104)126.05%),url('/about.jpg')`,
     }"
     class="relative bg-no-repeat bg-cover bg-center h-[60vh] flex flex-col sm:space-y-6 space-y-2 items-center justify-center"
   >
