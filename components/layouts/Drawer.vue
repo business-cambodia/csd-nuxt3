@@ -14,7 +14,7 @@
           exact
           @click="() => closeDrawer?.()"
         >
-          <li class="text-left uppercase text-2xl md:text-4x my-3 items-center">
+          <li class="text-left uppercase text-xl md:text-4x my-3 items-center">
             <div>{{ item.property }}</div>
           </li>
         </NuxtLink>
