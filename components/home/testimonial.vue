@@ -47,9 +47,7 @@ const language = useLanguague();
 
 const testimonials: any = (
   await useFetch(
-    process.client
-      ? 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
-      : 'https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
+    'https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
   )
 ).data;
 
