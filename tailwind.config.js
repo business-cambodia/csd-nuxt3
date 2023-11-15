@@ -14,7 +14,8 @@ module.exports = {
       fontFamily: {
         proxima: ['Proxima Nova'],
         katibeh: ['Katibeh'],
-        lobster: ['Lobster']
+        lobster: ['Lobster'],
+        poppins: ['Poppins'],
       },
     },
     colors: {
