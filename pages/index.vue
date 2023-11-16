@@ -3,8 +3,8 @@
   <HomeEvent />
   <HomeActivity />
   <HomeFood />
-  <HomeNews />
   <HomeTestimonial />
+  <HomeNews />
   <HomeGallery />
   <HomeVideo />
 </template>
