@@ -107,7 +107,7 @@ const breakpoints = {
         rgba(118, 183, 159, 0) -2.17%,
         rgba(75, 144, 190, 0) 101.26%
       ),
-      url('desktop-bg.png');
+      url('/desktop-bg.png');
   }
 }
 </style>
