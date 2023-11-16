@@ -1,8 +1,8 @@
 <template>
-  <div class="my-6 md:my-12">
+  <div class="my-6 lg:my-12 lg:mx-52">
     <div class="flex justify-center">
       <NuxtLink
-        class="text-gradient-green-blue text-xl md:text-2xl font-bold mb-3"
+        class="text-gradient-green-blue text-xl lg:text-2xl font-bold mb-3"
         to="/"
       >
         {{
@@ -23,7 +23,7 @@
     </Carousel>
     <ClientOnly>
       <div class="flex flex-col items-center my-3 px-6">
-        <div class="text-center font-bold md:text-xl">
+        <div class="text-center font-bold lg:text-xl">
           {{
             (language === 'KH' &&
               activities[activitySlide.data.currentSlide.value].name_kh) ||
@@ -32,7 +32,7 @@
           }}
         </div>
         <div
-          class="text-sm md:text-base text-center mt-3 line-clamp-2"
+          class="text-sm lg:text-base text-center mt-3 line-clamp-2"
           v-html="
             (language === 'KH' &&
               activities[activitySlide.data.currentSlide.value]

@@ -14,10 +14,10 @@
       <div
         class="absolute flex flex-col justify-center items-center top-3 right-3 bg-gradient-green-blue rounded-xl w-1/6 h-1/3"
       >
-        <div class="text-lg md:text-xl">
+        <div class="text-lg xl:text-xl">
           {{ new Date(event.event_date).getDate() }}
         </div>
-        <div class="text-xs md:text-sm">
+        <div class="text-xs xl:text-sm">
           {{
             new Date(event.event_date).toLocaleDateString(undefined, {
               month: 'short',
@@ -25,7 +25,7 @@
           }}
         </div>
       </div>
-      <div class="absolute bottom-3 px-3 md:text-lg">
+      <div class="absolute bottom-3 px-3 xl:text-lg">
         {{
           (language === 'KH' && event.title_kh) ||
           (language === 'CN' && event.title_cn) ||

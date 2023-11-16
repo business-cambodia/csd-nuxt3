@@ -16,14 +16,14 @@
         class="h-full w-full rounded-xl p-3 flex"
       >
         <div class="flex flex-col items-center justify-center align-middle">
-          <div class="line-clamp-3 font-bold text-sm md:text-lg text-start">
+          <div class="line-clamp-3 font-bold text-sm xl:text-lg text-start">
             {{
               (language === 'KH' && news.title_kh) ||
               (language === 'CN' && news.title_cn) ||
               news.title
             }}
           </div>
-          <div class="text-gradient-green-blue text-xs md:text-sm italic px-1">
+          <div class="text-gradient-green-blue text-xs xl:text-sm italic px-1">
             {{
               new Date(news.date_created).toLocaleDateString('en-US', {
                 year: 'numeric',
