@@ -46,9 +46,7 @@ const testimonialsSlide = ref();
 const language = useLanguague();
 
 const testimonials: any = (
-  await useFetch(
-    'https://maps.googleapis.com/maps/api/place/details/json?fields=reviews&place_id=ChIJH6JdHrEJCDERgqBGdlxE00E&key=AIzaSyDzeX_CZ3TfqBbNHoJDnGViWHgYkwIjg7Y'
-  )
+  await useFetch('https://api.bayoflights-entertainment.com/reviews')
 ).data;
 
 //responsive breakpoints for carousel
