@@ -69,7 +69,7 @@
       }}
     </div>
   </div>
-  <ModalsBooking :rooms="accommodations" :propRoom="room" />
+  <!-- <ModalsBooking :rooms="accommodations" :propRoom="room" /> -->
 </template>
 
 <script setup lang="ts">

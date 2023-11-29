@@ -40,9 +40,7 @@
     <button
       class="absolute right-3 md:text-xl px-3 py-1 md:py-2 bottom-3 rounded-xl bg-gradient-green-blue"
       id="btn-interested"
-      data-modal-target="booking-modal"
-      data-modal-toggle="booking-modal"
-      @click="changeRoom(accommodation)"
+      @click="$router.push('/bookings')"
     >
       {{
         (language === 'KH' && 'កក់ឥឡូវ​នេះ') ||
