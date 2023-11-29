@@ -1,4 +1,5 @@
 <template>
+  <LayoutsNavbarTransparent />
   <div class="ellipse"></div>
   <div class="pb-16"></div>
   <div
@@ -145,48 +146,52 @@
       </a>
     </div>
   </div>
-  <div class="px-4 my-3 mb-6">
-    <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
-      <img src="/map.jpg" class="rounded-lg" alt="map image" />
-    </a>
-  </div>
-  <div class="px-4 my-3 mb-6">
-    <form
-      class="flex flex-col space-y-6 text"
-      action=""
-      @submit.prevent="handleSubmit"
-    >
-      <input
-        v-model="formData.name"
-        type="text"
-        class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
-        placeholder="Name"
-        required
-      />
-      <input
-        v-model="formData.email"
-        type="email"
-        class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
-        placeholder="Email"
-      />
-      <input
-        v-model="formData.phone"
-        type="text"
-        class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
-        placeholder="Phone"
-        required
-      />
-      <textarea
-        v-model="formData.message"
-        id="message"
-        rows="4"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-        placeholder="Message..."
-      ></textarea>
-      <button class="bg-gradient-green-blue text-sm text-white rounded-lg h-9">
-        Submit
-      </button>
-    </form>
+  <div class="flex flex-col lg:flex-col-reverse ">
+    <div class="px-4 lg:px-12 my-3 mb-6">
+      <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
+        <img src="/map.jpg" class="rounded-lg lg:w-full lg:h-[600px] dobject-center object-none" alt="map image" />
+      </a>
+    </div>
+    <div class="px-4 my-3 mb-6">
+      <form
+        class="flex flex-col space-y-6 text"
+        action=""
+        @submit.prevent="handleSubmit"
+      >
+        <input
+          v-model="formData.name"
+          type="text"
+          class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
+          placeholder="Name"
+          required
+        />
+        <input
+          v-model="formData.email"
+          type="email"
+          class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
+          placeholder="Email"
+        />
+        <input
+          v-model="formData.phone"
+          type="text"
+          class="bg-gray-50 border text-sm border-gray-300 text-gray-900 rounded-lg outline-none"
+          placeholder="Phone"
+          required
+        />
+        <textarea
+          v-model="formData.message"
+          id="message"
+          rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+          placeholder="Message..."
+        ></textarea>
+        <button
+          class="bg-gradient-green-blue text-sm text-white rounded-lg h-9"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   </div>
 </template>
 
