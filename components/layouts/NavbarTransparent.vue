@@ -22,7 +22,7 @@
         </NuxtLink>
       </div>
 
-      <div class="hidden lg:flex space-x-6 text-lg">
+      <div class="hidden lg:flex space-x-6 text-lg font-poppins">
         <NuxtLink
           class="nav-item"
           v-for="(item, index) in navbarItems"
@@ -171,10 +171,6 @@ const navbarItems = [
     link: '/',
   },
   {
-    name: 'Activities',
-    link: '/',
-  },
-  {
     name: 'Promotions',
     link: '/promotions',
   },
@@ -184,11 +180,15 @@ const navbarItems = [
   },
   {
     name: 'Bookings',
-    link: '/',
+    link: '/bookings',
   },
   {
     name: 'Rewards',
     link: '/',
+  },
+  {
+    name: 'About Us',
+    link: '/about',
   },
 ];
 
