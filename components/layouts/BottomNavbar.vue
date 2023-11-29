@@ -60,7 +60,7 @@
         }}
       </div>
     </NuxtLink>
-    <NuxtLink to="/accommodations">
+    <NuxtLink to="/bookings">
       <div class="flex flex-col items-center text-white">
         <svg
           width="22"

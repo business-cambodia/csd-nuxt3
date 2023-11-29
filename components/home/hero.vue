@@ -16,7 +16,7 @@
       }}
     </div>
     <NuxtLink
-      to="/accommodations"
+      to="/bookings"
       class="bg-transparent border border-white text-white sm:text-2xl py-2.5 text-base font-bold px-6 duration-500 hover:bg-white hover:text-secondary"
     >
       {{
