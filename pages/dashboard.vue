@@ -223,10 +223,10 @@ onMounted(async () => {
   });
 });
 const users: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch('https://api.bayoflights-entertainment.com/user')
 );
 const allUsers: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch('https://api.bayoflights-entertainment.com/user')
 );
 const currentPage = ref(1);
 const dateSort = ref(false);
