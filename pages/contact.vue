@@ -146,15 +146,19 @@
       </a>
     </div>
   </div>
-  <div class="flex flex-col lg:flex-col-reverse ">
+  <div class="flex flex-col lg:flex-col-reverse">
     <div class="px-4 lg:px-12 my-3 mb-6">
       <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
-        <img src="/map.jpg" class="rounded-lg lg:w-full lg:h-[600px] dobject-center object-none" alt="map image" />
+        <img
+          src="/map.jpg"
+          class="rounded-lg lg:w-full lg:h-[600px] dobject-center object-none"
+          alt="map image"
+        />
       </a>
     </div>
-    <div class="px-4 my-3 mb-6">
+    <div class="px-4 my-3 mb-6 flex justify-center">
       <form
-        class="flex flex-col space-y-6 text"
+        class="flex flex-col space-y-6 text w-[900px]"
         action=""
         @submit.prevent="handleSubmit"
       >
