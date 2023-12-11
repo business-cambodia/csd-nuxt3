@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sm:hidden bg-gradient-green-blue fixed bottom-0 text-sm left-0 right-0 h-16 flex justify-around items-center z-[30]"
+    class="xl:hidden bg-gradient-green-blue fixed bottom-0 text-sm left-0 right-0 h-16 flex justify-around items-center z-[30]"
   >
     <NuxtLink to="/">
       <div class="flex flex-col items-center text-white">
