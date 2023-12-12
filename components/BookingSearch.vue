@@ -127,6 +127,7 @@
               <div class="relative flex flex-col text-sm">
                 <div class="text-gray-500">Adult</div>
                 <input
+                  :min="1"
                   v-model.number="cart.adults"
                   type="number"
                   class="border-none cursor-pointer text-gray-900 focus:ring-0 p-0 w-12"
@@ -183,9 +184,6 @@ const popover = ref({
   hideDelay: 110,
 });
 
-const clk = () => {
-  console.log(document.getElementsByClassName('is-interactive'));
-};
 </script>
 
 <style scoped></style>
