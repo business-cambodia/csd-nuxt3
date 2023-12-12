@@ -101,18 +101,24 @@
 import countries from '~/countries.js';
 import { toast } from 'vue3-toastify';
 
+definePageMeta({
+  middleware: ['auth'],
+});
+
 const cart = useCart();
+const user = useUser();
 const router = useRouter();
 const language = useLanguague();
 const loading = ref(false);
 const formData = ref({
   startDate: cart.value.startDate,
   endDate: cart.value.endDate,
-  guestFirstName: '',
-  guestLastName: '',
+  userId: '' || user.value?.id,
+  guestFirstName: '' || user.value?.firstName,
+  guestLastName: '' || user.value?.lastName,
   guestCountry: '',
-  guestPhone: null || '',
-  guestEmail: '',
+  guestPhone: null || user.value?.phone_number,
+  guestEmail: '' || user.value?.email,
   rooms: cart.value.rooms.map((room: any) => ({
     roomTypeID: room.roomTypeID,
     quantity: room.quantity,
@@ -135,15 +141,8 @@ onMounted(() => {
 });
 
 const handleBooking = async () => {
-  if (!validateNumber(formData.value.guestPhone)) {
-    return toast.error(
-      language.value == 'EN'
-        ? 'Please enter a valid phone number!'
-        : 'សូមបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ!'
-    );
-  }
   loading.value = true;
-  formData.value.guestPhone = '0' + formData.value.guestPhone;
+  formData.value.guestPhone = '' + formData.value.guestPhone;
 
   formData.value.startDate = new Date(cart.value.startDate).toLocaleDateString(
     'en-CA'
@@ -168,22 +167,10 @@ const handleBooking = async () => {
       );
       setTimeout(() => {
         loading.value = false;
-        router.push('/');
+        window.location.href = '/';
       }, 3000);
     } else toast.error(res.message);
   } catch (error) {}
-};
-
-const validateNumber = (phone_number: string) => {
-  const regex = /^(1[^9]|3[18]|6[^2-5]|7[016-8]|8[^2]|9[^4])\d{6,7}$/;
-
-  // Alternative syntax using RegExp constructor
-  // const regex = new RegExp('^(1[^9]|3[18]|6[^2-5]|7[016-8]|8[^2]|9[^4])\\d{6,7}$', '')
-
-  if (regex.exec(phone_number) !== null) {
-    return true;
-  }
-  return false;
 };
 </script>
 
