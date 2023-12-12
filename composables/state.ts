@@ -9,3 +9,4 @@ export const useCart = () =>
     rooms: [],
     total: 0,
   }));
+export const useUser = () => useState<any>('user', () => {});

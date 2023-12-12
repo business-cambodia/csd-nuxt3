@@ -1,7 +1,7 @@
 <template>
   <div class="relative select-none">
     <div
-      :class="`fixed flex justify-between px-4 xl:px-16 w-full items-center top-0 py-2 z-40 navbar ${
+      :class="`fixed flex justify-between px-4 xl:px-16 w-full items-center top-0 py-2 z-50 navbar ${
         scrollPosition > 0 && drawer == false
           ? 'bg-white text-black  border-b border-b-gray-300'
           : 'text-white'
@@ -10,7 +10,7 @@
     >
       <div class="flex items-center space-x-4">
         <IconsMenu
-          class="lg:hidden"
+          class="xl:hidden"
           @click="toggleDrawer"
           v-if="drawer == false"
           :drawer="drawer"
@@ -22,7 +22,7 @@
         </NuxtLink>
       </div>
 
-      <div class="hidden lg:flex space-x-6 text-lg font-poppins">
+      <div class="hidden xl:flex space-x-6 text-lg font-poppins">
         <NuxtLink
           class="nav-item"
           v-for="(item, index) in navbarItems"
@@ -84,7 +84,7 @@
         <!-- Dropdown menu -->
         <div
           id="dropdown"
-          class="z-50 hidden bg-white rounded-lg shadow w-36 md:w-48 relative"
+          class="z-50 hidden bg-white rounded-lg shadow w-36 md:w-48 relative pt-3"
           :class="scrollPosition == 0 ? '' : 'border border-gray-500'"
         >
           <svg
@@ -153,7 +153,94 @@
           </ul>
         </div>
 
-        <IconsProfile :drawer="drawer" :scrollPosition="scrollPosition" />
+        <button
+          id="dropdownUserAvatarButton"
+          data-dropdown-toggle="dropdownAvatar"
+          type="button"
+        >
+          <IconsProfile
+            v-if="user"
+            :drawer="drawer"
+            :scrollPosition="scrollPosition"
+          />
+        </button>
+        <button v-if="!user" @click="$router.push('/auth')">
+          <IconsLogin :drawer="drawer" :scrollPosition="scrollPosition" />
+        </button>
+
+        <!-- Dropdown menu -->
+        <div
+          id="dropdownAvatar"
+          class="z-50 hidden bg-white rounded-lg shadow w-36 md:w-48 relative"
+          :class="scrollPosition == 0 ? '' : 'border border-gray-500'"
+        >
+          <svg
+            class="absolute -top-[7px] right-6 md:right-[4.7rem]"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 320 512"
+          >
+            <!-- Top two sides of the triangle with black border -->
+            <line
+              x1="0"
+              y1="240"
+              x2="160"
+              y2="0"
+              stroke="black"
+              stroke-width="20"
+            />
+            <line
+              x1="320"
+              y1="240"
+              x2="160"
+              y2="0"
+              stroke="black"
+              stroke-width="20"
+            />
+
+            <!-- Bottom side of the triangle without a border -->
+            <polygon points="0,240 320,240 160,0" fill="white" />
+          </svg>
+          <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+            <div>{{ user?.firstName }} {{ user?.lastName }}</div>
+          </div>
+          <hr />
+          <ul
+            class="py-2 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownUserAvatarButton"
+          >
+            <li>
+              <NuxtLink
+                to="/profile"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >Profile</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/profile"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >My Bookings</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                to="/profile"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                >My Rewards</NuxtLink
+              >
+            </li>
+          </ul>
+          <hr />
+          <div class="py-2">
+            <button
+              @click="signOut"
+              class="block w-full text-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+            >
+              Sign out
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -168,6 +255,8 @@ import { initFlowbite } from 'flowbite';
 const drawer = ref(false);
 const close = ref(false);
 const scrollPosition = ref(0);
+const user = useUser();
+const router = useRouter();
 
 const navbarItems = [
   {
@@ -189,6 +278,10 @@ const navbarItems = [
   {
     name: 'Rewards',
     link: '/',
+  },
+  {
+    name: 'Contact Us',
+    link: '/contact',
   },
   {
     name: 'About Us',
@@ -224,6 +317,13 @@ const toggleDrawer = () => {
 
 const handleScroll = () => {
   scrollPosition.value = window.scrollY;
+};
+
+const signOut = () => {
+  localStorage.removeItem('user');
+  user.value = null;
+  document.getElementById('dropdownUserAvatarButton')?.click();
+  router.push('/');
 };
 
 onMounted(() => {
