@@ -41,7 +41,7 @@
                     }
                   "
                   type="text"
-                  class="border-none text-start cursor-pointer w-28 md:w-auto text-gray-900 focus:ring-0 p-0"
+                  class="border-none text-start text-sm sm:text-base cursor-pointer w-28 md:w-auto text-gray-900 focus:ring-0 p-0"
                   placeholder="Select date"
                   :value="
                     new Date(inputValue.start).toLocaleDateString('en-US', {
@@ -81,7 +81,7 @@
                     })
                   "
                   type="text"
-                  class="border-none text-start w-28 md:w-auto cursor-pointer text-gray-900 focus:ring-0 p-0"
+                  class="border-none text-start text-sm sm:text-base w-28 md:w-auto cursor-pointer text-gray-900 focus:ring-0 p-0"
                   placeholder="Select date"
                 />
               </div>
