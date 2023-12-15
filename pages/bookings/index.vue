@@ -1,6 +1,6 @@
 <template>
   <LayoutsNavbarTransparent />
-  <div class="flex justify-center mt-20 mb-6 mx-9">
+  <div class="flex justify-center mt-20 mb-6 mx-6 sm:mx-9">
     <BookingSearch />
   </div>
   <div class="flex items-center justify-center mt-6 mb-[60vh]" v-if="loading">
@@ -8,24 +8,25 @@
   </div>
 
   <div
-    class="md:grid md:grid-cols-12 gap-3 px-3 md:px-12 relative"
+    class="xl:grid xl:grid-cols-12 gap-3 px-3 xl:px-12 relative"
     v-if="!loading && !rooms.data.every((item:any) => item.roomsAvailable === 0)"
   >
-    <div class="md:col-span-9">
+    <div class="xl:col-span-9">
       <div v-for="(room, index) in rooms.data" :key="room.id">
         <CardsRoom :room="room" v-if="room.roomsAvailable > 0" />
       </div>
+      <AddOns />
     </div>
-    <div class="col-span-3 mx-9 md:mx-0">
+    <div class="col-span-3 mx-3 xl:mx-0">
       <BookingCart class="" />
     </div>
   </div>
 
-  <div class="text-center my-12 mb-32 md:mb-[50vh]" v-else-if="!loading">
-    <div class="text-xl md:text-4xl mb-3">
+  <div class="text-center my-12 mb-32 xl:mb-[50vh]" v-else-if="!loading">
+    <div class="text-xl xl:text-4xl mb-3">
       There are no rooms available on these dates!
     </div>
-    <div class="text-sm md:text-xl">Please select new dates and try again.</div>
+    <div class="text-sm xl:text-xl">Please select new dates and try again.</div>
   </div>
 </template>
 
@@ -71,6 +72,7 @@ watch(
 
 onMounted(() => {
   cart.value.rooms = [];
+  cart.value.addons = [];
 });
 </script>
 

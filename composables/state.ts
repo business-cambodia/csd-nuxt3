@@ -7,6 +7,7 @@ export const useCart = () =>
     endDate: new Date(new Date().setDate(new Date().getDate() + 1)),
     adults: 1,
     rooms: [],
+    addons: [],
     total: 0,
   }));
 export const useUser = () => useState<any>('user', () => {});

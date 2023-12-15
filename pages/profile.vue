@@ -10,81 +10,84 @@
       class="w-20 h-20 md:w-40 md:h-40 absolute left-9 md:left-[25%] -bottom-[10%] md:-bottom-[15%] font-black"
     />
   </div>
-  <div class="mx-9 md:mx-[25%]">
-    <div class="text-gradient-green-blue text-3xl">
-      {{ user?.firstName }} {{ user?.lastName }}
-    </div>
-    <div class="flex items-center space-x-2">
-      <svg
-        width="19"
-        height="14"
-        viewBox="0 0 19 14"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0.00390625 2.17057L9.21732 6.7767L18.4307 2.17057C18.3966 1.58351 18.1393 1.0317 17.7116 0.62816C17.2839 0.224621 16.718 -0.00010782 16.13 3.88069e-08H2.30467C1.71661 -0.00010782 1.15077 0.224621 0.723027 0.62816C0.295284 1.0317 0.0380134 1.58351 0.00390625 2.17057Z"
-          fill="#0E4C68"
-        />
-        <path
-          d="M18.4337 4.74219L9.21687 9.35062L0 4.74219V11.5189C0 12.13 0.242765 12.7161 0.674889 13.1482C1.10701 13.5803 1.6931 13.8231 2.30422 13.8231H16.1295C16.7406 13.8231 17.3267 13.5803 17.7588 13.1482C18.191 12.7161 18.4337 12.13 18.4337 11.5189V4.74219Z"
-          fill="#0E4C68"
-        />
-      </svg>
-      <p>{{ user?.email }}</p>
-    </div>
-    <div class="flex items-center space-x-2">
-      <svg
-        width="19"
-        height="19"
-        viewBox="0 0 19 19"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 1.15809C0 0.850944 0.122012 0.55638 0.339196 0.339196C0.55638 0.122012 0.850944 0 1.15809 0H3.65145C3.92558 0.000126196 4.19077 0.0974887 4.39986 0.274768C4.60895 0.452046 4.74837 0.697747 4.79333 0.968162L5.65031 6.10428C5.69126 6.34889 5.6526 6.60019 5.54002 6.82117C5.42744 7.04216 5.24689 7.22117 5.02494 7.33186L3.23222 8.22706C3.87509 9.82018 4.83251 11.2674 6.04728 12.4821C7.26204 13.6969 8.70923 14.6543 10.3024 15.2972L11.1987 13.5045C11.3093 13.2827 11.4882 13.1023 11.7089 12.9898C11.9297 12.8772 12.1807 12.8384 12.4251 12.8791L17.5612 13.7361C17.8317 13.781 18.0774 13.9205 18.2546 14.1296C18.4319 14.3386 18.5293 14.6038 18.5294 14.878V17.3713C18.5294 17.6785 18.4074 17.973 18.1902 18.1902C17.973 18.4074 17.6785 18.5294 17.3713 18.5294H15.0551C6.74007 18.5294 0 11.7893 0 3.47426V1.15809Z"
-          fill="#0E4C68"
-        />
-      </svg>
-      <p>{{ user?.phone_number }}</p>
+  <div>
+    <div class="mx-9 md:mx-[25%]">
+      <div class="text-gradient-green-blue text-3xl">
+        {{ user?.firstName }} {{ user?.lastName }}
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg
+          width="19"
+          height="14"
+          viewBox="0 0 19 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.00390625 2.17057L9.21732 6.7767L18.4307 2.17057C18.3966 1.58351 18.1393 1.0317 17.7116 0.62816C17.2839 0.224621 16.718 -0.00010782 16.13 3.88069e-08H2.30467C1.71661 -0.00010782 1.15077 0.224621 0.723027 0.62816C0.295284 1.0317 0.0380134 1.58351 0.00390625 2.17057Z"
+            fill="#0E4C68"
+          />
+          <path
+            d="M18.4337 4.74219L9.21687 9.35062L0 4.74219V11.5189C0 12.13 0.242765 12.7161 0.674889 13.1482C1.10701 13.5803 1.6931 13.8231 2.30422 13.8231H16.1295C16.7406 13.8231 17.3267 13.5803 17.7588 13.1482C18.191 12.7161 18.4337 12.13 18.4337 11.5189V4.74219Z"
+            fill="#0E4C68"
+          />
+        </svg>
+        <p>{{ user?.email }}</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg
+          width="19"
+          height="19"
+          viewBox="0 0 19 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 1.15809C0 0.850944 0.122012 0.55638 0.339196 0.339196C0.55638 0.122012 0.850944 0 1.15809 0H3.65145C3.92558 0.000126196 4.19077 0.0974887 4.39986 0.274768C4.60895 0.452046 4.74837 0.697747 4.79333 0.968162L5.65031 6.10428C5.69126 6.34889 5.6526 6.60019 5.54002 6.82117C5.42744 7.04216 5.24689 7.22117 5.02494 7.33186L3.23222 8.22706C3.87509 9.82018 4.83251 11.2674 6.04728 12.4821C7.26204 13.6969 8.70923 14.6543 10.3024 15.2972L11.1987 13.5045C11.3093 13.2827 11.4882 13.1023 11.7089 12.9898C11.9297 12.8772 12.1807 12.8384 12.4251 12.8791L17.5612 13.7361C17.8317 13.781 18.0774 13.9205 18.2546 14.1296C18.4319 14.3386 18.5293 14.6038 18.5294 14.878V17.3713C18.5294 17.6785 18.4074 17.973 18.1902 18.1902C17.973 18.4074 17.6785 18.5294 17.3713 18.5294H15.0551C6.74007 18.5294 0 11.7893 0 3.47426V1.15809Z"
+            fill="#0E4C68"
+          />
+        </svg>
+        <p>{{ user?.phone_number }}</p>
+      </div>
+
+      <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+        <ul
+          class="flex flex-wrap -mb-px text-sm font-medium text-center"
+          id="default-tab"
+          data-tabs-toggle="#default-tab-content"
+          role="tablist"
+        >
+          <li class="me-2" role="presentation">
+            <button
+              class="inline-block p-4 border-b-2 rounded-t-lg"
+              id="profile-tab"
+              data-tabs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              My Bookings
+            </button>
+          </li>
+          <li class="me-2" role="presentation">
+            <button
+              class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+              id="dashboard-tab"
+              data-tabs-target="#dashboard"
+              type="button"
+              role="tab"
+              aria-controls="dashboard"
+              aria-selected="false"
+            >
+              My Rewards
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-      <ul
-        class="flex flex-wrap -mb-px text-sm font-medium text-center"
-        id="default-tab"
-        data-tabs-toggle="#default-tab-content"
-        role="tablist"
-      >
-        <li class="me-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 rounded-t-lg"
-            id="profile-tab"
-            data-tabs-target="#profile"
-            type="button"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="false"
-          >
-            My Bookings
-          </button>
-        </li>
-        <li class="me-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-            id="dashboard-tab"
-            data-tabs-target="#dashboard"
-            type="button"
-            role="tab"
-            aria-controls="dashboard"
-            aria-selected="false"
-          >
-            My Rewards
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div id="default-tab-content">
+    <div id="default-tab-content" class="md:mx-[25%]">
       <div
         class="hidden p-4 rounded-lg"
         id="profile"
@@ -95,6 +98,8 @@
           v-if="user?.bookings?.length > 0"
           v-for="booking in user?.bookings"
           :booking="booking.data"
+          :add_ons="booking.add_ons"
+          :add_ons_total_price="booking.add_ons_total_price"
         />
         <div class="text-center md:text-xl" v-else>
           You have no any bookings yet!

@@ -132,6 +132,18 @@ const formData = ref({
     quantity: 2,
   })),
   paymentMethod: '1',
+  add_ons: cart.value.addons.map((addon: any) => ({
+    add_ons_id: addon.id,
+    name: addon.name,
+    quantity: addon.quantity,
+    sub_total: addon.price * addon.quantity,
+  })),
+  add_ons_total_price: cart.value.addons.reduce(
+    (accumulator: any, addon: any) => {
+      return accumulator + addon.price * addon.quantity;
+    },
+    0
+  ),
 });
 
 onMounted(() => {
