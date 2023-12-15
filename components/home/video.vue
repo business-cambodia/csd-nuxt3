@@ -10,12 +10,10 @@
     <div class="w-full md:w-[900px] h-auto max-w-full p-6 md:p-0">
       <iframe
         class="border w-full h-full aspect-video rounded-lg"
-        src="https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Fsummerbaybeachclubandcabins%2Fvideos%2F676296891039810%2F&amp;show_text=false&amp;width=560&amp;t=0"
-        style="border: none; overflow: hidden"
-        scrolling="no"
+        src="https://www.youtube.com/embed/7y8Fqeso4Mk?si=MUMUNOsH--oTuxgx"
+        title="YouTube video player"
         frameborder="0"
-        :allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        allowfullscreen
       ></iframe>
     </div>
   </div>
