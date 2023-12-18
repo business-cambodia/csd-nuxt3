@@ -12,7 +12,7 @@
     }}
   </div>
   <div class="text-center text-sm lg:text-lg">
-    <div class="">KH +855 12 345 678</div>
+    <div class="">KH +855 17 505 444</div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
       {{
         (language === 'KH' &&

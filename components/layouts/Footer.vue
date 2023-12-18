@@ -76,7 +76,7 @@
         </a>
       </div>
       <div class="text-sm text-center lg:text-start">
-        <div class="">KH +855 12 345 678</div>
+        <div class="">KH +855 17 505 444</div>
         <a
           href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
           target="_blank"
