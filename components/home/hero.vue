@@ -12,7 +12,7 @@
         (language === 'KH' &&
           'ផ្តល់បទពិសោធន៏ថ្មីសម្រាប់ខ្លួនរបស់លោកអ្នកជាមួយ ភាពស្ងប់ស្ងាត់ជាមួយរីសតជាប់ឆ្នេរសមុទ្រដ៏ស្រស់ស្អាតរបស់យើង ព្រមទាំងសាកល្បងជាមួយសកម្មភាពថ្មីដ៏អស្ចារ្យ') ||
         (language === 'CN' && '') ||
-        'Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville. Where senses come alive!'
+        'Relaxation. Indulgence. Excitement'
       }}
     </div>
     <NuxtLink

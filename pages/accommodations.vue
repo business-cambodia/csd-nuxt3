@@ -15,7 +15,7 @@
     <div class="text-center text-white text-xs md:text-base px-3">
       {{
         language == 'EN'  
-          ? 'Relaxation. Indulgence. Excitement'
+          ? 'Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville. Where senses come alive!'
           : 'ទួលយកបទពិសោធន៍ដ៏ល្អឥតខ្ចោះ ជាមួយការសម្រាកលំហែកាយដ៏ស្ងប់ស្ងាត់នៅរីសតដ៏ប្រណីត ទទួលទានអាហារដ៏ឈ្ងុយឆ្ងាញ់ និងសកម្មភាពកម្សាន្តលើឆ្នេរសមុទ្រឯកជនដ៏អស្ចារ្យ'
       }}
     </div>
