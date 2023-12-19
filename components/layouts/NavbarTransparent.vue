@@ -18,7 +18,7 @@
         />
         <IconsX @click="toggleDrawer" v-else />
         <NuxtLink to="/">
-          <img src="/BOL logo.png" class="w-40 sm:w-44" alt="logo" />
+          <img src="/BOL-logo.png" class="w-40 sm:w-44" alt="logo" />
         </NuxtLink>
       </div>
 
