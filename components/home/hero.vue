@@ -5,9 +5,9 @@
     <div
       class="text-5xl sm:text-6xl lg:text-7xl mt-28 text-white font-lobster text-center leading-tight"
     >
-      <div class="">Vacation Is Calling!</div>
+      <div class="">Relaxation. Indulgence. Excitement</div>
     </div>
-    <div class="mb-2 text-white text-center text-sm sm:text-2xl">
+    <div class="hidden mb-2 text-white text-center text-sm sm:text-2xl">
       {{
         (language === 'KH' &&
           'ផ្តល់បទពិសោធន៏ថ្មីសម្រាប់ខ្លួនរបស់លោកអ្នកជាមួយ ភាពស្ងប់ស្ងាត់ជាមួយរីសតជាប់ឆ្នេរសមុទ្រដ៏ស្រស់ស្អាតរបស់យើង ព្រមទាំងសាកល្បងជាមួយសកម្មភាពថ្មីដ៏អស្ចារ្យ') ||
