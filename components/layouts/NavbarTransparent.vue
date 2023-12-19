@@ -1,7 +1,7 @@
 <template>
   <div class="relative select-none" :class="scrollPosition > 0 && 'hidden'">
     <div
-      :class="`fixed flex justify-between px-4 xl:px-16 w-full items-center top-0 py-2 z-50 text-black navbar ${
+      :class="`fixed flex justify-between px-4 xl:px-16 w-full items-center top-0 py-3 z-50 text-black navbar ${
         scrollPosition > 0 && drawer == false
           ? 'bg-white  border-b border-b-gray-300'
           : ''
@@ -18,7 +18,7 @@
         />
         <IconsX @click="toggleDrawer" v-else />
         <NuxtLink to="/">
-          <img src="/SUMMER-BAY-Logo-01.png" class="w-32 sm:w-40" alt="logo" />
+          <img src="/BOL logo.png" class="w-40 sm:w-44" alt="logo" />
         </NuxtLink>
       </div>
 
