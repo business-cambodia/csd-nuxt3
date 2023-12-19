@@ -2,17 +2,20 @@
   <div
     class="hero bg-no-repeat bg-cover flex flex-col sm:space-y-6 space-y-2 items-center justify-top lg:px-32 px-10"
   >
-    <div
-      class="text-5xl sm:text-6xl lg:text-7xl mt-28 text-white font-lobster text-center leading-tight"
-    >
-      <div class="">Relaxation. Indulgence. Excitement</div>
+    <div class="mt-24">
+      <img class="w-40 sm:w-60" src="/SUMMER-BAY-Logo-01.png" />
     </div>
-    <div class="hidden mb-2 text-white text-center text-sm sm:text-2xl">
+    <div
+      class="text-5xl sm:text-6xl lg:text-6xl text-white font-lobster text-center leading-tight"
+    >
+      <div class="">Relaxation. Indulgence. Excitement.</div>
+    </div>
+    <div class="mb-2 text-white text-center text-sm sm:text-2xl">
       {{
         (language === 'KH' &&
           'ផ្តល់បទពិសោធន៏ថ្មីសម្រាប់ខ្លួនរបស់លោកអ្នកជាមួយ ភាពស្ងប់ស្ងាត់ជាមួយរីសតជាប់ឆ្នេរសមុទ្រដ៏ស្រស់ស្អាតរបស់យើង ព្រមទាំងសាកល្បងជាមួយសកម្មភាពថ្មីដ៏អស្ចារ្យ') ||
         (language === 'CN' && '') ||
-        'Relaxation. Indulgence. Excitement'
+        'At the Bay of Lights, Sihanoukville'
       }}
     </div>
     <NuxtLink
