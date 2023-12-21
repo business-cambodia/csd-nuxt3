@@ -14,7 +14,7 @@
     </div>
     <div class="text-center text-white text-xs md:text-base px-3">
       {{
-        language == 'EN'  
+        language == 'EN'
           ? 'Come Indulge at Summer Bay Beach Club (Bay of Lights), Sihanoukville. Where senses come alive!'
           : 'ទួលយកបទពិសោធន៍ដ៏ល្អឥតខ្ចោះ ជាមួយការសម្រាកលំហែកាយដ៏ស្ងប់ស្ងាត់នៅរីសតដ៏ប្រណីត ទទួលទានអាហារដ៏ឈ្ងុយឆ្ងាញ់ និងសកម្មភាពកម្សាន្តលើឆ្នេរសមុទ្រឯកជនដ៏អស្ចារ្យ'
       }}
@@ -76,6 +76,10 @@
 import { initFlowbite } from 'flowbite';
 import { IAccommodation } from 'types/accommodation';
 import { IResponse } from 'types/api';
+
+useHead({
+  title: 'Summerbay',
+});
 
 const language = useLanguague();
 const room = ref({});

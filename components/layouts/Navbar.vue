@@ -269,7 +269,7 @@ const navbarItems = [
   },
   {
     name: 'Accommodations',
-    link: '/accommodations',
+    link: '/summerbay',
   },
   {
     name: 'Bookings',
