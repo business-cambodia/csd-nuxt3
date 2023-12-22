@@ -1,6 +1,7 @@
 export const useVoucher = () => useState<any>('voucher', () => {});
 export const useOtp = () => useState<any>('otp', () => {});
 export const useLanguague = () => useState<any>('language', () => 'EN');
+export const useDrawer = () => useState<any>('drawer', () => false);
 export const useCart = () =>
   useState<any>('cart', () => ({
     startDate: new Date(),

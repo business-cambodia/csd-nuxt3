@@ -244,7 +244,7 @@
 <script setup lang="ts">
 import { initFlowbite } from 'flowbite';
 
-const drawer = ref(false);
+const drawer = useDrawer();
 const close = ref(false);
 const scrollPosition = ref(0);
 const user = useUser();
