@@ -12,7 +12,22 @@
     }}
   </div>
   <div class="text-center text-sm lg:text-lg">
-    <div class="">KH +855 17 505 444</div>
+    <div class="">
+      <p>
+        {{
+          (language === 'KH' && 'លេខទំនាក់ទំនងរីសត') ||
+          (language === 'CN' && '') ||
+          'Resort Contact'
+        }}: +855 17 505 444
+      </p>
+      <p>
+        {{
+          (language === 'KH' && 'លេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
+          (language === 'CN' && '') ||
+          'Sponsorship Enquiries'
+        }}: +855 89 626 380
+      </p>
+    </div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
       {{
         (language === 'KH' &&
@@ -182,6 +197,16 @@
           placeholder="Phone"
           required
         />
+        <select
+          @change="formData.type = ($event.target as any).value"
+          id="countries"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option value="" selected>Contact type</option>
+          <option value="Feedbacks">Feedbacks</option>
+          <option value="Sponsorship Enquiries">Sponsorship Enquiries</option>
+          <option value="Questions">Questions</option>
+        </select>
         <textarea
           v-model="formData.message"
           id="message"
@@ -207,6 +232,7 @@ const formData = ref({
   name: '',
   email: '',
   phone: '',
+  type: '',
   message: '',
 });
 
@@ -225,6 +251,7 @@ const handleSubmit = async () => {
       name: '',
       email: '',
       phone: '',
+      type: '',
       message: '',
     };
   } catch (error) {

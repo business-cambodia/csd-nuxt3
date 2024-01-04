@@ -76,7 +76,22 @@
         </a>
       </div>
       <div class="text-sm text-center lg:text-start">
-        <div class="">KH +855 17 505 444</div>
+        <div class="">
+          <p>
+            {{
+              (language === 'KH' && 'លេខទំនាក់ទំនងរីសត') ||
+              (language === 'CN' && '') ||
+              'Resort Contact'
+            }}: +855 17 505 444
+          </p>
+          <p>
+            {{
+              (language === 'KH' && 'លេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
+              (language === 'CN' && '') ||
+              'Sponsorship Enquiries'
+            }}: +855 89 626 380
+          </p>
+        </div>
         <a
           href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
           target="_blank"
@@ -90,7 +105,7 @@
           }}
         </a>
         <div class="flex flex-col lg:flex-row lg:mt-6">
-          <div class="">© 2023 Summer Bay All rights reserved</div>
+          <div class="">© 2024 Summer Bay All rights reserved</div>
           <div class="mx-3 hidden lg:block">||</div>
           <div>
             {{
