@@ -12,11 +12,11 @@
         <div class="col-span-2">${{ addon?.price }}</div>
         <div class="col-span-4">
           <select
-          :id="'addonQty' + addon.id"
+          :id="'addonQty' + addon.itemID"
             @change="
             (e:any) => {
               const index = cart.addons.findIndex(
-                (x:any) => x.id == addon.id
+                (x:any) => x.itemID == addon.itemID
                 );
                 if (e?.target?.value == 0) 
                   return cart.addons.splice(index, 1);
@@ -32,7 +32,7 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-base w-28 sm:w-full rounded-lg p-0.5 px-3"
           >
             <option selected>- SELECT -</option>
-            <option v-for="amount in addon?.amount" class="" :value="amount">
+            <option v-for="amount in 5" class="" :value="amount">
               {{ amount }}
             </option>
           </select>
@@ -44,13 +44,14 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios';
 import { IResponse } from 'types/api';
 const cart = useCart();
 const addons = (
   await (<Promise<IResponse<any>>>(
-    useApi('items/add_ons?filter[status]=published', { method: 'GET' })
+    axios.get('https://api.bayoflights-entertainment.com/addons')
   ))
-)?.data;
+)?.data?.data;
 </script>
 
 <style scoped></style>

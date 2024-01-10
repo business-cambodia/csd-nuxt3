@@ -19,7 +19,7 @@
       <div class="">Check Out: {{ booking?.endDate }}</div>
       <div class="">Booked on: {{ booking?.dateCreated?.split(' ')[0] }}</div>
       <div class="font-bold font-sans">
-        Grand Total: ${{ booking?.total + (add_ons_total_price ?? 0) }}
+        Grand Total: ${{ booking?.balanceDetailed.grandTotal }}
       </div>
       <div class="border-b w-full my-2 border-gray-500 sm:hidden"></div>
     </div>
@@ -37,20 +37,20 @@
         </div>
       </div>
       <div class="text-end text-xs sm:text-sm">
-        Sub Total: ${{ booking?.total }}
+        Sub Total: ${{ booking?.balanceDetailed.subTotal }}
       </div>
       <div v-if="add_ons?.length > 0">
         <p>• Add Ons</p>
         <div v-for="(add_on, index) in add_ons" class="text-primary sm:text-xl">
           <div>
-            <span class="text-base">1x </span>
+            <span class="text-base">{{ add_on.productQuantity }} x </span>
             <span>
-              {{ add_on.name }}
+              {{ add_on.productName }}
             </span>
           </div>
         </div>
         <div class="text-end text-xs sm:text-sm">
-          Sub Total: ${{ add_ons_total_price }}
+          Sub Total: ${{ booking?.balanceDetailed.additionalItems }}
         </div>
       </div>
     </div>
@@ -61,7 +61,6 @@
 defineProps<{
   booking: any;
   add_ons: any;
-  add_ons_total_price: any;
 }>();
 </script>
 

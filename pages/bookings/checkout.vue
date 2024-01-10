@@ -133,10 +133,9 @@ const formData = ref({
   })),
   paymentMethod: '1',
   add_ons: cart.value.addons.map((addon: any) => ({
-    add_ons_id: addon.id,
-    name: addon.name,
-    quantity: addon.quantity,
-    sub_total: addon.price * addon.quantity,
+    itemID: addon.itemID,
+    itemQuantity: addon.quantity,
+    saleDate: new Date().toISOString().split('T')[0] + ' 00:00:00',
   })),
   add_ons_total_price: cart.value.addons.reduce(
     (accumulator: any, addon: any) => {

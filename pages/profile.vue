@@ -99,7 +99,6 @@
           v-for="booking in user?.bookings"
           :booking="booking.data"
           :add_ons="booking.add_ons"
-          :add_ons_total_price="booking.add_ons_total_price"
         />
         <div class="text-center md:text-xl" v-else>
           You have no any bookings yet!

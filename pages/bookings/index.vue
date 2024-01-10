@@ -15,7 +15,7 @@
       <div v-for="(room, index) in rooms.data" :key="room.id">
         <CardsRoom :room="room" v-if="room.roomsAvailable > 0" />
       </div>
-      <!-- <AddOns /> -->
+      <AddOns />
     </div>
     <div class="col-span-3 mx-3 xl:mx-0">
       <BookingCart class="" />
