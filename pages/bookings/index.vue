@@ -18,7 +18,7 @@
       <AddOns />
     </div>
     <div class="col-span-3 mx-3 xl:mx-0">
-      <BookingCart class="" />
+      <BookingCart class="xl:sticky top-20" />
     </div>
   </div>
 
