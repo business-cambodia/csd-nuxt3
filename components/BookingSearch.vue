@@ -168,8 +168,8 @@
 <script setup lang="ts">
 const cart = useCart();
 const range = ref({
-  start: new Date(),
-  end: new Date(new Date().setDate(new Date().getDate() + 1)),
+  start: cart.value.startDate,
+  end: cart.value.endDate,
 });
 
 const disabledDates = ref([

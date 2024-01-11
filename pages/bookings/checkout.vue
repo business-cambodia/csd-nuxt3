@@ -1,13 +1,13 @@
 <template>
   <LayoutsNavbarTransparent />
-  <div class="md:mx-20 text-center mt-20">
+  <div class="xl:mx-20 text-center mt-20">
     <div class="text-3xl">CHECK OUT</div>
   </div>
-  <div class="md:grid md:grid-cols-12 gap-3 px-3 md:px-12 relative">
-    <div class="md:col-span-8 mx-6">
+  <div class="xl:grid xl:grid-cols-12 gap-3 px-3 xl:px-12 relative">
+    <div class="xl:col-span-8 mx-6">
       <div class="text-lg mb-3">Add your details</div>
       <form @submit.prevent="handleBooking">
-        <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div class="grid gap-6 mb-6 xl:grid-cols-2">
           <div>
             <label
               for="first_name"
@@ -116,7 +116,7 @@ const formData = ref({
   userId: '' || user.value?.id,
   guestFirstName: '' || user.value?.firstName,
   guestLastName: '' || user.value?.lastName,
-  guestCountry: '',
+  guestCountry: 'KH',
   guestPhone: null || user.value?.phone_number,
   guestEmail: '' || user.value?.email,
   rooms: cart.value.rooms.map((room: any) => ({

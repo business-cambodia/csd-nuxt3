@@ -36,9 +36,11 @@ const cart = useCart();
 const rooms: any = ref(
   await $fetch(
     `https://api.bayoflights-entertainment.com/rooms?startDate=${
-      new Date().toISOString().split('T')[0]
+      new Date(new Date(cart.value.startDate).toLocaleDateString('en-CA'))
+        .toISOString()
+        .split('T')[0]
     }&endDate=${
-      new Date(new Date().setDate(new Date().getDate() + 1))
+      new Date(new Date(cart.value.endDate).toLocaleDateString('en-CA'))
         .toISOString()
         .split('T')[0]
     }&adults=${cart.value.adults}`
