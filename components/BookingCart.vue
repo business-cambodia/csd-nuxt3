@@ -118,7 +118,11 @@
           </p>
         </div>
         <hr />
-        <div class="text-[10px] font-light p-0 leading-4 my-3">
+        <div class="flex flex-col space-y-3 mt-3" v-if="isCheckOutPage">
+          <div class="cursor-pointer"><CardsKHQR /></div>
+          <div class="cursor-pointer"><CardsCreditDebit /></div>
+        </div>
+        <div class="text-[10px] font-light p-0 leading-4 mt-3">
           By selecting the booking button below, I agree to the Cancellation
           Policy and Terms & Conditions.
         </div>
