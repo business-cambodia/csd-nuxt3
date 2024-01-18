@@ -32,6 +32,9 @@ export default defineNuxtConfig({
           async: true,
         },
         {
+          src: 'https://checkout.payway.com.kh/plugins/checkout2-0.js',
+        },
+        {
           hid: 'gtmHead',
           innerHTML: `
           window.dataLayer = window.dataLayer || [];

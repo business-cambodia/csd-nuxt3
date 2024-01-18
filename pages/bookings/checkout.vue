@@ -3,6 +3,8 @@
   <div class="xl:mx-20 text-center mt-20">
     <div class="text-3xl">CHECK OUT</div>
   </div>
+  <ModalsPaywayMobile v-if="isMobile" :link="link" :closePayway="closePayway" />
+  <ModalsPayway v-else :link="link" :closePayway="closePayway" />
   <div class="xl:grid xl:grid-cols-12 gap-3 px-3 xl:px-12 relative">
     <div class="xl:col-span-8 mx-6">
       <div class="text-lg mb-3">Add your details</div>
@@ -94,6 +96,7 @@
     <div class="col-span-4 mx-6">
       <BookingCart :loading="loading" />
     </div>
+    <button id="paywayBtn" @click="handlePayway"></button>
   </div>
 </template>
 
@@ -104,7 +107,8 @@ import { toast } from 'vue3-toastify';
 definePageMeta({
   middleware: ['auth'],
 });
-
+const isMobile = ref(false);
+const link = ref({ data: '' });
 const cart = useCart();
 const user = useUser();
 const router = useRouter();
@@ -122,6 +126,7 @@ const formData = ref({
   rooms: cart.value.rooms.map((room: any) => ({
     roomTypeID: room.roomTypeID,
     quantity: room.quantity,
+    roomsAvailable: room.roomsAvailable,
   })),
   children: cart.value.rooms.map((room: any) => ({
     roomTypeID: room.roomTypeID,
@@ -131,7 +136,8 @@ const formData = ref({
     roomTypeID: room.roomTypeID,
     quantity: 2,
   })),
-  paymentMethod: '1',
+  paymentMethod: '',
+  payment_option: '',
   add_ons: cart.value.addons.map((addon: any) => ({
     itemID: addon.itemID,
     itemQuantity: addon.quantity,
@@ -146,10 +152,46 @@ const formData = ref({
 });
 
 onMounted(() => {
+  isMobile.value = window.innerWidth <= 768;
   if (cart.value.rooms.length == 0) {
     router.push('/bookings');
   }
 });
+
+const handlePayway = async () => {
+  if (cart.value.payment_option == '') {
+    return toast.warn('Please choose payment option.');
+  }
+  if (isMobile.value) {
+    document.getElementById('aba_checkout_sheet')?.classList.remove('!hidden');
+  } else {
+    document.getElementById('aba-checkout')?.classList.remove('hidden');
+  }
+  formData.value.guestPhone = '' + formData.value.guestPhone;
+  formData.value.startDate = new Date(cart.value.startDate).toLocaleDateString(
+    'en-CA'
+  );
+  formData.value.endDate = new Date(cart.value.endDate).toLocaleDateString(
+    'en-CA'
+  );
+  (formData.value.payment_option = cart.value.payment_option),
+    (formData.value.paymentMethod =
+      cart.value.payment_option == 'cards' ? 'CreditCard' : 'ABAQRCode');
+  link.value = await $fetch('https://api.bayoflights-entertainment.com/aba', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: formData.value,
+  });
+};
+
+const closePayway = () => {
+  if (isMobile.value)
+    document.getElementById('aba_checkout_sheet')?.classList.add('!hidden');
+  else document.getElementById('aba-checkout')?.classList.add('hidden');
+  link.value.data = '';
+};
 
 const handleBooking = async () => {
   loading.value = true;

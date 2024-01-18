@@ -119,8 +119,9 @@
         </div>
         <hr />
         <div class="flex flex-col space-y-3 mt-3" v-if="isCheckOutPage">
-          <div class="cursor-pointer"><CardsKHQR /></div>
-          <div class="cursor-pointer"><CardsCreditDebit /></div>
+          <p class="text-xs">Choose Payment Option:</p>
+          <div class="cursor-pointer" @click="cart.payment_option = 'abapay_khqr'"><CardsKHQR /></div>
+          <div class="cursor-pointer" @click="cart.payment_option = 'cards'"><CardsCreditDebit /></div>
         </div>
         <div class="text-[10px] font-light p-0 leading-4 mt-3">
           By selecting the booking button below, I agree to the Cancellation
@@ -174,7 +175,7 @@ const removeAddonFromCart = (cart: any, addonP: any) => {
 
 const handleBooking = () => {
   if (isCheckOutPage.value) {
-    document.getElementById('bookingForm')?.click();
+    document.getElementById('paywayBtn')?.click();
   } else {
     router.push('/bookings/checkout');
   }

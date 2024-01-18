@@ -10,5 +10,6 @@ export const useCart = () =>
     rooms: [],
     addons: [],
     total: 0,
+    payment_option: '',
   }));
 export const useUser = () => useState<any>('user', () => {});
