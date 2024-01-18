@@ -15,17 +15,11 @@
     <div class="">
       <p>
         {{
-          (language === 'KH' && 'លេខទំនាក់ទំនងរីសត') ||
+          (language === 'KH' &&
+            'លេខទំនាក់ទំនងរីសត និងលេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
           (language === 'CN' && '') ||
-          'Resort Contact'
+          'Resort Contact & Sponsorship Enquiries'
         }}: +855 17 505 444
-      </p>
-      <p>
-        {{
-          (language === 'KH' && 'លេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
-          (language === 'CN' && '') ||
-          'Sponsorship Enquiries'
-        }}: +855 89 626 380
       </p>
     </div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
