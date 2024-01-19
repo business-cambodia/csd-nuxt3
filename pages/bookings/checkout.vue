@@ -162,11 +162,7 @@ const handlePayway = async () => {
   if (cart.value.payment_option == '') {
     return toast.warn('Please choose payment option.');
   }
-  if (isMobile.value) {
-    document.getElementById('aba_checkout_sheet')?.classList.remove('!hidden');
-  } else {
-    document.getElementById('aba-checkout')?.classList.remove('hidden');
-  }
+  loading.value = true;
   formData.value.guestPhone = '' + formData.value.guestPhone;
   formData.value.startDate = new Date(cart.value.startDate).toLocaleDateString(
     'en-CA'
@@ -184,12 +180,25 @@ const handlePayway = async () => {
     },
     body: formData.value,
   });
+  setTimeout(() => {
+    if (isMobile.value) {
+      document
+        .getElementById('aba_checkout_sheet')
+        ?.classList.remove('!hidden');
+    } else {
+      document.getElementById('aba-checkout')?.classList.remove('hidden');
+    }
+  }, 500);
 };
 
 const closePayway = () => {
+  loading.value = false;
   if (isMobile.value)
     document.getElementById('aba_checkout_sheet')?.classList.add('!hidden');
-  else document.getElementById('aba-checkout')?.classList.add('hidden');
+  else {
+    document.getElementById('aba_webservice')!.style.height = '356px';
+    document.getElementById('aba-checkout')?.classList.add('hidden');
+  }
   link.value.data = '';
 };
 
