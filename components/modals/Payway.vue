@@ -23,7 +23,7 @@
             transition: height 0.25s ease 0s;
             overflow: hidden;
             max-height: 595px;
-            height: 595px;
+            height: 356px;
           "
           frameborder="0"
           width="100%"

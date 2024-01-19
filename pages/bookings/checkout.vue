@@ -180,15 +180,11 @@ const handlePayway = async () => {
     },
     body: formData.value,
   });
-  setTimeout(() => {
-    if (isMobile.value) {
-      document
-        .getElementById('aba_checkout_sheet')
-        ?.classList.remove('!hidden');
-    } else {
-      document.getElementById('aba-checkout')?.classList.remove('hidden');
-    }
-  }, 500);
+  if (isMobile.value) {
+    document.getElementById('aba_checkout_sheet')?.classList.remove('!hidden');
+  } else {
+    document.getElementById('aba-checkout')?.classList.remove('hidden');
+  }
 };
 
 const closePayway = () => {
