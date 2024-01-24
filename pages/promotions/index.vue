@@ -3,7 +3,7 @@
   <div class="ellipse"></div>
   <div class="pb-20"></div>
   <div
-    class="text-center font-lobster text-5xl lg:text-7xl text-gradient-green-blue leading-snug lg:pb-6"
+    class="text-center font-lobster text-5xl lg:text-7xl text-gradient-green-blue leading-snug"
   >
     {{
       (language === 'KH' && 'ប្រូម៉ូសិន') ||
@@ -11,14 +11,14 @@
       'Promotions'
     }}
   </div>
-  <div class="text-center lg:text-lg">
-    {{
-      (language === 'KH' && 'ទទួលយកប្រូម៉ូសិនដ៏អស្ចារ្យរបស់ពួកយើង') ||
-      (language === 'CN' && '') ||
-      'Check out our exclusive promotion!'
-    }}
-  </div>
-  <div class="mx-6 my-6 text-center">
+  <div class="mx-6 my-3 text-center" v-if="promotions.length > 0">
+    <div class="text-center lg:text-lg pb-6">
+      {{
+        (language === 'KH' && 'ទទួលយកប្រូម៉ូសិនដ៏អស្ចារ្យរបស់ពួកយើង') ||
+        (language === 'CN' && '') ||
+        'Check out our exclusive promotion!'
+      }}
+    </div>
     <Carousel ref="activitySlide" :breakpoints="breakpoints">
       <Slide v-for="(p, index) in promotions" :key="index">
         <CardsPromotion :promotion="p" />
@@ -40,14 +40,24 @@
         </div>
       </div>
     </ClientOnly>
+    <div class="text-center text-xs lg:text-sm my-3">
+      {{
+        (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
+        (language === 'CN' && '') ||
+        '*Terms & Conditions Applied'
+      }}
+    </div>
   </div>
 
-  <div class="text-center text-xs lg:text-sm my-3">
-    {{
-      (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
-      (language === 'CN' && '') ||
-      '*Terms & Conditions Applied'
-    }}
+  <div v-else class="flex flex-col items-center my-6">
+    <img class="w-64 lg:w-80" src="/promotion.png" alt="" />
+    <div class="lg:text-2xl">
+      {{
+        (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
+        (language === 'CN' && '') ||
+        'There is currently no promotion available.'
+      }}
+    </div>
   </div>
 </template>
 
