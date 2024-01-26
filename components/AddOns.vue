@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <img class="w-40 xl:w-72" src="/Splash Logo.png" />
+      <img class="w-40 xl:w-72" src="/Splash-Logo.png" />
     </div>
     <CardsAddons :addons="jetski" addon_img="/Jetskii.jpg" />
     <CardsAddons :addons="waterpark" addon_img="/waterpark.jpg" />
