@@ -124,6 +124,7 @@ const formData = ref({
   guestPhone: null || user.value?.phone_number,
   guestEmail: '' || user.value?.email,
   rooms: cart.value.rooms.map((room: any) => ({
+    roomTypeName: room.roomTypeName,
     roomTypeID: room.roomTypeID,
     quantity: room.quantity,
     roomsAvailable: room.roomsAvailable,
