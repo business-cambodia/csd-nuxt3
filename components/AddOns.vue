@@ -1,45 +1,20 @@
 <template>
   <div class="relative w-full bg-grey p-3 rounded-2xl mt-6">
     <div class="flex absolute -top-3 left-1/2 -translate-x-1/2 justify-center">
-      <div class="bg-gradient-orange rounded-full px-9 text-white">ADD-ONS</div>
-    </div>
-    <div class="text-xs sm:text-base p-3 xl:px-56">
-      <div
-        v-for="addon in addons"
-        class="grid grid-cols-12 space-y-3 items-end"
-      >
-        <div class="col-span-6">• {{ addon?.name }}</div>
-        <div class="col-span-2">${{ addon?.price }}</div>
-        <div class="col-span-4">
-          <select
-          :id="'addonQty' + addon.itemID"
-            @change="
-            (e:any) => {
-              const index = cart.addons.findIndex(
-                (x:any) => x.itemID == addon.itemID
-                );
-                if (e?.target?.value == 0) 
-                  return cart.addons.splice(index, 1);
-                if (index > -1) {
-                  cart.addons[index].quantity = e.target.value;
-                } else {
-                  addon.quantity = e.target.value;
-                  cart.addons.push(addon);
-                }
-
-            }
-          "
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-base w-28 sm:w-full rounded-lg p-0.5 px-3"
-          >
-            <option selected>- SELECT -</option>
-            <option v-for="amount in 5" class="" :value="amount">
-              {{ amount }}
-            </option>
-          </select>
-        </div>
+      <div class="bg-gradient-orange rounded-full px-9 xl:text-xl text-white">
+        ADD-ONS
       </div>
     </div>
-    <!-- {{ addons }}ss -->
+    <div class="flex justify-center">
+      <img class="w-40 xl:w-72" src="/Splash Logo.png" />
+    </div>
+    <CardsAddons :addons="jetski" addon_img="/Jetskii.jpg" />
+    <CardsAddons :addons="waterpark" addon_img="/waterpark.jpg" />
+    <CardsAddons :addons="wakeboarding" addon_img="/wakeboarding.jpg" />
+    <div class="flex justify-center">
+      <img class="w-24 xl:w-52 rounded-2xl" src="/FLYMAX.png" />
+    </div>
+    <CardsAddons :addons="reverse_bungee" addon_img="/bungeee.jpg" />
   </div>
 </template>
 
@@ -47,9 +22,24 @@
 import axios from 'axios';
 import { IResponse } from 'types/api';
 const cart = useCart();
-const addons = (
+const jetski = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons')
+    axios.get('https://api.bayoflights-entertainment.com/addons/267600')
+  ))
+)?.data?.data;
+const waterpark = (
+  await (<Promise<IResponse<any>>>(
+    axios.get('https://api.bayoflights-entertainment.com/addons/267602')
+  ))
+)?.data?.data;
+const wakeboarding = (
+  await (<Promise<IResponse<any>>>(
+    axios.get('https://api.bayoflights-entertainment.com/addons/267605')
+  ))
+)?.data?.data;
+const reverse_bungee = (
+  await (<Promise<IResponse<any>>>(
+    axios.get('https://api.bayoflights-entertainment.com/addons/267606')
   ))
 )?.data?.data;
 </script>

@@ -1,0 +1,55 @@
+<template>
+  <div
+    class="flex flex-col md:flex-row justify-start space-x-6 items-start md:items-center text-xs sm:text-base p-3"
+  >
+    <div class="">
+      <img class="w-52 md:w-80 rounded-xl" :src="addon_img" />
+    </div>
+    <div>
+      <div
+        v-for="addon in addons"
+        class="grid grid-cols-12 md:space-x-12 space-y-3 items-end"
+      >
+        <div class="col-span-6">• {{ addon?.name }}</div>
+        <div class="col-span-2">${{ addon?.price }}</div>
+        <div class="col-span-4">
+          <select
+            :id="'addonQty' + addon.itemID"
+            @change="
+            (e:any) => {
+              const index = cart.addons.findIndex(
+                (x:any) => x.itemID == addon.itemID
+                );
+                if (e?.target?.value == '- SELECT -') 
+                  return cart.addons.splice(index, 1);
+                if (index > -1) {
+                  cart.addons[index].quantity = e.target.value;
+                } else {
+                  addon.quantity = e.target.value;
+                  cart.addons.push(addon);
+                }
+
+            }
+          "
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-base w-28 sm:w-full rounded-lg p-0.5 px-3"
+          >
+            <option selected>- SELECT -</option>
+            <option v-for="amount in 5" class="" :value="amount">
+              {{ amount }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const cart = useCart();
+defineProps<{
+  addon_img: string;
+  addons: any;
+}>();
+</script>
+
+<style scoped></style>
