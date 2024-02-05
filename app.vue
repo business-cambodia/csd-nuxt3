@@ -29,11 +29,15 @@ onMounted(async () => {
         'https://api.bayoflights-entertainment.com/users/booking/' +
           booking.reservationID
       );
-      const userAddon = await axios(
-        'https://api.bayoflights-entertainment.com/users/bookingInvoice/' + booking.reservationID
-      );
-      user.value.bookings[index].data = userBooking.data.data;
-      user.value.bookings[index].add_ons = userAddon.data.data?.reservationAdditionalProducts;
+      if (userBooking.data.data) {
+        const userAddon = await axios(
+          'https://api.bayoflights-entertainment.com/users/bookingInvoice/' +
+            booking.reservationID
+        );
+        user.value.bookings[index].add_ons =
+          userAddon.data.data?.reservationAdditionalProducts;
+        user.value.bookings[index].data = userBooking.data.data;
+      }
     });
   }
 });
