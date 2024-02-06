@@ -14,6 +14,7 @@
       <div class="">
         #Ref: <strong>{{ booking?.reservationID }}</strong>
       </div>
+      <div>#Tran_Id: {{ tran_id }}</div>
       <div class="">Status: {{ booking?.status }}</div>
       <div class="">Check In: {{ booking?.startDate }}</div>
       <div class="">Check Out: {{ booking?.endDate }}</div>
@@ -60,6 +61,7 @@
 <script setup lang="ts">
 defineProps<{
   booking: any;
+  tran_id: any;
   add_ons: any;
 }>();
 </script>

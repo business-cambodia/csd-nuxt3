@@ -98,6 +98,7 @@
           v-if="user?.bookings?.length > 0"
           v-for="booking in user?.bookings"
           :booking="booking.data"
+          :tran_id="booking.tran_id"
           :add_ons="booking.add_ons"
         />
         <div class="text-center md:text-xl" v-else>
