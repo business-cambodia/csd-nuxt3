@@ -120,12 +120,25 @@
         <hr />
         <div class="flex flex-col space-y-3 mt-3" v-if="isCheckOutPage">
           <p class="text-xs">Choose Payment Option:</p>
-          <div class="cursor-pointer" @click="cart.payment_option = 'abapay_khqr'"><CardsKHQR /></div>
-          <div class="cursor-pointer" @click="cart.payment_option = 'cards'"><CardsCreditDebit /></div>
+          <div
+            class="cursor-pointer"
+            @click="cart.payment_option = 'abapay_khqr'"
+          >
+            <CardsKHQR />
+          </div>
+          <div class="cursor-pointer" @click="cart.payment_option = 'cards'">
+            <CardsCreditDebit />
+          </div>
         </div>
         <div class="text-[10px] font-light p-0 leading-4 mt-3">
-          By selecting the booking button below, I agree to the Cancellation
-          Policy and Terms & Conditions.
+          By clicking the booking button below, I agree to the
+          <span
+            @click="scrollTop"
+            data-modal-target="term-modal"
+            data-modal-toggle="term-modal"
+            class="font-sans font-bold cursor-pointer hover:underline"
+            >Policy and Terms & Conditions.</span
+          >
         </div>
       </div>
     </div>
@@ -157,6 +170,10 @@ const router = useRouter();
 const isCheckOutPage = ref(
   router.currentRoute.value.name?.toString().includes('checkout')
 );
+
+const scrollTop = () => {
+  window.scrollTo(0, 0);
+};
 const removeRoomFromCart = (cart: any, roomP: any) => {
   (<any>document.getElementById('roomQty' + roomP.roomTypeID)!).value = 0;
   cart.rooms.splice(
@@ -166,7 +183,8 @@ const removeRoomFromCart = (cart: any, roomP: any) => {
 };
 
 const removeAddonFromCart = (cart: any, addonP: any) => {
-  (<any>document.getElementById('addonQty' + addonP.itemID)!).value = '- SELECT -';
+  (<any>document.getElementById('addonQty' + addonP.itemID)!).value =
+    '- SELECT -';
   cart.addons.splice(
     cart.addons.findIndex((addon: any) => addon.itemID == addonP.itemID),
     1

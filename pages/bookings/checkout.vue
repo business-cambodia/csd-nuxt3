@@ -94,6 +94,7 @@
       </form>
     </div>
     <div class="col-span-4 mx-6">
+      <ModalsTermCondition />
       <BookingCart :loading="loading" />
     </div>
     <button id="paywayBtn" @click="handlePayway"></button>
