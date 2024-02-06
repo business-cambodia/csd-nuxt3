@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="bg-orange-100 w-full p-3">
+      <div class="bg-white w-full p-3 border-t border-t-gray-500">
         <div class="space-y-2 text-xs md:text-sm">
           <p class="font-bold font-sans">- CHECK-IN & CHECK-OUT POLICY:</p>
           <p class="">
