@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col md:flex-row justify-start space-x-6 items-start md:items-center text-xs sm:text-base p-3"
+    class="flex flex-col md:flex-row justify-start md:space-x-6 items-center text-xs sm:text-base p-3"
   >
     <div class="">
       <img class="w-52 md:w-80 rounded-xl" :src="addon_img" />
