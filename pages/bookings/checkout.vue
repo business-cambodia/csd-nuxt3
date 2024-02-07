@@ -190,14 +190,22 @@ const handlePayway = async () => {
 };
 
 const closePayway = () => {
-  loading.value = false;
-  if (isMobile.value)
-    document.getElementById('aba_checkout_sheet')?.classList.add('!hidden');
-  else {
-    document.getElementById('aba_webservice')!.style.height = '356px';
-    document.getElementById('aba-checkout')?.classList.add('hidden');
+  if (
+    +document.getElementById('aba_webservice')?.style.height.substring(0, 3)! >
+    400
+  ) {
+    console.log(document.getElementById('aba_webservice')?.style.height);
+    loading.value = false;
+    if (isMobile.value)
+      document.getElementById('aba_checkout_sheet')?.classList.add('!hidden');
+    else {
+      document.getElementById('aba_webservice')!.style.height = '356px';
+      document.getElementById('aba-checkout')?.classList.add('hidden');
+    }
+    link.value.data = '';
+  } else {
+    toast.info('Please follow in mobile app screen instruction.');
   }
-  link.value.data = '';
 };
 
 const handleBooking = async () => {
