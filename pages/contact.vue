@@ -157,13 +157,14 @@
   </div>
   <div class="flex flex-col lg:flex-col-reverse">
     <div class="px-4 lg:px-12 my-3 mb-6">
-      <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
-        <img
-          src="/map.jpg"
-          class="rounded-lg lg:w-full lg:h-[600px] dobject-center object-none"
-          alt="map image"
-        />
-      </a>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15403.510058987782!2d103.5996998721884!3d10.549468842970601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310809d972d2e52b%3A0xc06c20901dcb5ba5!2sSummer%20Bay%20Beach%20Club%20%26%20Cabins!5e1!3m2!1sen!2skh!4v1707363728458!5m2!1sen!2skh"
+        width="100%"
+        class="h-80 lg:h-[600px]"
+        style="border: 0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
     <div class="px-4 my-3 mb-6 flex justify-center">
       <form
