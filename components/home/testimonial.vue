@@ -11,7 +11,7 @@
         }}
       </div>
       <Carousel ref="testimonialsSlide" :breakpoints="breakpoints">
-        <Slide v-for="(r, index) in testimonials?.result?.reviews" :key="index">
+        <Slide v-for="(r, index) in testimonials?.data" :key="index">
           <div class="flex flex-col space-y-2 px-6 mb-3">
             <div
               class="flex items-center justify-center space-x-9 md:space-x-12"
@@ -19,13 +19,17 @@
               <div @click="testimonialsSlide.prev()">
                 <IconsChervonLeft />
               </div>
-              <img :src="r.profile_photo_url" alt="" />
+              <img
+                class="w-28 h-28 rounded-full"
+                :src="r.author_profile_url"
+                alt=""
+              />
               <div @click="testimonialsSlide.next()">
                 <IconsChervonRight />
               </div>
             </div>
             <div class="text-sm md:text-base line-clamp-[9] text-gray-600">
-              {{ r.text }}
+              {{ r.description }}
             </div>
             <div class="flex justify-center space-x-2">
               <IconsStar v-for="s in r.rating" />
@@ -46,7 +50,12 @@ const testimonialsSlide = ref();
 const language = useLanguague();
 
 const testimonials: any = (
-  await useFetch('https://api.bayoflights-entertainment.com/reviews')
+  await useFetch(
+    'https://cms.bayoflights-entertainment.com/items/reviews?filter[status]=published&sort=-rating',
+    {
+      method: 'GET',
+    }
+  )
 ).data;
 
 //responsive breakpoints for carousel
