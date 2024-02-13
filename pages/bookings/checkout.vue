@@ -124,12 +124,7 @@ const formData = ref({
   guestCountry: 'KH',
   guestPhone: null || user.value?.phone_number,
   guestEmail: '' || user.value?.email,
-  rooms: cart.value.rooms.map((room: any) => ({
-    roomTypeName: room.roomTypeName,
-    roomTypeID: room.roomTypeID,
-    quantity: room.quantity,
-    roomsAvailable: room.roomsAvailable,
-  })),
+  rooms: [],
   children: cart.value.rooms.map((room: any) => ({
     roomTypeID: room.roomTypeID,
     quantity: 0,
@@ -175,6 +170,13 @@ const handlePayway = async () => {
   (formData.value.payment_option = cart.value.payment_option),
     (formData.value.paymentMethod =
       cart.value.payment_option == 'cards' ? 'CreditCard' : 'ABAQRCode');
+  formData.value.rooms = cart.value.rooms.map((room: any) => ({
+    roomTypeName: room.roomTypeName,
+    roomTypeID: room.roomTypeID,
+    quantity: room.quantity,
+    roomsAvailable: room.roomsAvailable,
+    promoCode: room?.promoCode,
+  }));
   link.value = await $fetch('https://api.bayoflights-entertainment.com/aba', {
     method: 'POST',
     headers: {

@@ -71,7 +71,15 @@
             </svg>
             <div>{{ room.quantity }} x {{ room.roomTypeName }}</div>
           </div>
-          ${{ room.roomRate * room.quantity }}
+          <div class="flex sm:flex-row flex-col">
+            <span class="relative mx-2 text-xs" v-if="isDiscounted">
+              ${{ room?.baseRate * room.quantity }}
+              <div
+                class="absolute bottom-1/2 left-0 w-full h-full border-b border-red-600 transform -rotate-6"
+              ></div>
+            </span>
+            <div>${{ room.roomRate * room.quantity }}</div>
+          </div>
         </div>
       </div>
 
@@ -101,6 +109,41 @@
           </div>
         </div>
       </div>
+      <form
+        @submit.prevent="searchPromocode()"
+        class="grid grid-cols-12 space-x-3"
+        v-if="isCheckOutPage"
+      >
+        <input
+          :disabled="isDiscounted"
+          v-model="promocode"
+          @change="() => (isDiscounted = null)"
+          type="text"
+          :class="`${
+            isDiscounted && 'bg-gray-100'
+          } rounded-2xl text-sm text-center w-full col-span-9 focus:border-0 uppercase focus:ring-black ring-1 ring-black border-0`"
+          placeholder="ADD PROMO CODE"
+        />
+        <button
+          type="submit"
+          :disabled="isDiscounted ?? promocode == ''"
+          :class="`border text-sm rounded-2xl ${
+            isDiscounted ? 'bg-gray-600 text-white' : 'bg-gray-200'
+          } italic col-span-3`"
+        >
+          {{ isDiscounted ? 'Applied' : 'Apply' }}
+        </button>
+      </form>
+      <span
+        v-if="isDiscounted == false && promocode != ''"
+        class="text-red-600 text-xs"
+      >
+        {{
+          (language === 'KH' && 'ប្រ៉ូម៉ូកូដនេះមិនត្រឹមត្រូវទេ') ||
+          (language === 'CN' && '') ||
+          'This promo code is invalid.'
+        }}</span
+      >
       <div class="text-base font-black">
         <hr />
         <div class="flex justify-between my-3">
@@ -165,8 +208,11 @@
 defineProps({
   loading: Boolean,
 });
+const language = useLanguague();
 const cart = useCart();
 const router = useRouter();
+const promocode = ref('');
+const isDiscounted = ref();
 const isCheckOutPage = ref(
   router.currentRoute.value.name?.toString().includes('checkout')
 );
@@ -196,6 +242,34 @@ const handleBooking = () => {
     document.getElementById('paywayBtn')?.click();
   } else {
     router.push('/bookings/checkout');
+  }
+};
+
+const searchPromocode = async () => {
+  promocode.value = promocode.value.toUpperCase();
+  const res: any = await $fetch(
+    `https://api.bayoflights-entertainment.com/rooms/promoCode?startDate=${new Date(
+      cart.value.startDate
+    ).toLocaleDateString('en-CA')}&endDate=${new Date(
+      cart.value.endDate
+    ).toLocaleDateString('en-CA')}&roomTypeID=&promoCode=${promocode.value}`
+  );
+  if (res.success) {
+    cart.value.rooms.forEach((room: any) => {
+      const discountRoom = res.data.find(
+        (item: any) => item.roomTypeID == room.roomTypeID
+      );
+      if (discountRoom && discountRoom.roomRateDetailed[0].rate != 0) {
+        room.baseRate = room.roomRate;
+        room.roomRate = discountRoom.roomRate;
+        room.promoCode = promocode.value;
+        return (isDiscounted.value = true);
+      } else {
+        return (isDiscounted.value = false);
+      }
+    });
+  } else {
+    return (isDiscounted.value = false);
   }
 };
 </script>
