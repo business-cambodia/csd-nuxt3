@@ -269,7 +269,7 @@ const navbarItems = [
   },
   {
     name: 'Rewards',
-    link: '/',
+    link: '/profile',
   },
   {
     name: 'Contact Us',
