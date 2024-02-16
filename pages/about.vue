@@ -4,13 +4,22 @@
   </h1>
   <div
     :style="{
-      backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0)-5.67%,rgb(14,76,104)126.05%),url('/about.jpg')`,
+      backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0.5)-5.67%,rgb(14,76,104)126.05%),url('/about.jpg')`,
     }"
     class="relative bg-no-repeat bg-cover bg-center h-[60vh] flex flex-col sm:space-y-6 space-y-2 items-center justify-center"
   >
     <div class="font-lobster text-white text-4xl lg:text-8xl">About Us</div>
-    <div class="uppercase text-white text-xs tracking-[0.15rem]">
-      The best place to enjoy life
+    <div
+      class="text-white text-xs lg:text-sm mx-6 lg:mx-32 text-center tracking-[0.15rem]"
+    >
+      Take a break from the hustle & bustle of everyday life, and embark on a
+      journey of relaxation, indulgence & excitement. At Rukkha Beach Club, we
+      provide you with the embodiment of luxurious, relaxing accommodation.
+      Treat yourself to mouth-watering food & beverage, all carefully curated
+      for your culinary pleasure. Surrender to the unbridled excitement from the
+      various exciting activities we provide, whether it be water sports,
+      go-karts, or the ever-thrilling reverse bungee ride. Come, your greatest
+      vacation awaits!
     </div>
     <div
       class="absolute -bottom-[10%] -left-[10%] h-1/6 w-[110%] bg-white blur-[15px]"
