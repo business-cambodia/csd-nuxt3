@@ -8,7 +8,7 @@
     }"
     class="relative bg-no-repeat bg-cover bg-center h-[60vh] flex flex-col sm:space-y-6 space-y-2 items-center justify-center"
   >
-    <div class="font-lobster text-white text-4xl">About Us</div>
+    <div class="font-lobster text-white text-4xl lg:text-8xl">About Us</div>
     <div class="uppercase text-white text-xs tracking-[0.15rem]">
       The best place to enjoy life
     </div>
