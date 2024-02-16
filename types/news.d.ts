@@ -8,4 +8,6 @@ export interface INews {
   date_created: Date;
   slug: string;
   thumbnail: string;
+  title_seo: string;
+  description_seo: string;
 }

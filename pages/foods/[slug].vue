@@ -9,13 +9,13 @@
     :class="`relative bg-no-repeat bg-cover bg-center aspect-square md:aspect-video w-full flex flex-col sm:space-y-6 space-y-2 items-center justify-center`"
   ></div>
   <div class="px-6 lg:px-48 py-6">
-    <div class="text-primary text-lg md:text-2xl">
+    <h1 class="text-primary text-lg md:text-2xl">
       {{
         (language === 'KH' && food.name_kh) ||
         (language === 'CN' && food.name_cn) ||
         food.name
       }}
-    </div>
+    </h1>
     <div class="text-gradient-orange font-bold text-sm md:text-lg">
       ${{ food.price.toFixed(2) }}
     </div>
@@ -61,6 +61,17 @@ const food = (
     })
   ))
 ).data[0];
+
+useHead({
+  title: food.title_seo ? food.title_seo : food.name,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: food.description_seo ? food.description_seo : food.recipes,
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

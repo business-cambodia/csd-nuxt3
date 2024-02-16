@@ -8,13 +8,13 @@
     :class="`relative bg-no-repeat bg-cover bg-center h-[60vh] md:h-[75vh] flex flex-col sm:space-y-6 space-y-2 items-center justify-center`"
   ></div>
   <div class="px-6 lg:px-48 pb-6">
-    <div class="text-primary text-lg md:text-2xl">
+    <h1 class="text-primary text-lg md:text-2xl">
       {{
         (language === 'KH' && news.title_kh) ||
         (language === 'CN' && news.title_cn) ||
         news.title
       }}
-    </div>
+    </h1>
     <div class="flex items-center space-x-1 text-sm md:text-base">
       <IconsDate />
       <div class="text-gradient-green-blue">
@@ -62,31 +62,12 @@ const news = (
 ).data[0];
 
 useHead({
-  title: news.title,
+  title: news.title_seo ? news.title_seo : news.title,
   meta: [
-    {
-      property: 'og:image',
-      content: useImg(news.thumbnail),
-    },
-    {
-      hid: 'og:image',
-      name: 'og:image',
-      content: useImg(news.thumbnail),
-    },
-    {
-      hid: 'og:description',
-      name: 'og:description',
-      content: news.description,
-    },
-    {
-      hid: 'og:title',
-      name: 'og:title',
-      content: news.title,
-    },
     {
       hid: 'description',
       name: 'description',
-      content: news.description,
+      content: news.description_seo ? news.description_seo : news.description,
     },
   ],
 });

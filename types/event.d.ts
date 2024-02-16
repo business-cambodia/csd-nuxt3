@@ -9,4 +9,6 @@ export interface IEvent {
   description: string;
   description_kh: string;
   description_cn: string;
+  title_seo: string;
+  description_seo: string;
 }

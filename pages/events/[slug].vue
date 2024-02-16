@@ -8,13 +8,13 @@
     :class="`relative bg-no-repeat bg-cover bg-center h-[60vh] md:h-[75vh] flex flex-col sm:space-y-6 space-y-2 items-center justify-center`"
   ></div>
   <div class="px-6 lg:px-48 pb-6">
-    <div class="text-primary text-lg md:text-2xl">
+    <h1 class="text-primary text-lg md:text-2xl">
       {{
         (language === 'KH' && event.title_kh) ||
         (language === 'CN' && event.title_cn) ||
         event.title
       }}
-    </div>
+    </h1>
     <div class="flex items-center space-x-1 text-sm md:text-base">
       <IconsDate />
       <div class="text-gradient-green-blue">
@@ -57,30 +57,14 @@ const event = (
 ).data[0];
 
 useHead({
+  title: event.title_seo ? event.title_seo : event.title,
   meta: [
-    {
-      property: 'og:image',
-      content: useImg(event.thumbnail),
-    },
-    {
-      hid: 'og:image',
-      name: 'og:image',
-      content: useImg(event.thumbnail),
-    },
-    {
-      hid: 'og:description',
-      name: 'og:description',
-      content: event.description,
-    },
-    {
-      hid: 'og:title',
-      name: 'og:title',
-      content: event.title,
-    },
     {
       hid: 'description',
       name: 'description',
-      content: event.description,
+      content: event.description_seo
+        ? event.description_seo
+        : event.description,
     },
   ],
 });
