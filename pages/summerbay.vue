@@ -1,4 +1,7 @@
 <template>
+  <h1 class="hidden">
+    Summer Bay Beach Club and Cabins in Sihanoukville Cambodia
+  </h1>
   <div
     :style="{
       backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0)-5.67%,rgb(14,76,104)126.05%),url('accommodation.jpg')`,
@@ -78,7 +81,15 @@ import { IAccommodation } from 'types/accommodation';
 import { IResponse } from 'types/api';
 
 useHead({
-  title: 'Summerbay',
+  title: 'Summer Bay Beach Club and Cabins in Sihanoukville Cambodia',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Summer Bay Beach Club and Cabins in Sihanoukville Cambodia and it was amazing! The beach Beach Sihanoukville is gorgeous - white sand, crystal clear water',
+    },
+  ],
 });
 
 const language = useLanguague();

@@ -1,4 +1,7 @@
 <template>
+  <h1 class="hidden">
+    About Us Bay of Lights Summer Bay Beach Club Sihanoukville
+  </h1>
   <div
     :style="{
       backgroundImage: `linear-gradient(180deg,rgba(255,255,255,0)77.29%,rgba(255,255,255,0.87)91.82%,rgba(255,255,255,0.91)93.07%,rgba(255,255,255,0.96)95.16%,rgb(255,255,255)99.74%,rgba(255,255,255,0.9)104.31%),linear-gradient(245.5deg,rgba(14,76,104,0)-5.67%,rgb(14,76,104)126.05%),url('/about.jpg')`,
@@ -13,7 +16,9 @@
       class="absolute -bottom-[10%] -left-[10%] h-1/6 w-[110%] bg-white blur-[15px]"
     ></div>
   </div>
-  <div class="relative flex flex-col justify-center items-center lg:mx-48 h-[40vh]">
+  <div
+    class="relative flex flex-col justify-center items-center lg:mx-48 h-[40vh]"
+  >
     <svg
       class="lg:hidden w-full"
       viewBox="0 0 428 382"
@@ -754,6 +759,18 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: 'About Us Bay of Lights Summer Bay Beach Club Sihanoukville',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'About Us Bay of Lights Summer Bay Beach Club Sihanoukville in Cambodia fancy beach clubs, to cozy beach cabins You must book Online in advance on BOL Cambodia',
+    },
+  ],
+});
+</script>
 
 <style scoped></style>

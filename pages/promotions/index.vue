@@ -1,5 +1,8 @@
 <template>
   <LayoutsNavbarTransparent />
+  <h1 class="hidden">
+    Promotions Resort Hotels Beach Offers Packages Cambodia
+  </h1>
   <div class="ellipse"></div>
   <div class="pb-20"></div>
   <div
@@ -67,6 +70,18 @@ import { IPromotion } from 'types/promotion';
 import { Carousel, Slide, Pagination } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 const activitySlide = ref();
+
+useHead({
+  title: 'Promotions Resort Hotels Beach Offers Packages Cambodia',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Promotions Resort Hotels Beach Sihanoukville The beach was gorgeous accommodation with a garden & Private parking in Sihanoukville and it was amazing! ',
+    },
+  ],
+});
 
 const language = useLanguague();
 const promotions: IPromotion[] = (

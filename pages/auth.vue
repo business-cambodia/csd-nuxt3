@@ -1,4 +1,5 @@
 <template>
+  <h1 class="hidden">Login. SUMMER BAY. Sign Up</h1>
   <LayoutsNavbar />
   <div
     style="
@@ -18,7 +19,16 @@
 </template>
 
 <script setup lang="ts">
-const user = useUser();
+useHead({
+  title: 'Log in. SUMMER BAY. Sign Up Summer Bay Beach Club ',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: `Don't have an account? Sign up. SUMMER BAY. Log in. First name. Last name. Email. Phone Number. Password. Confirm Password. Sign Up & Already have an account?`,
+    },
+  ],
+});
 
 definePageMeta({
   layout: false,

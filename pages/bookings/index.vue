@@ -1,4 +1,5 @@
 <template>
+  <h1 class="hidden">Book your Hotel Resort Beach in Sihanoukville Cambodia</h1>
   <LayoutsNavbarTransparent />
   <div class="flex justify-center mt-20 mb-6 mx-6 sm:mx-9">
     <BookingSearch />
@@ -47,6 +48,19 @@ const rooms: any = ref(
     }&adults=${cart.value.adults}`
   )
 );
+
+useHead({
+  title: 'Book your Hotel Resort Beach in Sihanoukville Cambodia',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Book your Hotel Resort Beach in Sihanoukville Cambodia & The best hotels in Resort Beach Sihanoukville Waterfront Online Booking Resort Beach',
+    },
+  ],
+});
+
 watch(
   () => [cart.value.startDate, cart.value.endDate],
   async () => {

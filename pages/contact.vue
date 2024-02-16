@@ -12,15 +12,16 @@
     }}
   </div>
   <div class="text-center text-sm lg:text-lg">
-    <div class="">
-      <p>
+    <div class="flex flex-col sm:flex-row justify-center">
+      <h1>
         {{
           (language === 'KH' &&
             'លេខទំនាក់ទំនងរីសត និងលេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
           (language === 'CN' && '') ||
-          'Resort Contact & Sponsorship Enquiries'
-        }}: +855 17 505 444
-      </p>
+          'Resort Contact & Sponsor Enquiries Beach Club:'
+        }}
+      </h1>
+      +855 17 505 444
     </div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
       {{
@@ -229,6 +230,18 @@ const formData = ref({
   phone: '',
   type: '',
   message: '',
+});
+
+useHead({
+  title: 'Resort Contact & Enquiries Beach Club in Sihanoukville',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'You must place your booking Online in advance of your desired starting date, logo, Resort Contact & Enquiries Beach Club in Sihanoukville Cambodia',
+    },
+  ],
 });
 
 const handleSubmit = async () => {
