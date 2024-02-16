@@ -2,7 +2,22 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Bay Of Lights',
+      title: 'Bay Of Lights & Summer Bay Beach Club Sihanoukville Cambodia',
+      meta: [
+        {
+          charset: 'utf-8',
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Bay Of Lights Clean beach peaceful environment and the best sunset spot for photos & Cabins with a garden Summer Bay Beach Club Sihanoukville Cambodia',
+        },
+      ],
       link: [
         {
           rel: 'stylesheet',
