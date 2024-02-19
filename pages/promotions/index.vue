@@ -6,7 +6,7 @@
   <div class="ellipse"></div>
   <div class="pb-20"></div>
   <div
-    class="text-center font-lobster text-5xl lg:text-7xl text-gradient-green-blue leading-snug"
+    class="text-center font-lobster text-5xl lg:text-[4.5rem] text-gradient-green-blue leading-normal"
   >
     {{
       (language === 'KH' && 'ប្រូម៉ូសិន') ||
@@ -56,9 +56,9 @@
     <img class="w-64 lg:w-80" src="/promotion.png" alt="" />
     <div class="lg:text-2xl">
       {{
-        (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
+        (language === 'KH' && 'ប្រូម៉ូសិនថ្មីៗនឹងមកដល់ឆាប់ៗនេះ') ||
         (language === 'CN' && '') ||
-        'There is currently no promotion available.'
+        'More promotions are coming soon.'
       }}
     </div>
   </div>
