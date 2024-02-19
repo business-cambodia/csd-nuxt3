@@ -1,6 +1,12 @@
 <template>
   <div
-    class="hero bg-no-repeat bg-cover flex flex-col sm:space-y-6 space-y-2 items-center justify-top lg:px-32 px-10"
+    class="h-[75vh] sm:h-screen bg-no-repeat bg-cover flex flex-col sm:space-y-6 space-y-2 items-center justify-top lg:px-32 px-10"
+    :style="{
+      backgroundPosition: 'right 15% bottom 0%',
+      backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(${useImg(
+        homebg.data.image
+      )})`,
+    }"
   >
     <div class="mt-24">
       <img class="w-40 sm:w-60" src="/SUMMER-BAY-Logo-01.png" />
@@ -33,29 +39,9 @@
 
 <script setup lang="ts">
 const language = useLanguague();
+const homebg: any = await $fetch(
+  'https://cms.bayoflights-entertainment.com/items/homepage_image'
+);
 </script>
 
-<style scoped>
-.hero {
-  height: 75vh;
-  background-position: right 15% bottom 0%;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(118, 183, 159, 0),
-      rgba(75, 144, 190, 0)
-    ),
-    url('/homebg.jpg');
-}
-@media (min-width: 640px) {
-  .hero {
-    height: 100vh;
-    background-position: bottom;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.1)
-      ),
-      url('/homebg.jpg');
-  }
-}
-</style>
+<style scoped></style>
