@@ -82,7 +82,7 @@
         }}
       </div>
     </NuxtLink>
-    <NuxtLink to="/profile">
+    <NuxtLink to="/profile#rewards">
       <div class="flex flex-col items-center text-white">
         <svg
           width="25"
