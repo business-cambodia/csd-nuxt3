@@ -1,4 +1,5 @@
 <template>
+  <h1 class="hidden">Profile Account with Bay Of Lights</h1>
   <div
     :style="{
       backgroundImage: `linear-gradient(245.5deg, rgba(14, 76, 104, 0) -5.67%, #0E4C68 126.05%),url('/bg.png')`,
@@ -321,6 +322,18 @@ const user = useUser();
 
 definePageMeta({
   middleware: ['auth'],
+});
+
+useHead({
+  title: 'Profile Account with Bay Of Lights & Summer Bay Beach Club',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Profile sign in to your account with Bay Of Lignts & summer bay beach Clud Sihanoukville Cambodia & Enjoy Hotel Booking through Online resort Beach',
+    },
+  ],
 });
 
 onMounted(() => {
