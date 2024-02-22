@@ -27,7 +27,9 @@
     <div class="">
       <p>• Rooms</p>
       <div
-        v-for="(room, index) in booking?.assigned"
+        v-for="(room, index) in booking.assigned.length > 0
+          ? booking?.assigned
+          : booking?.unassigned"
         class="text-primary sm:text-xl"
       >
         <div>
