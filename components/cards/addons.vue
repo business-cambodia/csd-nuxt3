@@ -34,7 +34,7 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-base w-28 sm:w-full rounded-lg p-0.5 px-3"
           >
             <option selected>- SELECT -</option>
-            <option v-for="amount in 5" class="" :value="amount">
+            <option v-for="amount in 3" class="" :value="amount">
               {{ amount }}
             </option>
           </select>
