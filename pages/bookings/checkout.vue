@@ -196,7 +196,6 @@ const closePayway = () => {
     +document.getElementById('aba_webservice')?.style.height.substring(0, 3)! >
     400
   ) {
-    console.log(document.getElementById('aba_webservice')?.style.height);
     loading.value = false;
     if (isMobile.value)
       document.getElementById('aba_checkout_sheet')?.classList.add('!hidden');
