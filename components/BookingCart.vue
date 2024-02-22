@@ -273,7 +273,12 @@ const searchPromocode = async () => {
       }
     });
   } else {
-    return (isDiscounted.value = false);
+    setTimeout(() => {
+      promocode.value = '';
+      isDiscounted.value = null;
+    }, 3000);
+    isDiscounted.value = false;
+    return;
   }
 };
 </script>
