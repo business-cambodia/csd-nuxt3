@@ -21,7 +21,7 @@
           'Resort Contact & Sponsor Enquiries Beach Club:'
         }}
       </h1>
-      +855 17 505 444
+      +855 17 505 444 / 070 888 452
     </div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
       {{

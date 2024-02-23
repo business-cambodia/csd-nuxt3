@@ -76,15 +76,16 @@
         </a>
       </div>
       <div class="text-sm text-center xl:text-start">
-        <div class="">
+        <div class="sm:flex space-x-1">
           <p>
             {{
               (language === 'KH' &&
                 'លេខទំនាក់ទំនងរីសត និងលេខទំនាក់ទំនងការឧបត្ថម្ភ') ||
               (language === 'CN' && '') ||
               'Resort Contact & Sponsorship Enquiries'
-            }}: +855 17 505 444
+            }}:
           </p>
+          <span>+855 17 505 444 / 070 888 452</span>
         </div>
         <a
           href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
@@ -108,7 +109,7 @@
               'Developed by'
             }}
             <a
-              class="font-bold"
+              class="font-bold font-serif"
               href="https://facebook.com/techcambodia2022"
               target="_blank"
               >Technology Cambodia</a
