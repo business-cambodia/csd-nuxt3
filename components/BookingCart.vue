@@ -19,16 +19,30 @@
           }}
         </div>
         ,
-        {{
-          Math.floor(
-            (new Date(cart.endDate).setHours(0, 0, 0, 0) -
-              new Date(cart.startDate).setHours(0, 0, 0, 0)) /
-              (24 * 60 * 60 * 1000)
-          )
-        }}
-        night
+        <div>
+          {{
+            Math.floor(
+              (new Date(cart.endDate).setHours(0, 0, 0, 0) -
+                new Date(cart.startDate).setHours(0, 0, 0, 0)) /
+                (24 * 60 * 60 * 1000)
+            )
+          }}
+          night
+        </div>
+        ,
+        <div class="flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-3 mx-1"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+            />
+          </svg>
+          {{ cart.adults }}
+        </div>
       </div>
-      <!-- <div>Change Date</div> -->
     </div>
     <div class="gg p-3 text-sm flex flex-col space-y-4">
       <div class="flex justify-between w-full">
@@ -189,18 +203,39 @@
         </div>
       </div>
     </div>
+    <div class="text-red-600 text-xs text-center py-1">
+      {{
+        cart.rooms.length != 0 &&
+        cart.adults >
+          cart.rooms.reduce(
+            (sum: number, room: any) => sum + +(room.maxGuests * room.quantity),
+            0
+          )
+          ? (language === 'KH' &&
+              `សូមបន្ថែមចំនួនបន្ទប់សម្រាប់ភ្ញៀវសរុប ${cart.adults} នាក់!`) ||
+            (language === 'CN' && '') ||
+            `Please add more room to fit ${cart.adults} adults!`
+          : ''
+      }}
+    </div>
     <div class="flex justify-center" v-if="loading">
       <CardsLoading />
     </div>
     <button
       v-else
       @click="handleBooking"
-      :disabled="cart.rooms.length == 0"
+      :disabled="cart.rooms.length == 0 || (cart.adults > cart.rooms.reduce(
+          (sum: number, room: any) => sum + +(room.maxGuests * room.quantity),
+          0
+        ) )"
       class="text-white w-full font-black py-3 md:py-4 text-xl text-center rounded-b-2xl"
       :class="
-        cart.rooms.length > 0
-          ? 'bg-secondary hover:bg-primary'
-          : 'bg-gray-500 cursor-default'
+        cart.rooms.length == 0 || (cart.adults > cart.rooms.reduce(
+          (sum: number, room: any) => sum + +(room.maxGuests * room.quantity),
+          0
+        ) )
+        ? 'bg-gray-500 cursor-default'
+        : 'bg-secondary hover:bg-primary'
       "
     >
       {{ isCheckOutPage ? 'CONFIRM BOOKING' : 'BOOK NOW' }}

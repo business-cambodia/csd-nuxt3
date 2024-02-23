@@ -131,7 +131,7 @@ const formData = ref({
   })),
   adults: cart.value.rooms.map((room: any) => ({
     roomTypeID: room.roomTypeID,
-    quantity: 2,
+    quantity: room.maxGuests,
   })),
   paymentMethod: '',
   payment_option: '',
