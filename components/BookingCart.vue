@@ -268,8 +268,7 @@ const removeRoomFromCart = (cart: any, roomP: any) => {
 };
 
 const removeAddonFromCart = (cart: any, addonP: any) => {
-  (<any>document.getElementById('addonQty' + addonP.itemID)!).value =
-    '- SELECT -';
+  (<any>document.getElementById('addonQty' + addonP.itemID)!).value = 0;
   cart.addons.splice(
     cart.addons.findIndex((addon: any) => addon.itemID == addonP.itemID),
     1
