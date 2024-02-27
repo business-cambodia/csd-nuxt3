@@ -62,7 +62,7 @@ useHead({
 });
 
 watch(
-  () => [cart.value.startDate, cart.value.endDate, cart.value.adults],
+  () => [cart.value.startDate, cart.value.endDate],
   async () => {
     cart.value.rooms.forEach((room: any) => {
       (<any>document.getElementById('roomQty' + room.roomTypeID)!).value = 0;
