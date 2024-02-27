@@ -59,7 +59,33 @@
               </clipPath>
             </defs>
           </svg>
-          Sleeps {{ room.maxGuests }} |
+          Sleeps {{ room.maxGuests }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="w-3.5 mx-1 focus:outline-none hover:cursor-pointer"
+            fill="gray"
+            :data-popover-target="'popover-default' + room.roomTypeID"
+          >
+            <path
+              d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+            />
+          </svg>
+
+          <div
+            data-popover
+            :id="'popover-default' + room.roomTypeID"
+            role="tooltip"
+            class="text-center absolute z-10 invisible inline-block w-64 text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0"
+          >
+            <div class="p-2">
+              <div>
+                {{ room.maxGuests }} Adults including
+                {{ room.maxGuests / 2 }} Children below six years old
+              </div>
+            </div>
+          </div>
+          |
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-3 mx-1"
@@ -185,9 +211,14 @@
 </template>
 
 <script setup lang="ts">
+import { initFlowbite } from 'flowbite';
 import { Carousel, Navigation, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 const cart = useCart();
+
+onMounted(() => {
+  initFlowbite();
+});
 
 defineProps<{
   room: any;
