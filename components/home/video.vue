@@ -10,7 +10,7 @@
     <div class="w-full md:w-[900px] h-auto max-w-full p-6 md:p-0">
       <iframe
         class="border w-full h-full aspect-video rounded-lg"
-        src="https://www.youtube.com/embed/7y8Fqeso4Mk?si=MUMUNOsH--oTuxgx"
+        :src="video.data.link"
         title="YouTube video player"
         frameborder="0"
         allowfullscreen
@@ -21,6 +21,9 @@
 
 <script setup lang="ts">
 const language = useLanguague();
+const video:any = await $fetch(
+  'https://cms.bayoflights-entertainment.com/items/video'
+);
 </script>
 
 <style scoped></style>
