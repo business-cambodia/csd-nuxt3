@@ -1,6 +1,7 @@
 <template>
   <h1 class="hidden">Summer Bay Beach Club Sihanoukville Cambodia</h1>
   <HomeHero />
+  <HomePromotion />
   <HomeEvent />
   <HomeActivity />
   <HomeFood />
