@@ -26,9 +26,9 @@
         <div class="text-center font-bold lg:text-xl">
           {{
             (language === 'KH' &&
-              activities[activitySlide.data.currentSlide.value].name_kh) ||
+              activities[activitySlide.data.currentSlide.value]?.name_kh) ||
             (language === 'CN' && '') ||
-            activities[activitySlide.data.currentSlide.value].name
+            activities[activitySlide.data.currentSlide.value]?.name
           }}
         </div>
         <div
@@ -36,7 +36,7 @@
           v-html="
             (language === 'KH' &&
               activities[activitySlide.data.currentSlide.value]
-                .description_kh) ||
+                ?.description_kh) ||
             (language === 'CN' && '') ||
             activities[activitySlide?.data?.currentSlide.value]?.description
           "
@@ -64,6 +64,7 @@ const activities: IActivity[] = (
 const breakpoints = {
   // mobile
   0: {
+    autoplay: 3000,
     wrapAround: true,
     itemsToShow: 1.75,
     snapAlign: 'center',

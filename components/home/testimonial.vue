@@ -62,6 +62,7 @@ const testimonials: any = (
 const breakpoints = {
   // mobile
   0: {
+    autoplay: 3000,
     itemsToShow: 1,
     snapAlign: 'center',
     wrapAround: true,
