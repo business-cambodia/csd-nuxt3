@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-[30vh] w-full bg-no-repeat bg-cover bg-center mb-16 xl:mb-0 flex flex-col xl:flex-row items-center xl:items-end xl:pb-6 justify-center xl:justify-between xl:px-[10%] text-white mt-2"
+    class="h-[40vh] w-full bg-no-repeat bg-cover bg-center mb-16 xl:mb-0 flex flex-col xl:flex-row items-center xl:items-end xl:pb-6 justify-center xl:justify-between xl:px-[10%] text-white mt-2"
     :style="{
       backgroundImage: `linear-gradient(180deg, rgba(14, 76, 104, 0) -58.05%, #0E4C68 100%), url('/footer.png')`,
     }"
@@ -115,9 +115,9 @@
               >Technology Cambodia</a
             >
             <div
-              class="flex xl:opacity-0 xl:fixed text-sm space-x-3 justify-center"
+              class="flex xl:opacity-0 xl:fixed text-sm space-y-1 space-x-3 justify-center items-center"
             >
-              <div>We accept:</div>
+              <div class="text-xs sm:text-sm">We accept:</div>
               <IconsWeAccept />
             </div>
           </div>

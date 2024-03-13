@@ -190,6 +190,12 @@
           <div class="cursor-pointer" @click="cart.payment_option = 'cards'">
             <CardsCreditDebit />
           </div>
+          <div class="cursor-pointer" @click="cart.payment_option = 'alipay'">
+            <CardsAlipay />
+          </div>
+          <div class="cursor-pointer" @click="cart.payment_option = 'wechat'">
+            <CardsWechat />
+          </div>
         </div>
         <div class="text-[10px] font-light p-0 leading-4 mt-3">
           By clicking the booking button below, I agree to the

@@ -1,10 +1,10 @@
 <template>
   <div class="my-6">
     <div
-      class="text-2xl md:text-4xl text-gradient-green-blue text-center mb-6 font-san line-clamp-6"
+      class="text-2xl md:text-4xl text-gradient-green-blue text-center mb-6 font-sans line-clamp-6"
     >
       {{
-        (language === 'KH' && 'Blog របស់ពួកយើង') ||
+        (language === 'KH' && 'Blog របស់យើង') ||
         (language === 'CN' && '') ||
         'Our Blogs'
       }}
