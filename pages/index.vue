@@ -5,6 +5,7 @@
   <HomeEvent />
   <HomeActivity />
   <HomeFood />
+  <HomeBlog />
   <HomeTestimonial />
   <HomeNews />
   <HomeGallery />
