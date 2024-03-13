@@ -223,13 +223,6 @@
                 >My Bookings</NuxtLink
               >
             </li>
-            <li>
-              <NuxtLink
-                to="/profile#rewards"
-                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >My Rewards</NuxtLink
-              >
-            </li>
           </ul>
           <hr />
           <div class="py-2">
@@ -276,8 +269,8 @@ const navbarItems = [
     link: '/bookings',
   },
   {
-    name: 'Rewards',
-    link: '/profile#rewards',
+    name: 'Blogs',
+    link: '/blogs',
   },
   {
     name: 'Contact Us',
