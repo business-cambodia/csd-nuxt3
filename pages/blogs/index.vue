@@ -1,5 +1,6 @@
 <template>
   <LayoutsNavbarTransparent />
+  <h1 class="hidden">Blogs about Summerbay and Bay of Lights Cambodia</h1>
   <div>
     <div class="mt-16 md:mt-20">
       <div class="text-3xl md:text-4xl text-center mb-9">

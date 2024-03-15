@@ -5,13 +5,13 @@
       <div class="lg:col-span-1"></div>
       <div class="lg:col-span-6 mx-3 lg:mx-0">
         <div class="mb-3">
-          <p class="text-2xl lg:text-4xl">
+          <h1 class="text-2xl lg:text-4xl">
             {{
               (language === 'KH' && blog.title_kh) ||
               (language === 'CN' && blog.title_cn) ||
               blog.title
             }}
-          </p>
+          </h1>
           <div class="flex text-xs lg:text-sm mt-3 text-gray-600 space-x-3">
             <p class="uppercase">
               {{
@@ -105,6 +105,19 @@ const blogs = (
     })
   ))
 ).data;
+
+useHead({
+  title: blog.title_seo ? blog.title_seo : blog.title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: blog.description_seo
+        ? blog.description_seo
+        : blog.description,
+    },
+  ],
+});
 </script>
 
 <style scoped></style>
