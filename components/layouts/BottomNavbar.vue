@@ -2,7 +2,7 @@
   <div
     class="xl:hidden bg-gradient-green-blue fixed bottom-0 text-sm left-0 right-0 h-16 flex justify-around items-center z-[30]"
   >
-    <NuxtLink to="/">
+    <NuxtLink to="/events">
       <div class="flex flex-col items-center text-white">
         <svg
           width="23"
@@ -82,7 +82,7 @@
         }}
       </div>
     </NuxtLink>
-    <NuxtLink to="/profile#rewards">
+    <NuxtLink to="/blogs">
       <div class="flex flex-col items-center text-white">
         <svg
           width="25"
@@ -127,11 +127,7 @@
           />
         </svg>
 
-        {{
-          (language === 'KH' && 'រង្វាន់') ||
-          (language === 'CN' && '') ||
-          'Rewards'
-        }}
+        {{ (language === 'KH' && '') || (language === 'CN' && '') || 'Blogs' }}
       </div>
     </NuxtLink>
   </div>

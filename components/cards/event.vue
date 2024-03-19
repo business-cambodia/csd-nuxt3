@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="relative text-white aspect-video w-full rounded-xl mr-3"
+    class="relative text-white aspect-video w-full rounded-xl mx-1"
     :to="`/events/${event.slug}`"
   >
     <div

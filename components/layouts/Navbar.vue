@@ -254,7 +254,7 @@ const router = useRouter();
 const navbarItems = [
   {
     name: 'Events',
-    link: '/',
+    link: '/events',
   },
   {
     name: 'Promotions',
