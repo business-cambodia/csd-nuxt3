@@ -2,7 +2,7 @@
   <div
     class="h-[40vh] w-full bg-no-repeat bg-cover bg-center mb-16 xl:mb-0 flex flex-col xl:flex-row items-center xl:items-end xl:pb-6 justify-center xl:justify-between xl:px-[10%] text-white mt-2"
     :style="{
-      backgroundImage: `linear-gradient(180deg, rgba(14, 76, 104, 0) -58.05%, #0E4C68 100%), url('/footer.png')`,
+      backgroundImage: `linear-gradient(180deg, rgba(14, 76, 104, 0) -58.05%, #0E4C68 100%), url('/footer.webp')`,
     }"
   >
     <div
