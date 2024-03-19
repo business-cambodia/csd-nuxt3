@@ -27,7 +27,7 @@
           accommodation.name
         }}
       </div>
-      <div class="font-bold text-lg">
+      <div class="font-bold text-lg" v-if="accommodation.price">
         ${{ accommodation.price
         }}<span class="text-xs md:text-sm">
           /
