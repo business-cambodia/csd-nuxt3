@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 
 const userFromDBInfo = {
   username: 'bayoflights@dashboard.com',
-  password: 'VoucherDashboard!#123',
+  password: 'UsersDashboard!#123',
 };
 
 const getCookie = (key) => {
