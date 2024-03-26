@@ -171,7 +171,7 @@
 <script setup lang="ts">
 const cart = useCart();
 const range = ref({
-  start: '03/26/2024',
+  start: cart.value.startDate,
   end: cart.value.endDate,
 });
 
