@@ -31,18 +31,17 @@ const props = defineProps({
   },
   closeDrawer: {
     type: Function,
-  }
+  },
 });
 const navItems = ref([
   { to: '/', property: 'home' },
-  { to: '/', property: 'events' },
-  { to: '/', property: 'activities' },
+  { to: '/events', property: 'events' },
+  { to: '/Bookings', property: 'bookings' },
   { to: '/promotions', property: 'promotions' },
   { to: '/summerbay', property: 'accommodations' },
   { to: '/about', property: 'about us' },
   { to: '/contact', property: 'contact' },
 ]);
-
 </script>
 
 <style>

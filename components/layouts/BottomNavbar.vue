@@ -127,7 +127,7 @@
           />
         </svg>
 
-        {{ (language === 'KH' && '') || (language === 'CN' && '') || 'Blogs' }}
+        {{ (language === 'KH' && '') || (language === 'CN' && '') || 'Blog' }}
       </div>
     </NuxtLink>
   </div>

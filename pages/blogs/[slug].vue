@@ -45,7 +45,7 @@
           {{
             (language === 'KH' && 'Blog ថ្មីៗ') ||
             (language === 'CN' && '') ||
-            'Recent Blogs'
+            'Recent Blog'
           }}
         </div>
         <hr class="text-black h-0.5 bg-gray-800 my-3" />

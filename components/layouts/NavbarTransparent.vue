@@ -261,7 +261,7 @@ const navbarItems = [
     link: '/bookings',
   },
   {
-    name: 'Blogs',
+    name: 'Blog',
     link: '/blogs',
   },
   {

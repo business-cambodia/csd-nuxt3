@@ -1,13 +1,13 @@
 <template>
   <LayoutsNavbarTransparent />
-  <h1 class="hidden">Blogs about Summerbay and Bay of Lights Cambodia</h1>
+  <h1 class="hidden">Blog about Summerbay and Bay of Lights Cambodia</h1>
   <div>
     <div class="mt-16 md:mt-20">
       <div class="text-3xl md:text-4xl text-center mb-9">
         {{
           (language === 'KH' && 'Blog ទាំងអស់របស់ពួកយើង') ||
           (language === 'CN' && '') ||
-          'Check out our blogs'
+          'Check out our blog'
         }}
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-12 gap-12">
