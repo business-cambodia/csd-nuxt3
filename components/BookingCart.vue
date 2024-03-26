@@ -227,7 +227,7 @@
     <div class="flex justify-center" v-if="loading">
       <CardsLoading />
     </div>
-    <!-- <button
+    <button
       v-else
       @click="handleBooking"
       :disabled="cart.rooms.length == 0 || (cart.adults > cart.rooms.reduce(
@@ -245,7 +245,7 @@
       "
     >
       {{ isCheckOutPage ? 'CONFIRM BOOKING' : 'BOOK NOW' }}
-    </button> -->
+    </button>
   </div>
 </template>
 
