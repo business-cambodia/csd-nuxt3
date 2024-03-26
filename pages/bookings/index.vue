@@ -35,15 +35,23 @@
 <script setup lang="ts">
 const loading = ref(false);
 const cart = useCart();
+
+const formatDate = (dateString: any) => {
+  const date = new Date(dateString);
+
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
+  const day = date.getDate().toString().padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
+};
+
 const rooms: any = ref(
   await $fetch(
-    `https://api.bayoflights-entertainment.com/rooms?startDate=${new Date(
+    `https://api.bayoflights-entertainment.com/rooms?startDate=${formatDate(
       cart.value.startDate
-    )
-      .toISOString()
-      .substring(0, 10)}&endDate=${new Date(cart.value.endDate)
-      .toISOString()
-      .substring(0, 10)}&adults=${cart.value.adults}`
+    )}&endDate=${formatDate(cart.value.endDate)}&adults=${cart.value.adults}`
   )
 );
 
@@ -70,13 +78,11 @@ watch(
       loading.value = true;
       const newRooms: any = ref(
         await $fetch(
-          `https://api.bayoflights-entertainment.com/rooms?startDate=${new Date(
+          `https://api.bayoflights-entertainment.com/rooms?startDate=${formatDate(
             cart.value.startDate
-          )
-            .toISOString()
-            .substring(0, 10)}&endDate=${new Date(cart.value.endDate)
-            .toISOString()
-            .substring(0, 10)}&adults=${cart.value.adults}`
+          )}&endDate=${formatDate(cart.value.endDate)}&adults=${
+            cart.value.adults
+          }`
         )
       );
       rooms.value = newRooms.value;

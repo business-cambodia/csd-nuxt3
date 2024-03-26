@@ -3,7 +3,10 @@
     class="flex border justify-center rounded-2xl md:rounded-full md:h-20 shadow-2xl px-9 py-3 w-full mx-3 md:w-auto"
   >
     <VDatePicker
-      v-model.range.number="range"
+      :masks="{
+        input: 'MM/DD/YYYY',
+      }"
+      v-model.range="range"
       mode="date"
       :popover="popover"
       :disabled-dates="disabledDates"
@@ -168,7 +171,7 @@
 <script setup lang="ts">
 const cart = useCart();
 const range = ref({
-  start: cart.value.startDate,
+  start: '03/26/2024',
   end: cart.value.endDate,
 });
 
@@ -183,7 +186,6 @@ const popover = ref({
   showDelay: 0,
   hideDelay: 110,
 });
-
 </script>
 
 <style scoped></style>
