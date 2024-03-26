@@ -37,15 +37,13 @@ const loading = ref(false);
 const cart = useCart();
 const rooms: any = ref(
   await $fetch(
-    `https://api.bayoflights-entertainment.com/rooms?startDate=${
-      new Date(new Date(cart.value.startDate).toLocaleDateString('en-CA'))
-        .toISOString()
-        .split('T')[0]
-    }&endDate=${
-      new Date(new Date(cart.value.endDate).toLocaleDateString('en-CA'))
-        .toISOString()
-        .split('T')[0]
-    }&adults=${cart.value.adults}`
+    `https://api.bayoflights-entertainment.com/rooms?startDate=${new Date(
+      cart.value.startDate
+    )
+      .toISOString()
+      .substring(0, 10)}&endDate=${new Date(cart.value.endDate)
+      .toISOString()
+      .substring(0, 10)}&adults=${cart.value.adults}`
   )
 );
 
@@ -74,9 +72,11 @@ watch(
         await $fetch(
           `https://api.bayoflights-entertainment.com/rooms?startDate=${new Date(
             cart.value.startDate
-          ).toLocaleDateString('en-CA')}&endDate=${new Date(
-            cart.value.endDate
-          ).toLocaleDateString('en-CA')}&adults=${cart.value.adults}`
+          )
+            .toISOString()
+            .substring(0, 10)}&endDate=${new Date(cart.value.endDate)
+            .toISOString()
+            .substring(0, 10)}&adults=${cart.value.adults}`
         )
       );
       rooms.value = newRooms.value;
