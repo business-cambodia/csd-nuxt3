@@ -227,7 +227,7 @@
     <div class="flex justify-center" v-if="loading">
       <CardsLoading />
     </div>
-    <button
+    <!-- <button
       v-else
       @click="handleBooking"
       :disabled="cart.rooms.length == 0 || (cart.adults > cart.rooms.reduce(
@@ -245,7 +245,7 @@
       "
     >
       {{ isCheckOutPage ? 'CONFIRM BOOKING' : 'BOOK NOW' }}
-    </button>
+    </button> -->
   </div>
 </template>
 
@@ -289,14 +289,25 @@ const handleBooking = () => {
   }
 };
 
+const formatDate = (dateString: any) => {
+  const date = new Date(dateString);
+
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
+  const day = date.getDate().toString().padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
+};
+
 const searchPromocode = async () => {
   promocode.value = promocode.value.toUpperCase();
   const res: any = await $fetch(
-    `https://api.bayoflights-entertainment.com/rooms/promoCode?startDate=${new Date(
+    `https://api.bayoflights-entertainment.com/rooms/promoCode?startDate=${formatDate(
       cart.value.startDate
-    ).toLocaleDateString('en-CA')}&endDate=${new Date(
-      cart.value.endDate
-    ).toLocaleDateString('en-CA')}&roomTypeID=&promoCode=${promocode.value}`
+    )}&endDate=${formatDate(cart.value.endDate)}&roomTypeID=&promoCode=${
+      promocode.value
+    }`
   );
   if (res.success) {
     cart.value.rooms.forEach((room: any) => {

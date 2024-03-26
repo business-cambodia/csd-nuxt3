@@ -155,21 +155,28 @@ onMounted(() => {
   }
 });
 
+const formatDate = (dateString: any) => {
+  const date = new Date(dateString);
+
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
+  const day = date.getDate().toString().padStart(2, '0');
+
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
+};
+
 const handlePayway = async () => {
   if (cart.value.payment_option == '') {
     return toast.warn('Please choose payment option.');
   }
   loading.value = true;
   formData.value.guestPhone = '' + formData.value.guestPhone;
-  formData.value.startDate = new Date(cart.value.startDate).toLocaleDateString(
-    'en-CA'
-  );
-  formData.value.endDate = new Date(cart.value.endDate).toLocaleDateString(
-    'en-CA'
-  );
-  (formData.value.payment_option = cart.value.payment_option),
-    (formData.value.paymentMethod =
-      cart.value.payment_option == 'cards' ? 'CreditCard' : 'ABAQRCode');
+  formData.value.startDate = formatDate(cart.value.startDate);
+  formData.value.endDate = formatDate(cart.value.endDate);
+  formData.value.payment_option = cart.value.payment_option;
+  formData.value.paymentMethod =
+    cart.value.payment_option == 'cards' ? 'CreditCard' : 'ABAQRCode';
   formData.value.rooms = cart.value.rooms.map((room: any) => ({
     roomTypeName: room.roomTypeName,
     roomTypeID: room.roomTypeID,
