@@ -746,7 +746,7 @@
       </div>
       <div class="h-full text-sm md:text-lg">
         Take a break from the hustle & bustle of everyday life, and embark on a
-        journey of relaxation, indulgence & excitement. At Rukkha Beach Club, we
+        journey of relaxation, indulgence & excitement. At Summer Bay Beah Club & Cabins, we
         provide you with the embodiment of luxurious, relaxing accommodation.
         Treat yourself to mouth-watering food & beverage, all carefully curated
         for your culinary pleasure. Surrender to the unbridled excitement from
