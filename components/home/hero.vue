@@ -9,7 +9,7 @@
     }"
   >
     <div class="mt-24">
-      <img class="w-40 sm:w-60" src="/SUMMER-BAY-Logo-01.png" />
+      <!-- <img class="w-40 sm:w-60" src="/SUMMER-BAY-Logo-01.png" /> -->
     </div>
     <div
       class="text-5xl sm:text-6xl lg:text-6xl text-white font-lobster text-center leading-tight"
