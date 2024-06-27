@@ -1,45 +1,48 @@
-<template v-if="promotions.length > 0">
-  <div
-    class="text-center text-2xl md:text-5xl text-gradient-green-blue leading-normal pt-6"
-  >
-    {{
-      (language === 'KH' && 'ប្រូម៉ូសិន') ||
-      (language === 'CN' && '') ||
-      'Promotions'
-    }}
-  </div>
-  <div class="mx-6 my-3 text-center">
-    <Carousel
-      :autoplay="3000"
-      ref="activitySlideHome"
-      :breakpoints="breakpoints"
+<template>
+  <div v-if="promotions.length > 0">
+    <div
+      class="text-center text-2xl md:text-5xl text-gradient-green-blue leading-normal pt-6"
     >
-      <Slide v-for="(p, index) in promotions" :key="index">
-        <CardsPromotion :promotion="p" />
-      </Slide>
-
-      <template #addons>
-        <Pagination />
-      </template>
-    </Carousel>
-    <ClientOnly>
-      <div class="flex flex-col items-center my-3">
-        <div class="text-center font-bold md:text-xl">
-          {{
-            (language === 'KH' &&
-              promotions[activitySlideHome.data.currentSlide.value]?.title_kh) ||
-            (language === 'CN' && '') ||
-            promotions[activitySlideHome.data.currentSlide.value]?.title
-          }}
-        </div>
-      </div>
-    </ClientOnly>
-    <div class="text-center text-xs lg:text-sm my-3">
       {{
-        (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
+        (language === 'KH' && 'ប្រូម៉ូសិន') ||
         (language === 'CN' && '') ||
-        '*Terms & Conditions Applied'
+        'Promotions'
       }}
+    </div>
+    <div class="mx-6 my-3 text-center">
+      <Carousel
+        :autoplay="3000"
+        ref="activitySlideHome"
+        :breakpoints="breakpoints"
+      >
+        <Slide v-for="(p, index) in promotions" :key="index">
+          <CardsPromotion :promotion="p" />
+        </Slide>
+
+        <template #addons>
+          <Pagination />
+        </template>
+      </Carousel>
+      <ClientOnly>
+        <div class="flex flex-col items-center my-3">
+          <div class="text-center font-bold md:text-xl">
+            {{
+              (language === 'KH' &&
+                promotions[activitySlideHome.data.currentSlide.value]
+                  ?.title_kh) ||
+              (language === 'CN' && '') ||
+              promotions[activitySlideHome.data.currentSlide.value]?.title
+            }}
+          </div>
+        </div>
+      </ClientOnly>
+      <div class="text-center text-xs lg:text-sm my-3">
+        {{
+          (language === 'KH' && '*លក្ខខណ្ឌផ្សេងៗត្រូវបានអនុវត្ត') ||
+          (language === 'CN' && '') ||
+          '*Terms & Conditions Applied'
+        }}
+      </div>
     </div>
   </div>
 </template>
