@@ -21,7 +21,7 @@
           'Resort Contact & Sponsor Enquiries Beach Club:'
         }}
       </h1>
-      +855 17 505 444 / 070 888 452
+      <!-- +855 17 505 444 / 070 888 452 -->
     </div>
     <a href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8" target="_blank">
       {{
@@ -159,7 +159,7 @@
   <div class="flex flex-col lg:flex-col-reverse">
     <div class="px-4 lg:px-12 my-3 mb-6">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.750847414027!2d103.59754202963725!3d10.54689722676439!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3108093d7341c0f5%3A0x483f8e111176c268!2sSummer%20Bay%20Beach%20Club%20%26%20Cabins!5e1!3m2!1sen!2skh!4v1709086079900!5m2!1sen!2skh"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8121.30414135824!2d103.60022857741133!3d10.553193326974352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310809b11e5da21f%3A0x41d3445c7646a082!2sBay%20of%20Lights!5e0!3m2!1sen!2skh!4v1719471730741!5m2!1sen!2skh"
         width="100%"
         class="h-80 lg:h-[600px]"
         style="border: 0"

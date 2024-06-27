@@ -85,7 +85,7 @@
               'Resort Contact & Sponsorship Enquiries'
             }}:
           </p>
-          <span>+855 17 505 444 / 070 888 452</span>
+          <!-- <span>+855 17 505 444 / 070 888 452</span> -->
         </div>
         <a
           href="https://maps.app.goo.gl/9nxTHZxP6yEdGE2s8"
