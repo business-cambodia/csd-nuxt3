@@ -252,10 +252,10 @@ const navbarItems = [
     name: 'Promotions',
     link: '/promotions',
   },
-  {
-    name: 'Accommodations',
-    link: '/summerbay',
-  },
+  // {
+  //   name: 'Accommodations',
+  //   link: '/summerbay',
+  // },
   {
     name: 'Bookings',
     link: '/bookings',

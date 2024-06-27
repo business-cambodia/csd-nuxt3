@@ -38,7 +38,7 @@ const navItems = ref([
   { to: '/events', property: 'events' },
   { to: '/Bookings', property: 'bookings' },
   { to: '/promotions', property: 'promotions' },
-  { to: '/summerbay', property: 'accommodations' },
+  // { to: '/summerbay', property: 'accommodations' },
   { to: '/about', property: 'about us' },
   { to: '/contact', property: 'contact' },
 ]);
