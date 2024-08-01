@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white w-screen p-0 m-0" v-if="isAuth">
     <div class="mx-4 my-4 lg:mx-12">
-      <div class="text-4xl text-center text-primary">Voucher Dashboard</div>
-      <div class="pb-4 bg-white flex justify-end">
+      <div class="text-4xl text-center text-primary mb-6">Users Dashboard</div>
+      <!-- <div class="pb-4 bg-white flex justify-end">
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative mt-1">
           <div
@@ -33,7 +33,7 @@
             placeholder="Search by voucher code"
           />
         </div>
-      </div>
+      </div> -->
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left">
           <thead
@@ -41,14 +41,17 @@
           >
             <tr>
               <th scope="col" class="px-2 py-3">№</th>
-              <th scope="col" class="px-2 py-3">Name</th>
+              <th scope="col" class="px-2 py-3">First Name</th>
+              <th scope="col" class="px-2 py-3">Last Name</th>
               <th scope="col" class="px-2 py-3">Phone Number</th>
+              <th>Email</th>
+
               <th
                 scope="col"
                 class="px-2 py-3 cursor-pointer flex items-center"
                 @click="sortDate"
               >
-                Registered At
+                Registered On
                 <svg
                   fill="white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,9 +68,13 @@
                   />
                 </svg>
               </th>
-              <th scope="col" class="px-2 py-3 cursor-pointer" @click="sortSms">
+              <th
+                scope="col"
+                class="px-2 py-3 cursor-pointer"
+                @click="sortBooking"
+              >
                 <div class="flex items-center">
-                  <div>SMS</div>
+                  <div>Booking</div>
                   <svg
                     fill="white"
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,31 +92,7 @@
                   </svg>
                 </div>
               </th>
-              <th scope="col" class="px-2 py-3">Voucher Code</th>
-              <th scope="col" class="px-2 py-3">Voucher Type</th>
-              <th scope="col" class="px-2 py-3">Expired At</th>
-              <th
-                scope="col"
-                class="px-2 py-3 cursor-pointer flex items-center"
-                @click="sortStatus"
-              >
-                Status
-                <svg
-                  fill="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    v-if="statusSort"
-                    d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"
-                  />
-                  <path
-                    v-else
-                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                  />
-                </svg>
-              </th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -124,8 +107,10 @@
               "
             >
               <td class="px-2 py-4">{{ index + 1 }}</td>
-              <td class="px-2 py-4">{{ user?.name }}</td>
+              <td class="px-2 py-4">{{ user?.firstName }}</td>
+              <td class="px-2 py-4">{{ user?.lastName }}</td>
               <td class="px-2 py-4">
+                <span class="text-sm">(0)</span>
                 {{
                   user?.phone_number?.substr(0, 3) +
                   ' ' +
@@ -134,42 +119,20 @@
                   user?.phone_number?.substr(6, 4)
                 }}
               </td>
+              <td class="px-2 py-4">{{ user?.email }}</td>
               <td class="px-2 py-4">
-                {{ new Date(user?.created_at).toLocaleDateString() }}
+                {{ user?.created_at.split('T')[0] }}
               </td>
-              <td class="px-2 py-4">{{ user?.allowSms ? 'Yes' : 'No' }}</td>
               <td class="px-2 py-4">
-                <div class="bg-grey w-fits text-center rounded-lg">
-                  {{ user?.voucher?.code }}
-                </div>
+                {{ user.bookings.length }}
               </td>
-              <td class="px-2 py-4">{{ user?.voucher?.type }}</td>
-              <td class="px-2 py-4">
-                {{ new Date(user?.voucher?.expired_at).toLocaleDateString() }}
-              </td>
-              <td class="px-2 py-4 underline">
-                <select
-                  @change="
-                    (e:any) => {
-                      e.target.value = (e.target.value == 'true') ? false: true
-                      handleStatusChange(user?.voucher?.id, user?.voucher?.status)
-                    }
-                  "
-                  id="countries"
-                  :class="
-                    (user?.voucher?.status == 1
-                      ? 'bg-green-500'
-                      : 'bg-yellow-400') +
-                    ' bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-0 w-24 py-0'
-                  "
+              <td>
+                <button
+                  @click="handleOpenUserInfo(user)"
+                  class="text-sm text-secondary"
                 >
-                  <option :selected="!user?.voucher?.status" :value="true">
-                    Active
-                  </option>
-                  <option :selected="!user?.voucher?.status" :value="false">
-                    Used
-                  </option>
-                </select>
+                  More
+                </button>
               </td>
             </tr>
           </tbody>
@@ -196,21 +159,25 @@
     </div>
   </div>
   <button
-    id="btn-updateVoucher"
-    data-modal-target="updateVoucher-modal"
-    data-modal-toggle="updateVoucher-modal"
+    id="btn-user-info"
+    data-modal-target="user-info-modal"
+    data-modal-toggle="user-info-modal"
     class="hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     type="button"
   ></button>
-  <ModalsUpdateVoucher :voucherProps="voucherProps" />
+  <ModalsUserInfo :userProp="userProp" />
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  //disable a default layout
+  layout: false,
+});
 import { initFlowbite } from 'flowbite';
 import { checkAuth } from '../auth';
 const isAuth = ref(false);
 const router = useRouter();
-const voucherProps = ref({});
+const userProp = ref({});
 onMounted(async () => {
   initFlowbite();
   await checkAuth((isAuthenticated: any) => {
@@ -219,10 +186,10 @@ onMounted(async () => {
   });
 });
 const users: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch(useNest+'/users')
 );
 const allUsers: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch(useNest+'/users')
 );
 const currentPage = ref(1);
 const dateSort = ref(false);
@@ -244,49 +211,13 @@ const sortDate = () => {
   currentPage.value = 1;
 };
 
-const sortVoucher = () => {
-  voucherSort.value = !voucherSort.value;
-  users.value.data.sort((a: any, b: any) => {
-    const nameA = a.voucher?.type.toUpperCase();
-    const nameB = b.voucher?.type.toUpperCase();
-    if (voucherSort.value) {
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-    } else {
-      if (nameA < nameB) {
-        return 1;
-      }
-      if (nameA > nameB) {
-        return -1;
-      }
-    }
-  });
-  currentPage.value = 1;
-};
-
-const sortStatus = () => {
-  statusSort.value = !statusSort.value;
-  users.value.data.sort((a: any, b: any) => {
-    if (statusSort.value) {
-      return a.voucher?.status - b.voucher?.status;
-    } else {
-      return b.voucher?.status - a.voucher?.status;
-    }
-  });
-  currentPage.value = 1;
-};
-
-const sortSms = () => {
+const sortBooking = () => {
   smsSort.value = !smsSort.value;
   users.value.data.sort((a: any, b: any) => {
     if (smsSort.value) {
-      return b.allowSms - a.allowSms;
+      return b.bookings.length - a.bookings.length;
     } else {
-      return a.allowSms - b.allowSms;
+      return a.bookings.length - b.bookings.length;
     }
   });
   currentPage.value = 1;
@@ -300,12 +231,9 @@ const searchByCode = (searchVal: string) => {
   );
 };
 
-const handleStatusChange = async (id: string, status: boolean) => {
-  voucherProps.value = {
-    id: id,
-    status: status,
-  };
-  document.getElementById('btn-updateVoucher')?.click();
+const handleOpenUserInfo = async (id: string) => {
+  userProp.value = id;
+  document.getElementById('btn-user-info')?.click();
   // changeStatus(id, !status);
 };
 </script>

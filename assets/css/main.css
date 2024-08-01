@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-gradient-green-blue {
+    background: linear-gradient(101.28deg, rgba(118, 183, 159, 0.9) -2.17%, rgba(75, 144, 190, 0.9) 101.26%);
+  }
+  .text-gradient-green-blue {
+    background: linear-gradient(101.28deg, rgba(118, 183, 159, 0.9) -2.17%, rgba(75, 144, 190, 0.9) 101.26%);
+    -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-orange {
+    background: linear-gradient(239.85deg, #F0644E 24.35%, #F0BA2C 122.07%);
+  }
+  .text-gradient-orange {
+    background: linear-gradient(239.85deg, #F0644E 24.35%, #F0BA2C 122.07%);
+    -webkit-background-clip: text; /* For webkit-based browsers like Chrome and Safari */
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 /* remove blue backgound on mobile press */
-button, div{
+button, div, a{
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -13,5 +34,5 @@ button, div{
 }
 
 body {
-  font-family: "Proxima Nova";
+  font-family: "Poppins";
 }

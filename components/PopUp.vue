@@ -48,6 +48,7 @@ const timer = ref(5);
 const handleClosePopup = () => {
   const popup = document.getElementById('popup');
   if (popup) {
+    document.body.classList.toggle('overflow-y-hidden');
     popup.remove();
   }
 };
@@ -56,6 +57,10 @@ const handleInterested = () => {
   document.getElementById('btn-interested')?.click();
   handleClosePopup();
 };
+
+onMounted(() => {
+  document.body.classList.toggle('overflow-y-hidden');
+})
 </script>
 
 <style>
