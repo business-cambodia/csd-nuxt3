@@ -20,18 +20,18 @@ onMounted(async () => {
   initFlowbite();
   if (localStorage.getItem('user')) {
     const res = await axios(
-      'https://api.bayoflights-entertainment.com/users/' +
+      useNest+'/users/' +
         JSON.parse(localStorage.getItem('user')).id
     );
     user.value = res.data;
     user.value.bookings?.map(async (booking, index) => {
       const userBooking = await axios(
-        'https://api.bayoflights-entertainment.com/users/booking/' +
+        useNest+'/users/booking/' +
           booking.reservationID
       );
       if (userBooking.data.data) {
         const userAddon = await axios(
-          'https://api.bayoflights-entertainment.com/users/bookingInvoice/' +
+          useNest+'/users/bookingInvoice/' +
             booking.reservationID
         );
         user.value.bookings[index].add_ons =

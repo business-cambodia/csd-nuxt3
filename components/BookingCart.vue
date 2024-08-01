@@ -303,7 +303,7 @@ const formatDate = (dateString: any) => {
 const searchPromocode = async () => {
   promocode.value = promocode.value.toUpperCase();
   const res: any = await $fetch(
-    `https://api.bayoflights-entertainment.com/rooms/promoCode?startDate=${formatDate(
+    useNest+`/rooms/promoCode?startDate=${formatDate(
       cart.value.startDate
     )}&endDate=${formatDate(cart.value.endDate)}&roomTypeID=&promoCode=${
       promocode.value

@@ -141,7 +141,7 @@ const handleSendOtp = async () => {
     otpSend.value = true;
     try {
       await axios.post(
-        'https://api.bayoflights-entertainment.com/users/sendEmailOtp',
+        useNest+'/users/sendEmailOtp',
         {
           email: formData.value.email,
         }
@@ -172,7 +172,7 @@ const handleSendOtp = async () => {
 const handleResetPassword = async () => {
   try {
     await axios.patch(
-      'https://api.bayoflights-entertainment.com/users/resetPassword',
+      +useNest+'/users/resetPassword',
       {
         email: formData.value.email,
         otp_code: formData.value.otp,

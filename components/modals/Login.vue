@@ -134,7 +134,7 @@ const openSignup = () => {
 const handleLogin = async () => {
   try {
     const res = await axios(
-      'https://api.bayoflights-entertainment.com/users/login',
+      useNest+'/users/login',
       {
         method: 'POST',
         data: {
@@ -145,7 +145,7 @@ const handleLogin = async () => {
     user.value = res.data;
     user.value.bookings?.map(async (booking: any, index: any) => {
       const userBooking = await axios(
-        'https://api.bayoflights-entertainment.com/users/booking/' +
+        useNest+'/users/booking/' +
           booking.reservationID
       );
       user.value.bookings[index].data = userBooking.data.data;

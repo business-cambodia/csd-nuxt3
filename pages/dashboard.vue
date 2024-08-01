@@ -186,10 +186,10 @@ onMounted(async () => {
   });
 });
 const users: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch(useNest+'/users')
 );
 const allUsers: any = ref(
-  await useFetch('https://api.bayoflights-entertainment.com/users')
+  await useFetch(useNest+'/users')
 );
 const currentPage = ref(1);
 const dateSort = ref(false);

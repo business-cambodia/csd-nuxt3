@@ -96,12 +96,12 @@ watch(
     console.log(props.userProp.bookings);
     props.userProp?.bookings?.map(async (booking: any, index: number) => {
       const userBooking = await axios(
-        'https://api.bayoflights-entertainment.com/users/booking/' +
+        useNest+'/users/booking/' +
           booking.reservationID
       );
       if (userBooking.data.data) {
         const userAddon = await axios(
-          'https://api.bayoflights-entertainment.com/users/bookingInvoice/' +
+          useNest+'/users/bookingInvoice/' +
             booking.reservationID
         );
         props.userProp.bookings[index].add_ons =

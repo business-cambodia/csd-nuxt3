@@ -199,7 +199,7 @@ const handleSignUp = async () => {
 
   try {
     const res = await axios(
-      'https://api.bayoflights-entertainment.com/users/signup',
+      useNest+'/users/signup',
       {
         method: 'POST',
         data: {

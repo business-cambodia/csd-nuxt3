@@ -27,27 +27,27 @@ import { IResponse } from 'types/api';
 const cart = useCart();
 const jetski = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons/267600')
+    axios.get(useNest+'/addons/267600')
   ))
 )?.data?.data;
 const jetboat = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons/267601')
+    axios.get(useNest+'/addons/267601')
   ))
 )?.data?.data;
 const waterpark = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons/267602')
+    axios.get(useNest+'/addons/267602')
   ))
 )?.data?.data;
 const wakeboarding = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons/267605')
+    axios.get(useNest+'/addons/267605')
   ))
 )?.data?.data;
 const reverse_bungee = (
   await (<Promise<IResponse<any>>>(
-    axios.get('https://api.bayoflights-entertainment.com/addons/267606')
+    axios.get(useNest+'/addons/267606')
   ))
 )?.data?.data;
 </script>

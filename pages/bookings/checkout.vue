@@ -184,7 +184,7 @@ const handlePayway = async () => {
     roomsAvailable: room.roomsAvailable,
     promoCode: room?.promoCode,
   }));
-  link.value = await $fetch('https://api.bayoflights-entertainment.com/aba', {
+  link.value = await $fetch(useNest+'/aba', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ const handleBooking = async () => {
   );
   try {
     const res: any = await $fetch(
-      'https://api.bayoflights-entertainment.com/rooms',
+      useNest+'/rooms',
       {
         method: 'POST',
         headers: {

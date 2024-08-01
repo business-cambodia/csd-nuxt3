@@ -49,7 +49,7 @@ const formatDate = (dateString: any) => {
 
 const rooms: any = ref(
   await $fetch(
-    `https://api.bayoflights-entertainment.com/rooms?startDate=${formatDate(
+    `${useNest}/rooms?startDate=${formatDate(
       cart.value.startDate
     )}&endDate=${formatDate(cart.value.endDate)}&adults=${cart.value.adults}`
   )
@@ -78,7 +78,7 @@ watch(
       loading.value = true;
       const newRooms: any = ref(
         await $fetch(
-          `https://api.bayoflights-entertainment.com/rooms?startDate=${formatDate(
+          `${useNest}/rooms?startDate=${formatDate(
             cart.value.startDate
           )}&endDate=${formatDate(cart.value.endDate)}&adults=${
             cart.value.adults
